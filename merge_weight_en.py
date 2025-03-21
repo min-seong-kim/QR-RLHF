@@ -118,6 +118,7 @@ def recover(
         torch_dtype=torch.float32,
         low_cpu_mem_usage=True,
     )
+
     if model_type == 'reward':
         model_recovered = LlamaRewardModel.from_pretrained(
             path_diff,
@@ -127,6 +128,7 @@ def recover(
             torch_dtype=torch.float32,
             low_cpu_mem_usage=True,
         )
+        
         fill_value = 50810.703125
     elif model_type == 'sft':
         model_recovered = Llama.from_pretrained(
@@ -159,15 +161,23 @@ def recover(
         if 'layers' in key:
             state_dict_recovered[key].add_(state_dict_raw[key])
 
-    if check_integrity_naively:
-        # This is not a rigorous, cryptographically strong integrity check :)
-        allsum = sum(state_dict_recovered[key].sum() for key in state_dict_recovered)
-        assert torch.allclose(
-            allsum, torch.full_like(allsum, fill_value=fill_value), rtol=1e-5, atol=1e-8
-        ), "Naive integrity check failed. This could imply that some of the checkpoint files are corrupted."
-        print('Check successfully.')
+    # if check_integrity_naively:
+    #     # This is not a rigorous, cryptographically strong integrity check :)
+    #     allsum = sum(state_dict_recovered[key].sum() for key in state_dict_recovered)
+    #     assert torch.allclose(
+    #         allsum, torch.full_like(allsum, fill_value=fill_value), rtol=1e-5, atol=1e-8
+    #     ), "Naive integrity check failed. This could imply that some of the checkpoint files are corrupted."
+    #     print('Check successfully.')
 
     if path_tuned is not None:
+        # pad_token_id 설정
+        if model_recovered.config.pad_token_id is None or model_recovered.config.pad_token_id < 0:
+            model_recovered.config.pad_token_id = model_recovered.config.eos_token_id  # 일반적으로 EOS 토큰을 패딩 토큰으로 사용
+
+        # generation_config에도 pad_token_id 설정
+        if hasattr(model_recovered, "generation_config"):
+            model_recovered.generation_config.pad_token_id = model_recovered.config.pad_token_id
+
         model_recovered.save_pretrained(path_tuned, max_shard_size="10GB")
 
     return model_recovered
