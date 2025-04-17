@@ -5,9 +5,12 @@ import torch
 import json
 import copy
 from typing import List, Dict, Any, Tuple
-from transformers.models.llama.tokenization_llama import LlamaTokenizer
+# from transformers.models.llama.tokenization_llama import LlamaTokenizer
 from torch.utils.data import get_worker_info, IterableDataset
 from utils import print_rank_0, pad_sequences
+
+from transformers import AutoTokenizer  # 토크나이저 수정
+from transformers import GPT2TokenizerFast  # 또는 GPT2Tokenizer
 
 
 def get_human_prompt(opt):
@@ -18,23 +21,82 @@ def get_assistant_prompt(opt):
     return "<|MOSS|>" if opt.lang == 'zh' else "Assistant:"
 
 
+# def get_tokenizer(opt):
+#     print_rank_0(f"Loading tokenizer from huggingface: {opt.tokenizer_name_or_path}...", only_on_cuda0=True)
+#     tokenizer = LlamaTokenizer.from_pretrained(opt.tokenizer_name_or_path, trust_remote_code=True)
+#     tokenizer.bos_token = '<s>'
+#     tokenizer.eos_token = '</s>'
+#     tokenizer.pad_token = '<unk>'
+#     tokenizer.pad_token_id = 0
+#     tokenizer.unk_token = tokenizer.pad_token
+#     tokenizer.unk_token_id = tokenizer.pad_token_id
+#     # only zh need special tokens
+#     if opt.lang == 'zh':
+#         tokenizer.add_special_tokens({"additional_special_tokens": [get_human_prompt(opt), get_assistant_prompt(opt)]})
+#     print_rank_0(f"Llama tokenizer size: {tokenizer.vocab_size}", only_on_cuda0=True)
+#     print_rank_0(f"Llama tokenizer pad token: {tokenizer.pad_token}, pad_token_id: {tokenizer.pad_token_id}", only_on_cuda0=True)
+#     print_rank_0(f"Llama tokenizer. special token: {tokenizer.special_tokens_map}", only_on_cuda0=True)
+
+#     return tokenizer
+
+# 토크나이저 새로 설정
+# def get_tokenizer(opt):
+#     print_rank_0(f"Loading tokenizer from HuggingFace: {opt.tokenizer_name_or_path}...", only_on_cuda0=True)
+
+#     tokenizer = AutoTokenizer.from_pretrained(
+#         opt.tokenizer_name_or_path,
+#         trust_remote_code=True
+#     )
+
+#     # GPT2는 기본적으로 pad/eos token이 없을 수 있으므로 수동 설정 필요
+#     if tokenizer.eos_token is None:
+#         tokenizer.eos_token = "<|endoftext|>"
+#         tokenizer.eos_token_id = tokenizer.convert_tokens_to_ids(tokenizer.eos_token)
+
+#     if tokenizer.pad_token is None:
+#         # pad_token을 eos_token 또는 새로운 토큰으로 설정
+#         tokenizer.pad_token = tokenizer.eos_token or "<|pad|>"
+#         tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids(tokenizer.pad_token)
+
+#     print_rank_0(f"Tokenizer size: {len(tokenizer)}", only_on_cuda0=True)
+#     print_rank_0(f"Pad token: {tokenizer.pad_token}, pad_token_id: {tokenizer.pad_token_id}", only_on_cuda0=True)
+#     print_rank_0(f"EOS token: {tokenizer.eos_token}, eos_token_id: {tokenizer.eos_token_id}", only_on_cuda0=True)
+#     print_rank_0(f"Special tokens: {tokenizer.special_tokens_map}", only_on_cuda0=True)
+
+#     return tokenizer
+
 def get_tokenizer(opt):
     print_rank_0(f"Loading tokenizer from huggingface: {opt.tokenizer_name_or_path}...", only_on_cuda0=True)
-    tokenizer = LlamaTokenizer.from_pretrained(opt.tokenizer_name_or_path, trust_remote_code=True)
-    tokenizer.bos_token = '<s>'
-    tokenizer.eos_token = '</s>'
-    tokenizer.pad_token = '<unk>'
-    tokenizer.pad_token_id = 0
+
+    tokenizer = GPT2TokenizerFast.from_pretrained(opt.tokenizer_name_or_path, trust_remote_code=True)
+
+    # GPT2는 기본적으로 bos_token, eos_token, pad_token이 없을 수 있으므로 수동 설정
+    if tokenizer.bos_token is None:
+        tokenizer.bos_token = "<s>"
+    if tokenizer.eos_token is None:
+        tokenizer.eos_token = "</s>"
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = "<|pad|>"  # 실제 pad 토큰이 없으므로 가상으로 정의
+        tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids(tokenizer.pad_token)
+    
     tokenizer.unk_token = tokenizer.pad_token
     tokenizer.unk_token_id = tokenizer.pad_token_id
-    # only zh need special tokens
-    if opt.lang == 'zh':
-        tokenizer.add_special_tokens({"additional_special_tokens": [get_human_prompt(opt), get_assistant_prompt(opt)]})
-    print_rank_0(f"Llama tokenizer size: {tokenizer.vocab_size}", only_on_cuda0=True)
-    print_rank_0(f"Llama tokenizer pad token: {tokenizer.pad_token}, pad_token_id: {tokenizer.pad_token_id}", only_on_cuda0=True)
-    print_rank_0(f"Llama tokenizer. special token: {tokenizer.special_tokens_map}", only_on_cuda0=True)
+
+    # 언어가 중국어(zh)일 경우 추가 토큰 정의
+    if opt.lang == "zh":
+        tokenizer.add_special_tokens({
+            "additional_special_tokens": [
+                get_human_prompt(opt),
+                get_assistant_prompt(opt)
+            ]
+        })
+
+    print_rank_0(f"GPT2 tokenizer size: {tokenizer.vocab_size}", only_on_cuda0=True)
+    print_rank_0(f"GPT2 tokenizer pad token: {tokenizer.pad_token}, pad_token_id: {tokenizer.pad_token_id}", only_on_cuda0=True)
+    print_rank_0(f"GPT2 tokenizer special token map: {tokenizer.special_tokens_map}", only_on_cuda0=True)
 
     return tokenizer
+
 
 
 def get_special_prompt(i, opt):

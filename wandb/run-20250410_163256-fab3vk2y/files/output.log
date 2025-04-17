@@ -1,0 +1,28 @@
+[2025-04-10 16:32:57,375] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2025-04-10 16:32:57,375] [INFO] [comm.py:594:init_distributed] cdb=None
+/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+Using pad_token, but it is not set yet.
+2025-04-10 16:32:58 - Rank: 1 - INFO - Loading policy model from: openai-community/gpt2...
+2025-04-10 16:33:00 - Rank: 1 - INFO - Loading critic model from: openai-community/gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at openai-community/gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-10 16:33:02 - Rank: 1 - INFO - Loading reference model from: openai-community/gpt2...
+2025-04-10 16:33:05 - Rank: 1 - INFO - Loading reward model from: openai-community/gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at openai-community/gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-10 16:33:09 - Rank: 1 - INFO - ==================Lets go to train==================
+/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+Using pad_token, but it is not set yet.
+Using pad_token, but it is not set yet.
+2025-04-10 16:33:10 - Rank: 1 - WARNING - Loading samples from data/ppo_data/train.json failed. Extra data: line 103 column 1 (char 13092)...
+2025-04-10 16:33:10 - Rank: 1 - INFO - Loaded 0 samples from data/ppo_data/train.json.
+2025-04-10 16:33:10 - Rank: 1 - INFO - =============Loaded total 0 samples from ['train.json'].=============
+2025-04-10 16:33:10 - Rank: 1 - INFO - Added key: store_based_barrier_key:2 to store for rank: 1
+2025-04-10 16:33:10 - Rank: 1 - INFO - Rank 1: Completed store-based barrier for key:store_based_barrier_key:2 with 2 nodes.
+Rank: 1 partition count [2, 2, 2, 2] and sizes[(62168832, False), (51072, False), (62169216, False), (51072, False)]
+Using pad_token, but it is not set yet.
+2025-04-10 16:33:13 - Rank: 1 - WARNING - Loading samples from data/ppo_data/valid.json failed. Extra data: line 104 column 1 (char 11692)...
+2025-04-10 16:33:13 - Rank: 1 - INFO - Loaded 0 samples from data/ppo_data/valid.json.
+2025-04-10 16:33:13 - Rank: 1 - INFO - =============Loaded total 0 samples from ['valid.json'].=============
+Traceback (most recent call last):
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/wandb/sdk/lib/exit_hooks.py", line 41, in exc_handler

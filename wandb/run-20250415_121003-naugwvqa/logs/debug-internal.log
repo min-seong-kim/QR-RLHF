@@ -1,0 +1,7 @@
+{"time":"2025-04-15T12:10:03.904431579+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250415_121003-naugwvqa/logs/debug-core.log"}
+{"time":"2025-04-15T12:10:04.312295762+09:00","level":"INFO","msg":"created new stream","id":"naugwvqa"}
+{"time":"2025-04-15T12:10:04.312343092+09:00","level":"INFO","msg":"stream: started","id":"naugwvqa"}
+{"time":"2025-04-15T12:10:04.313445991+09:00","level":"INFO","msg":"handler: started","stream_id":"naugwvqa"}
+{"time":"2025-04-15T12:10:04.31347907+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"naugwvqa"}
+{"time":"2025-04-15T12:10:04.313786018+09:00","level":"INFO","msg":"sender: started","stream_id":"naugwvqa"}
+{"time":"2025-04-15T12:10:04.611198021+09:00","level":"INFO","msg":"Starting system monitor"}

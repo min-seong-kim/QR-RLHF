@@ -11,7 +11,7 @@ from accelerate import Accelerator
 import deepspeed
 from deepspeed.ops.adam import DeepSpeedCPUAdam
 from metric import Metrics
-
+import wandb
 
 class TrainState:
     def __init__(self):
@@ -26,7 +26,7 @@ class TrainState:
             'best_score': self.best_score,
         }
 
-class RLHFTrainableModelWrapper(nn.Module):
+class RLHFTrainableModelWrapper(nn.Module): 
     def __init__(self, policy_model, critic_model) -> None:
         super().__init__()
         self.policy_model = policy_model
@@ -132,38 +132,107 @@ class PPOTrainer():
             
         synchronize_if_distributed()
 
+    # def build_metrics(self, mode='train'):
+    #     metrics = Metrics(self.opt, mode=mode, accelerator=self.accelerator)
+
+    #     # metrics.create_metric('loss', MeanMetric())
+    #     # metrics.create_metric('rewards', MeanMetric())
+    #     # metrics.create_metric('res_len', MeanMetric())
+    #     # metrics.create_metric('ppl', PPLMetric())
+    #     # metrics.create_metric('ppl_policy0', PPLMetric())
+    #     # metrics.create_metric('ups', MeanMetric())
+    #     # metrics.create_metric('global_exs', SumMetric())
+    #     # metrics.create_metric('lr', RealtimeMetric())
+        
+    #     ###
+        
+    #     log_data = {
+    #         'loss': metrics.create_metric('loss', MeanMetric()),
+    #         'rewards': metrics.create_metric('rewards', MeanMetric()),
+    #         'res_len': metrics.create_metric('res_len', MeanMetric()),
+    #         'ppl': metrics.create_metric('ppl', PPLMetric()),
+    #         'ppl_policy0': metrics.create_metric('ppl_policy0', PPLMetric()),
+    #         'ups': metrics.create_metric('ups', MeanMetric()),
+    #         'global_exs': metrics.create_metric('global_exs', SumMetric()),
+    #         'lr': metrics.create_metric('lr', RealtimeMetric()),
+    #     }
+    #     wandb.log(log_data)
+
+    #     ###
+
+    #     if mode == 'train':
+    #         log_data = {
+    #             'reward_mean': metrics.create_metric('reward_mean', MeanMetric()),
+    #             'reward_std': metrics.create_metric('reward_std', MeanMetric()),
+                
+    #             'approx_kl': metrics.create_metric('approx_kl', MeanMetric()),
+    #             'ref_kl': metrics.create_metric('ref_kl', MeanMetric()),
+    #             'values': metrics.create_metric('values', MeanMetric()),
+    #             'values_clipped': metrics.create_metric('values_clipped', MeanMetric()),
+    #             'returns': metrics.create_metric('returns', MeanMetric()),
+    #             'advantages': metrics.create_metric('advantages', MeanMetric()),
+    #             'ratio': metrics.create_metric('ratio', MeanMetric()),
+    #             'pg_clip': metrics.create_metric('pg_clip', MeanMetric()),
+    #             'vf_clip': metrics.create_metric('vf_clip', MeanMetric()),
+    #             'pg_loss': metrics.create_metric('pg_loss', MeanMetric()),
+    #             'vf_loss': metrics.create_metric('vf_loss', MeanMetric()),
+    #             'entro_loss': metrics.create_metric('entro_loss', MeanMetric())
+    #         }
+    #         wandb.log(log_data)
+    #         if self.use_ppo_pretrain_loss:
+    #             metrics.create_metric('ppo_pretrain_loss', MeanMetric())
+    #             metrics.create_metric('token_acc', MeanMetric())
+    #     return metrics
+
     def build_metrics(self, mode='train'):
         metrics = Metrics(self.opt, mode=mode, accelerator=self.accelerator)
 
-        metrics.create_metric('loss', MeanMetric())
-        metrics.create_metric('rewards', MeanMetric())
-        metrics.create_metric('res_len', MeanMetric())
-        metrics.create_metric('ppl', PPLMetric())
-        metrics.create_metric('ppl_policy0', PPLMetric())
-        metrics.create_metric('ups', MeanMetric())
-        metrics.create_metric('global_exs', SumMetric())
-        metrics.create_metric('lr', RealtimeMetric())
+        # 공통 metric 등록
+        metric_defs = [
+            ('loss', MeanMetric()),
+            ('rewards', MeanMetric()),
+            ('res_len', MeanMetric()),
+            ('ppl', PPLMetric()),
+            ('ppl_policy0', PPLMetric()),
+            ('ups', MeanMetric()),
+            ('global_exs', SumMetric()),
+            ('lr', RealtimeMetric()),
+            ('reward_mean', MeanMetric()),
+            ('reward_std', MeanMetric()),
+        ]
+
+        for name, metric in metric_defs:
+            metrics.create_metric(name, metric)
 
         if mode == 'train':
-            metrics.create_metric('reward_mean', MeanMetric())
-            metrics.create_metric('reward_std', MeanMetric())
-            
-            metrics.create_metric('approx_kl', MeanMetric())
-            metrics.create_metric('ref_kl', MeanMetric())
-            metrics.create_metric('values', MeanMetric())
-            metrics.create_metric('values_clipped', MeanMetric())
-            metrics.create_metric('returns', MeanMetric())
-            metrics.create_metric('advantages', MeanMetric())
-            metrics.create_metric('ratio', MeanMetric())
-            metrics.create_metric('pg_clip', MeanMetric())
-            metrics.create_metric('vf_clip', MeanMetric())
-            metrics.create_metric('pg_loss', MeanMetric())
-            metrics.create_metric('vf_loss', MeanMetric())
-            metrics.create_metric('entro_loss', MeanMetric())
+            extra_train_metrics = [
+                ('approx_kl', MeanMetric()),
+                ('ref_kl', MeanMetric()),
+                ('values', MeanMetric()),
+                ('values_clipped', MeanMetric()),
+                ('returns', MeanMetric()),
+                ('advantages', MeanMetric()),
+                ('ratio', MeanMetric()),
+                ('pg_clip', MeanMetric()),
+                ('vf_clip', MeanMetric()),
+                ('pg_loss', MeanMetric()),
+                ('vf_loss', MeanMetric()),
+                ('entro_loss', MeanMetric()),
+            ]
+
+            for name, metric in extra_train_metrics:
+                metrics.create_metric(name, metric)
+
             if self.use_ppo_pretrain_loss:
                 metrics.create_metric('ppo_pretrain_loss', MeanMetric())
                 metrics.create_metric('token_acc', MeanMetric())
+
         return metrics
+    def log_wandb_metrics(self, metrics: Dict[str, Any], step: int):
+        """
+        모든 수집된 metric을 wandb에 기록하는 함수
+        """
+        wandb.log(metrics, step=step)
 
     def invsqrt_scheduler(self, warmup_steps):
         def _invsqrt_lr(step):
@@ -236,6 +305,7 @@ class PPOTrainer():
     def RLHF_model_forward(self, batch: Dict[str, Any], **kwargs):
         return self.model(batch['text_vec'], **kwargs)
     
+
     def concat_context_and_response(self, context: List[List[int]], responses: List[List[Tuple[float, List[int]]]]):
         assert len(context) == len(responses), f'Size not match: {len(context)} and {len(responses)}'
         total_context, total_response = [], []
@@ -243,6 +313,12 @@ class PPOTrainer():
             _context = self.strip_pad_token_id(_context)
             for _, resp in _response:
                 resp = self.strip_pad_token_id(resp)
+
+                # 빈 응답인 경우 스킵 (오류 방지)
+                if len(resp) == 0:
+                    logging.warn("Empty response encountered, skipping.")
+                    continue
+
                 if resp[-1] != self.tokenizer.eos_token_id:
                     logging.warn(f'Generated response is too long: {self.tokenizer.decode(_context + resp, skip_special_tokens=False)}')
 
@@ -251,10 +327,11 @@ class PPOTrainer():
 
                 # Debug
                 # logging.info(f'===={self.tokenizer.decode(_context + resp, skip_special_tokens=False)}')
-                
+
         total_gene_samples_vec = [c + r for c, r in zip(total_context, total_response)]
         return total_context, total_response, total_gene_samples_vec # total_context, total_response, total_gene_samples_vec
-    
+
+
     def save_checkpoint(self, is_best: bool, total_steps: int):
         best_model_path = os.path.join(self.model_save_path, 'best_model')
         steps_model_path = os.path.join(self.model_save_path, 'Steps_{}'.format(total_steps))
@@ -323,13 +400,16 @@ class PPOTrainer():
             # Precompute logprobs, values
             ref_logits, *_ = self.ref_model_forward(sampled_vec)
             logits, *_ = self.policy_model_forward(sampled_vec)
-            values, *_ = self.critic_model_forward(sampled_vec)
+            values, *_ = self.critic_model_forward(sampled_vec) 
+            
+            values = values[:,-1,:].mean(dim=-1) # quantile 평균을 value로
+
             torch.cuda.empty_cache()
             assert ref_logits.size(1) == logits.size(1) == values.size(1), f'{ref_logits.size()}, {logits.size()}, {values.size()}'
             
             ref_logprobs = logprobs_from_logits(ref_logits[:, :-1, :], sampled_vec[:, 1:])
             logprobs = logprobs_from_logits(logits[:, :-1, :], sampled_vec[:, 1:])
-            values = values[:, :-1]
+            values = values[:, :-1] #TODO 왜 이렇게 했지
             
             kl_penalty = (-self.kl_penalty_weight * (logprobs - ref_logprobs)).cpu()
 
@@ -388,10 +468,37 @@ class PPOTrainer():
         logging.info(f'Sampled {len(self.replay_buffer)} samples in {(time.time() - start_time):.2f} seconds')
         self.model.train()
         
+    # quantile huber loss 추가
+    def quantile_huber_loss(pred: torch.Tensor, target: torch.Tensor, taus: torch.Tensor, mask: torch.Tensor, k=1.0):
+        """
+        pred: [B, T, N]
+        target: [B, T] or [B, T, 1]
+        taus: [N] (or [B, T, N])
+        mask: [B, T]
+        """
+        if target.dim() == 2:
+            target = target.unsqueeze(-1)  # [B, T, 1]
+
+        delta = target - pred  # [B, T, N]
+        abs_delta = torch.abs(delta)
+        huber = torch.where(abs_delta <= k, 0.5 * delta ** 2, k * (abs_delta - 0.5 * k))  # [B, T, N]
+
+        # quantile weights: |τ - I[δ < 0]|
+        indicator = (delta.detach() < 0).float()
+        quantile_loss = torch.abs(taus - indicator) * huber  # [B, T, N]
+
+        if mask is not None:
+            quantile_loss = quantile_loss * mask.unsqueeze(-1)  # [B, T, N]
+
+        return quantile_loss.sum() / mask.sum()
+
     def criterion(self, model_output: Tuple[torch.Tensor, ...], batch: Dict[str, Any], return_output=False, training=True):
-        policy_output, critic_output = model_output
+        policy_output, critic_output = model_output #TODO loss 계산 방식이 QR-DQN 방식으로
         policy_logits, *_ = policy_output
-        values, *_ = critic_output
+        values, *_ = critic_output 
+
+        values = values.mean(dim=-1) # [B,T], quantile 평균을 value로
+
         values = values[:, :-1]
         
         loss_mask = batch['loss_mask']
@@ -628,7 +735,7 @@ class PPOTrainer():
                 pin_memory=True)
 
             for batch in self.train_loader:
-                if self.train_state.total_steps >= self.max_steps:
+                if self.train_state.total_steps >= self.max_steps: ##이 줄에서 max-step의 개수만큼 
                     break
                 
                 start_time = time.time()
@@ -660,6 +767,18 @@ class PPOTrainer():
                     metrics = self.train_metrics.all_gather_metrics()
                     self.train_metrics.write_tensorboard(self.train_state.total_steps, gathered_metrics=metrics)
                     self.train_metrics.display(self.train_state.total_steps, self.train_size, gathered_metrics=metrics)
+                    # wandb.log({"loss" : metrics['loss'], 
+                    #           "rewards" : metrics['rewards'],
+                    #           "res_len" : metrics['res_len'],
+                    #           "ppl" : metrics['ppl'],
+                    #           "ppl_policy0" : metrics['ppl_policy0'],
+                    #           "ups" : metrics['ups'],
+                    #           "global_exs" : metrics['global_exs'],
+                    #           "lr" : metrics['lr']})
+
+                    # 모든 metric을 한 번에 wandb에 log
+                    self.log_wandb_metrics(metrics, step=self.train_state.total_steps)
+
                     need_reset = True
                     
                 # do evaluation for every save_per_step steps

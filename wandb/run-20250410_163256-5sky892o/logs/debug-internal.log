@@ -1,0 +1,7 @@
+{"time":"2025-04-10T16:32:56.425960255+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_163256-5sky892o/logs/debug-core.log"}
+{"time":"2025-04-10T16:32:56.836080252+09:00","level":"INFO","msg":"created new stream","id":"5sky892o"}
+{"time":"2025-04-10T16:32:56.836172511+09:00","level":"INFO","msg":"stream: started","id":"5sky892o"}
+{"time":"2025-04-10T16:32:56.836223901+09:00","level":"INFO","msg":"handler: started","stream_id":"5sky892o"}
+{"time":"2025-04-10T16:32:56.83628888+09:00","level":"INFO","msg":"sender: started","stream_id":"5sky892o"}
+{"time":"2025-04-10T16:32:56.83634578+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"5sky892o"}
+{"time":"2025-04-10T16:32:57.191292789+09:00","level":"INFO","msg":"Starting system monitor"}

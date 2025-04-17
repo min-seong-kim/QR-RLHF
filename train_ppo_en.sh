@@ -2,14 +2,14 @@
 # Copyright (c) Fudan NLP Group.
 # SPDX-License-Identifier: Apache-2.0
 
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6 \
+CUDA_VISIBLE_DEVICES=0  \
 accelerate launch \
     --config_file accelerate_config.yaml \
 train_ppo.py \
-    --tokenizer_name_or_path models/moss-rlhf-reward-model-7B-en \
-    --policy_model_path models/moss-rlhf-sft-model-7B-en/recover \
-    --critic_model_path models/moss-rlhf-reward-model-7B-en/recover \
-    --model_save_path outputs/models/ppo/ppo_model_en \
+    --tokenizer_name_or_path openai-community/gpt2 \
+    --policy_model_path openai-community/gpt2 \
+    --critic_model_path openai-community/gpt2 \
+    --model_save_path /home/hail/hong_kim/MOSS-RLHF/outputs/models/ppo/ppo_model_en \
     --data_path data/ppo_data \
     --seed 42 \
     --maxlen_prompt 2048 \

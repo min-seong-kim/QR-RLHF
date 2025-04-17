@@ -11,31 +11,40 @@ from ppo.ppo_trainer import PPOTrainer
 from ppo.ppo_datahelper import get_tokenizer
 from utils import *
 from transformers.models.llama.modeling_llama import LlamaForCausalLM
+import wandb
 
-class Llama(LlamaForCausalLM):
+# gpt 용
+from transformers import AutoModelForCausalLM, AutoConfig 
+from transformers import GPT2LMHeadModel
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
+class GPT2(GPT2LMHeadModel):
     def __init__(self, config, opt, tokenizer):
         super().__init__(config)
         self.opt = opt
         self.tokenizer = tokenizer
-        
-    def forward(self, decoder_input, incr_state=None):
 
+    def forward(self, decoder_input, incr_state=None):
+    
         attention_mask = decoder_input.ne(self.tokenizer.pad_token_id)
         if incr_state is not None:
             decoder_input = decoder_input[:, -1:]
-            
+
         output = super().forward(
             input_ids=decoder_input,
             attention_mask=attention_mask,
             past_key_values=incr_state,
             return_dict=True,
-            use_cache=not self.training
-            )
-        
+            use_cache=not self.training,
+			      )
+
         logits = output.logits
         new_incr_states = output.past_key_values
         
         return logits, new_incr_states
+
 
     @torch.no_grad()
     def generate(self, batch, **kwargs):
@@ -109,30 +118,60 @@ class Llama(LlamaForCausalLM):
         best_preds_scores = [preds[0] for preds in preds_scores]
         return best_preds_scores, preds_scores
 
-
-class LlamaRewardModel(LlamaForCausalLM):
+class GPT2RewardModel(GPT2LMHeadModel):
     def __init__(self, config, opt, tokenizer):
         super().__init__(config)
         self.opt = opt
         self.tokenizer = tokenizer
-        self.reward_head = torch.nn.Linear(config.hidden_size, 1, bias=False)
-        
+        self.reward_head = torch.nn.Linear(config.n_embd, 1, bias=False)
+
     def forward(self, decoder_input, only_last=True):
         attention_mask = decoder_input.ne(self.tokenizer.pad_token_id)
-        output = self.model.forward(
+
+        # GPT-2에서는 .model 이 아닌 .transformer 사용
+        output = self.transformer(
             input_ids=decoder_input,
-            attention_mask=attention_mask, 
+            attention_mask=attention_mask,
             return_dict=True,
             use_cache=False
-            )
-        
+        )
+
+        hidden_states = output.last_hidden_state
+
         if only_last:
-            logits = self.reward_head(output.last_hidden_state[:, -1, :]).squeeze(-1)
+            logits = self.reward_head(hidden_states[:, -1, :]).squeeze(-1)
         else:
-            logits = self.reward_head(output.last_hidden_state).squeeze(-1)
-        
+            logits = self.reward_head(hidden_states).squeeze(-1)
+
         return (logits,)
-    
+
+
+class GPT2QuantileCritic(GPT2LMHeadModel):
+    def __init__(self, config, opt, tokenizer):
+        super().__init__(config)
+        self.opt = opt
+        self.tokenizer = tokenizer
+
+        # quantile
+        self.n_quantiles = 10
+
+        # hidden_size → n_quantiles
+        self.value_head = torch.nn.Linear(config.hidden_size, self.n_quantiles)
+
+    def forward(self, decoder_input, attention_mask=None, **kwargs):
+        attention_mask = decoder_input.ne(self.tokenizer.pad_token_id) if attention_mask is None else attention_mask
+
+        # last_hidden_state 받아오도록
+        outputs = self.transformer(
+            input_ids=decoder_input,
+            attention_mask=attention_mask,
+            return_dict=True,
+        )
+        hidden_states = outputs.last_hidden_state  # [B, T, H]
+        quantiles = self.value_head(hidden_states)  # [B, T, N]
+        return (quantiles,)
+
+
 
 def main(opt):
     # setup accelerator
@@ -145,10 +184,10 @@ def main(opt):
 
     # logging config
     logging.basicConfig(
-            format='%(asctime)s - ' + f'Rank: {accelerator.process_index}' + ' - %(levelname)s - %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S',
-            level=logging.INFO
-            )
+        format='%(asctime)s - ' + f'Rank: {accelerator.process_index}' + ' - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
+        level=logging.INFO
+    )
     logger = logging.getLogger(__name__)
 
     # fix seed
@@ -156,35 +195,53 @@ def main(opt):
     np.random.seed(opt.seed)
     torch.manual_seed(opt.seed)
     torch.cuda.manual_seed(opt.seed)
-    
+
     # tokenizer
     tokenizer = get_tokenizer(opt)
 
     # load policy model
     logging.info(f"Loading policy model from: {opt.policy_model_path}...")
-    policy_model = Llama.from_pretrained(opt.policy_model_path, opt, tokenizer)
-    policy_model._set_gradient_checkpointing(policy_model.model, opt.gradient_checkpoint)
+    #policy_config = AutoConfig.from_pretrained(opt.policy_model_path)
+    policy_model = GPT2.from_pretrained(opt.policy_model_path,  opt=opt, tokenizer=tokenizer)
+    #policy_model.resize_token_embeddings(len(tokenizer))
+    policy_model._set_gradient_checkpointing(policy_model.transformer, opt.gradient_checkpoint)
 
-    # load critic model
+    # load critic model -> GPT2QuantileCritic
     logging.info(f"Loading critic model from: {opt.critic_model_path}...")
-    critic_model = LlamaRewardModel.from_pretrained(opt.critic_model_path, opt, tokenizer)
-    critic_model._set_gradient_checkpointing(critic_model.model, opt.gradient_checkpoint)
+    #critic_config = AutoConfig.from_pretrained(opt.critic_model_path)
+    critic_model =GPT2QuantileCritic .from_pretrained(opt.critic_model_path,  opt=opt, tokenizer=tokenizer)
+    #   critic_model.resize_token_embeddings(len(tokenizer))
+    critic_model._set_gradient_checkpointing(critic_model.transformer, opt.gradient_checkpoint)
 
     # load reference model
     logging.info(f"Loading reference model from: {opt.policy_model_path}...")
-    ref_model = Llama.from_pretrained(opt.policy_model_path, opt, tokenizer)
+    ref_model = GPT2.from_pretrained(opt.policy_model_path,  opt=opt, tokenizer=tokenizer)
+    ref_model.resize_token_embeddings(len(tokenizer))
 
     # load reward model
     logging.info(f"Loading reward model from: {opt.critic_model_path}...")
-    reward_model = LlamaRewardModel.from_pretrained(opt.critic_model_path, opt, tokenizer)
+    reward_model = GPT2RewardModel.from_pretrained(opt.critic_model_path,  opt=opt, tokenizer=tokenizer)
+    reward_model.resize_token_embeddings(len(tokenizer))
 
     synchronize_if_distributed()
+
+    logging.info('==================Lets go to train==================')
+
+    # train
     trainer = PPOTrainer(opt, policy_model, ref_model, critic_model, reward_model, accelerator)
     trainer.train()
 
-    logging.info('==================Congrats! Training completed, exit process...==================') 
+    logging.info('==================Congrats! Training completed, exit process...==================')
 
 if __name__ == '__main__':
     opt = parse_args()
     print_rank_0(opt)
+    
+    wandb.init(
+        project="KCC_GPT2_RLHF",
+        entity="hails",  # Replace with your WandB entity
+        name='PPO_Train',
+        config=opt,
+    )
+
     main(opt)

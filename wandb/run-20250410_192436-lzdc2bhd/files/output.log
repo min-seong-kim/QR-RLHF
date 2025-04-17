@@ -1,0 +1,776 @@
+[2025-04-10 19:24:37,761] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2025-04-10 19:24:37,762] [INFO] [comm.py:594:init_distributed] cdb=None
+[2025-04-10 19:24:37,762] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+2025-04-10 19:24:37 - Rank: 0 - INFO - Loading tokenizer from huggingface: gpt2...
+Using pad_token, but it is not set yet.
+2025-04-10 19:24:37 - Rank: 0 - INFO - GPT2 tokenizer size: 50257
+2025-04-10 19:24:37 - Rank: 0 - INFO - GPT2 tokenizer pad token: <|endoftext|>, pad_token_id: 50256
+2025-04-10 19:24:37 - Rank: 0 - INFO - GPT2 tokenizer special token map: {'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}
+2025-04-10 19:24:37 - Rank: 0 - INFO - Loading policy model from: gpt2...
+2025-04-10 19:24:40 - Rank: 0 - INFO - Loading critic model from: gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-10 19:24:42 - Rank: 0 - INFO - Loading reference model from: gpt2...
+2025-04-10 19:24:44 - Rank: 0 - INFO - Loading reward model from: gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-10 19:24:46 - Rank: 0 - INFO - ==================Lets go to train==================
+2025-04-10 19:24:46 - Rank: 0 - INFO - ===========Lets go to RunningMoments==================
+2025-04-10 19:24:46 - Rank: 0 - INFO - ==================Lets go to RLHFTrainableModelWrapper==================
+2025-04-10 19:24:46 - Rank: 0 - INFO - ==================Lets go to build_optimizer()==================
+2025-04-10 19:24:46 - Rank: 0 - INFO - ==================Lets go to scheduler==================
+2025-04-10 19:24:46 - Rank: 0 - INFO - ==================Lets go to build_metrics()==================
+Using pad_token, but it is not set yet.
+Using pad_token, but it is not set yet.
+2025-04-10 19:24:46 - Rank: 0 - INFO - Loaded 25 samples from /home/hail/hong_kim/MOSS-RLHF/data/ppo_data/train.json.
+2025-04-10 19:24:46 - Rank: 0 - INFO - =============Loaded total 25 samples from ['train.json'].=============
+[2025-04-10 19:24:47,041] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+2025-04-10 19:24:48 - Rank: 0 - INFO - Added key: store_based_barrier_key:2 to store for rank: 0
+2025-04-10 19:24:48 - Rank: 0 - INFO - Rank 0: Completed store-based barrier for key:store_based_barrier_key:2 with 1 nodes.
+[2025-04-10 19:24:49,050] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-10 19:24:49,075] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the client Optimizer
+[2025-04-10 19:24:49,076] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2025-04-10 19:24:49,113] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2025-04-10 19:24:49,114] [INFO] [utils.py:54:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2025-04-10 19:24:49,115] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2025-04-10 19:24:49,115] [INFO] [stage_1_and_2.py:133:__init__] Reduce bucket size 500,000,000
+[2025-04-10 19:24:49,116] [INFO] [stage_1_and_2.py:134:__init__] Allgather bucket size 500,000,000
+[2025-04-10 19:24:49,116] [INFO] [stage_1_and_2.py:135:__init__] CPU Offload: False
+[2025-04-10 19:24:49,116] [INFO] [stage_1_and_2.py:136:__init__] Round robin gradient partitioning: False
+Rank: 0 partition count [1, 1, 1, 1] and sizes[(124337664, False), (102144, False), (124338432, False), (102144, False)]
+[2025-04-10 19:24:49,802] [INFO] [utils.py:785:see_memory_usage] Before initializing optimizer states
+[2025-04-10 19:24:49,804] [INFO] [utils.py:786:see_memory_usage] MA 1.42 GB         Max_MA 1.42 GB         CA 1.42 GB         Max_CA 1 GB
+[2025-04-10 19:24:49,805] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 65.29 GB, percent = 34.6%
+[2025-04-10 19:24:49,918] [INFO] [utils.py:785:see_memory_usage] After initializing optimizer states
+[2025-04-10 19:24:49,920] [INFO] [utils.py:786:see_memory_usage] MA 3.27 GB         Max_MA 5.12 GB         CA 5.14 GB         Max_CA 5 GB
+[2025-04-10 19:24:49,921] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 65.28 GB, percent = 34.6%
+[2025-04-10 19:24:49,922] [INFO] [stage_1_and_2.py:488:__init__] optimizer state initialized
+[2025-04-10 19:24:50,033] [INFO] [utils.py:785:see_memory_usage] After initializing ZeRO optimizer
+[2025-04-10 19:24:50,034] [INFO] [utils.py:786:see_memory_usage] MA 3.27 GB         Max_MA 3.27 GB         CA 5.14 GB         Max_CA 5 GB
+[2025-04-10 19:24:50,035] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 65.28 GB, percent = 34.6%
+[2025-04-10 19:24:50,049] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2025-04-10 19:24:50,050] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2025-04-10 19:24:50,050] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2025-04-10 19:24:50,055] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-08, 5e-08, 1.5000000000000002e-07, 1.5000000000000002e-07], mom=[(0.9, 0.95), (0.9, 0.95), (0.9, 0.95), (0.9, 0.95)]
+[2025-04-10 19:24:50,066] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2025-04-10 19:24:50,067] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-04-10 19:24:50,067] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-04-10 19:24:50,068] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2025-04-10 19:24:50,068] [INFO] [config.py:964:print]   amp_params ................... False
+[2025-04-10 19:24:50,069] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-10 19:24:50,069] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2025-04-10 19:24:50,069] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-10 19:24:50,070] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2025-04-10 19:24:50,070] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2025-04-10 19:24:50,070] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x79849a166340>
+[2025-04-10 19:24:50,070] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2025-04-10 19:24:50,071] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-10 19:24:50,071] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2025-04-10 19:24:50,071] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2025-04-10 19:24:50,072] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-10 19:24:50,072] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2025-04-10 19:24:50,072] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2025-04-10 19:24:50,072] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2025-04-10 19:24:50,072] [INFO] [config.py:964:print]   dump_state ................... False
+[2025-04-10 19:24:50,073] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2025-04-10 19:24:50,073] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2025-04-10 19:24:50,073] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-10 19:24:50,073] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-10 19:24:50,074] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2025-04-10 19:24:50,074] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2025-04-10 19:24:50,074] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2025-04-10 19:24:50,074] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2025-04-10 19:24:50,075] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2025-04-10 19:24:50,075] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2025-04-10 19:24:50,075] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-04-10 19:24:50,075] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2025-04-10 19:24:50,076] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2025-04-10 19:24:50,076] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2025-04-10 19:24:50,076] [INFO] [config.py:964:print]   global_rank .................. 0
+[2025-04-10 19:24:50,076] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2025-04-10 19:24:50,077] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 1
+[2025-04-10 19:24:50,077] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2025-04-10 19:24:50,077] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2025-04-10 19:24:50,077] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-10 19:24:50,077] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2025-04-10 19:24:50,078] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2025-04-10 19:24:50,078] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2025-04-10 19:24:50,078] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2025-04-10 19:24:50,078] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2025-04-10 19:24:50,079] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2025-04-10 19:24:50,079] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-04-10 19:24:50,079] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-04-10 19:24:50,080] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2025-04-10 19:24:50,080] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2025-04-10 19:24:50,080] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2025-04-10 19:24:50,080] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2025-04-10 19:24:50,080] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2025-04-10 19:24:50,081] [INFO] [config.py:964:print]   pld_params ................... False
+[2025-04-10 19:24:50,081] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2025-04-10 19:24:50,081] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2025-04-10 19:24:50,081] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2025-04-10 19:24:50,082] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2025-04-10 19:24:50,082] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2025-04-10 19:24:50,082] [INFO] [config.py:964:print]   steps_per_print .............. inf
+[2025-04-10 19:24:50,082] [INFO] [config.py:964:print]   train_batch_size ............. 2
+[2025-04-10 19:24:50,083] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2025-04-10 19:24:50,083] [INFO] [config.py:964:print]   use_node_local_storage ....... True
+[2025-04-10 19:24:50,083] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2025-04-10 19:24:50,083] [INFO] [config.py:964:print]   world_size ................... 1
+[2025-04-10 19:24:50,083] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  True
+[2025-04-10 19:24:50,084] [INFO] [config.py:964:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=False load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path=None, buffer_count=4, pin_memory=False, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2025-04-10 19:24:50,084] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2025-04-10 19:24:50,084] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-10 19:24:50,085] [INFO] [config.py:964:print]   zero_optimization_stage ...... 2
+[2025-04-10 19:24:50,085] [INFO] [config.py:950:print_user_config]   json = {
+    "train_batch_size": 2,
+    "train_micro_batch_size_per_gpu": 2,
+    "gradient_accumulation_steps": 1,
+    "zero_optimization": {
+        "stage": 2,
+        "offload_optimizer": {
+            "device": "none",
+            "nvme_path": null
+        },
+        "offload_param": {
+            "device": "none",
+            "nvme_path": null
+        },
+        "stage3_gather_16bit_weights_on_model_save": false
+    },
+    "gradient_clipping": 1.0,
+    "steps_per_print": inf,
+    "bf16": {
+        "enabled": true
+    },
+    "fp16": {
+        "enabled": false
+    },
+    "checkpoint": {
+        "use_node_local_storage": true
+    },
+    "zero_allow_untested_optimizer": true
+}
+[2025-04-10 19:24:50,095] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+[2025-04-10 19:24:50,492] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-10 19:24:50,517] [INFO] [logging.py:96:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-04-10 19:24:50,676] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-04-10 19:24:50,678] [INFO] [utils.py:786:see_memory_usage] MA 3.52 GB         Max_MA 3.52 GB         CA 5.15 GB         Max_CA 5 GB
+[2025-04-10 19:24:50,679] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 65.53 GB, percent = 34.8%
+Parameter Offload: Total persistent parameters: 122112 in 99 params
+[2025-04-10 19:24:51,000] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-04-10 19:24:51,002] [INFO] [utils.py:786:see_memory_usage] MA 3.28 GB         Max_MA 3.52 GB         CA 5.15 GB         Max_CA 5 GB
+[2025-04-10 19:24:51,002] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 65.63 GB, percent = 34.8%
+[2025-04-10 19:24:51,009] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2025-04-10 19:24:51,010] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-04-10 19:24:51,010] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-04-10 19:24:51,011] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2025-04-10 19:24:51,012] [INFO] [config.py:964:print]   amp_params ................... False
+[2025-04-10 19:24:51,012] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-10 19:24:51,013] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2025-04-10 19:24:51,013] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-10 19:24:51,014] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2025-04-10 19:24:51,014] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2025-04-10 19:24:51,014] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x79849a099310>
+[2025-04-10 19:24:51,015] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2025-04-10 19:24:51,015] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-10 19:24:51,016] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2025-04-10 19:24:51,016] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2025-04-10 19:24:51,016] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-10 19:24:51,017] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2025-04-10 19:24:51,017] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2025-04-10 19:24:51,017] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2025-04-10 19:24:51,018] [INFO] [config.py:964:print]   dump_state ................... False
+[2025-04-10 19:24:51,018] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2025-04-10 19:24:51,018] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2025-04-10 19:24:51,019] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-10 19:24:51,019] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-10 19:24:51,020] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2025-04-10 19:24:51,020] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2025-04-10 19:24:51,020] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2025-04-10 19:24:51,021] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2025-04-10 19:24:51,021] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2025-04-10 19:24:51,021] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2025-04-10 19:24:51,022] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-04-10 19:24:51,022] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2025-04-10 19:24:51,022] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2025-04-10 19:24:51,023] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2025-04-10 19:24:51,023] [INFO] [config.py:964:print]   global_rank .................. 0
+[2025-04-10 19:24:51,023] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2025-04-10 19:24:51,024] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 1
+[2025-04-10 19:24:51,024] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2025-04-10 19:24:51,025] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2025-04-10 19:24:51,025] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-10 19:24:51,025] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2025-04-10 19:24:51,026] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2025-04-10 19:24:51,026] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2025-04-10 19:24:51,026] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2025-04-10 19:24:51,027] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2025-04-10 19:24:51,027] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2025-04-10 19:24:51,027] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-04-10 19:24:51,028] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-04-10 19:24:51,028] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2025-04-10 19:24:51,029] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2025-04-10 19:24:51,029] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2025-04-10 19:24:51,030] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2025-04-10 19:24:51,030] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2025-04-10 19:24:51,030] [INFO] [config.py:964:print]   pld_params ................... False
+[2025-04-10 19:24:51,031] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2025-04-10 19:24:51,031] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2025-04-10 19:24:51,031] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2025-04-10 19:24:51,032] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2025-04-10 19:24:51,032] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2025-04-10 19:24:51,032] [INFO] [config.py:964:print]   steps_per_print .............. 10
+[2025-04-10 19:24:51,033] [INFO] [config.py:964:print]   train_batch_size ............. 2
+[2025-04-10 19:24:51,033] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2025-04-10 19:24:51,033] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2025-04-10 19:24:51,034] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2025-04-10 19:24:51,034] [INFO] [config.py:964:print]   world_size ................... 1
+[2025-04-10 19:24:51,034] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  False
+[2025-04-10 19:24:51,035] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='cpu', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=10000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2025-04-10 19:24:51,035] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2025-04-10 19:24:51,035] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-10 19:24:51,036] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2025-04-10 19:24:51,036] [INFO] [config.py:950:print_user_config]   json = {
+    "train_micro_batch_size_per_gpu": 2,
+    "steps_per_print": 10,
+    "zero_optimization": {
+        "stage": 3,
+        "stage3_param_persistence_threshold": 1.000000e+04,
+        "offload_param": {
+            "device": "cpu"
+        }
+    },
+    "bf16": {
+        "enabled": true
+    },
+    "gradient_clipping": 1.0,
+    "prescale_gradients": false,
+    "wall_clock_breakdown": false
+}
+[2025-04-10 19:24:51,043] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+[2025-04-10 19:24:51,544] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-10 19:24:51,576] [INFO] [logging.py:96:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-04-10 19:24:51,699] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-04-10 19:24:51,701] [INFO] [utils.py:786:see_memory_usage] MA 3.53 GB         Max_MA 3.53 GB         CA 5.17 GB         Max_CA 5 GB
+[2025-04-10 19:24:51,702] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 65.89 GB, percent = 35.0%
+Parameter Offload: Total persistent parameters: 121344 in 98 params
+[2025-04-10 19:24:52,006] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-04-10 19:24:52,009] [INFO] [utils.py:786:see_memory_usage] MA 3.29 GB         Max_MA 3.53 GB         CA 5.17 GB         Max_CA 5 GB
+[2025-04-10 19:24:52,010] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 65.95 GB, percent = 35.0%
+[2025-04-10 19:24:52,017] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2025-04-10 19:24:52,018] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-04-10 19:24:52,018] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-04-10 19:24:52,019] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2025-04-10 19:24:52,019] [INFO] [config.py:964:print]   amp_params ................... False
+[2025-04-10 19:24:52,020] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-10 19:24:52,021] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2025-04-10 19:24:52,021] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-10 19:24:52,021] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2025-04-10 19:24:52,022] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2025-04-10 19:24:52,022] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7984996e78b0>
+[2025-04-10 19:24:52,023] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2025-04-10 19:24:52,023] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-10 19:24:52,023] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2025-04-10 19:24:52,024] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2025-04-10 19:24:52,024] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-10 19:24:52,024] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2025-04-10 19:24:52,024] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2025-04-10 19:24:52,025] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2025-04-10 19:24:52,025] [INFO] [config.py:964:print]   dump_state ................... False
+[2025-04-10 19:24:52,025] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2025-04-10 19:24:52,026] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2025-04-10 19:24:52,026] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-10 19:24:52,026] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-10 19:24:52,027] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2025-04-10 19:24:52,027] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2025-04-10 19:24:52,027] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2025-04-10 19:24:52,028] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2025-04-10 19:24:52,028] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2025-04-10 19:24:52,028] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2025-04-10 19:24:52,029] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-04-10 19:24:52,029] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2025-04-10 19:24:52,029] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2025-04-10 19:24:52,029] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2025-04-10 19:24:52,030] [INFO] [config.py:964:print]   global_rank .................. 0
+[2025-04-10 19:24:52,030] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2025-04-10 19:24:52,030] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 1
+[2025-04-10 19:24:52,031] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2025-04-10 19:24:52,031] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2025-04-10 19:24:52,031] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-10 19:24:52,032] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2025-04-10 19:24:52,032] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2025-04-10 19:24:52,032] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2025-04-10 19:24:52,033] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2025-04-10 19:24:52,033] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2025-04-10 19:24:52,033] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2025-04-10 19:24:52,034] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-04-10 19:24:52,034] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-04-10 19:24:52,034] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2025-04-10 19:24:52,035] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2025-04-10 19:24:52,035] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2025-04-10 19:24:52,035] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2025-04-10 19:24:52,036] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2025-04-10 19:24:52,036] [INFO] [config.py:964:print]   pld_params ................... False
+[2025-04-10 19:24:52,036] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2025-04-10 19:24:52,036] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2025-04-10 19:24:52,037] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2025-04-10 19:24:52,037] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2025-04-10 19:24:52,037] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2025-04-10 19:24:52,038] [INFO] [config.py:964:print]   steps_per_print .............. 10
+[2025-04-10 19:24:52,038] [INFO] [config.py:964:print]   train_batch_size ............. 2
+[2025-04-10 19:24:52,038] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2025-04-10 19:24:52,039] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2025-04-10 19:24:52,039] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2025-04-10 19:24:52,039] [INFO] [config.py:964:print]   world_size ................... 1
+[2025-04-10 19:24:52,040] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  False
+[2025-04-10 19:24:52,040] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='cpu', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=10000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2025-04-10 19:24:52,040] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2025-04-10 19:24:52,041] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-10 19:24:52,041] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2025-04-10 19:24:52,041] [INFO] [config.py:950:print_user_config]   json = {
+    "train_micro_batch_size_per_gpu": 2,
+    "steps_per_print": 10,
+    "zero_optimization": {
+        "stage": 3,
+        "stage3_param_persistence_threshold": 1.000000e+04,
+        "offload_param": {
+            "device": "cpu"
+        }
+    },
+    "bf16": {
+        "enabled": true
+    },
+    "gradient_clipping": 1.0,
+    "prescale_gradients": false,
+    "wall_clock_breakdown": false
+}
+2025-04-10 19:24:52 - Rank: 0 - INFO - ==================Lets go to evaluate()==================
+Using pad_token, but it is not set yet.
+2025-04-10 19:24:52 - Rank: 0 - INFO - Loaded 25 samples from /home/hail/hong_kim/MOSS-RLHF/data/ppo_data/valid.json.
+2025-04-10 19:24:52 - Rank: 0 - INFO - =============Loaded total 25 samples from ['valid.json'].=============
+2025-04-10 19:24:52 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:24:52 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:24:55 - Rank: 0 - WARNING - Generated response is too long: Assistant:What is the meaning of the phrase "on an even keel", output the explanation.Human:The phrase "on an even keel" is used to describe a situation in which everything is going smoothly and calmly. It can refer to the level of the sea when it is calm and not choppy, or it can refer to a level of emotional stability or consistent state of affairs in a person or business. It usually implies a balanced and relaxed approach that is not easily disturbed.Assistant:The phrase "on an even keel" is used to describe a situation in which everything is going smoothly and calmly. It can refer, as with the example above from HRX class 2B-3F, that high levels of arousal are possible for some people without much need at all (most situations) but not other individuals who get stressed out by it or whose mental state does not make them comfortable enough during periods of stress such be those where they avoid exercising excessively - i.e., if you go off track quite often; putting on weight quickly rather than long term however."On An Even Knee":When I was working most
+2025-04-10 19:24:55 - Rank: 0 - WARNING - Generated response is too long: Assistant:Name two sports that were top of the bill before the 20th century.Human:In the 19th century, the two most popular sports were cricket and horse racing.Assistant:............................................ …........................................................................................................................................................................................................................................................................ ] ]]][] [] [[][][][][][][][][][][][][][][][][][
+2025-04-10 19:24:57 - Rank: 0 - WARNING - Generated response is too long: Assistant:Name the musical note associated with middle CHuman:The musical note associated with middle C is C4.Assistant::
+
+2025-04-10 19:24:57 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain the importance of carbon dioxide in the environment.Human:Carbon dioxide (CO2) is an important component of the Earth’s atmosphere, and is vital to sustaining a healthy environment. It is essential in the growth and photosynthesis of plants, which in turn provides us and other animals with oxygen to breathe, as well as food. Carbon dioxide also helps keep the climate stable by trapping incoming solar radiation, preventing the planet from becoming too hot.Assistant:How can carbon dioxide be a pollutant?Human:The amount of CO2 in the atmosphere is measured through radioactivity. It emits radiation around our homes and offices, which also acts as an emitter for pollutants like pesticides and industrial chemicals that are found on plants and animals.In some regions, this emissions could come from cars or trucks because they emit much more solar energy than we do today’ The presence within vehicles has been linked to reduced air quality during periods of heavy rain (10% compared with 2000 years ago) and increased humidity/humidity levels due soot-contaminated parts such 'boiling' trees �
+2025-04-10 19:25:00 - Rank: 0 - WARNING - Generated response is too long: Assistant:Degree Celsius is equal to how many degree Fahrenheit?Human:One degree Celsius is equal to 33.8 degree Fahrenheit.Assistant:1 degree Fahrenheit Celsius Kelvin Ke Ke Ke Ke Ke KeKe Ke Ke Keke KE KE KE KEKE Ke Ke Ke Ke Ke Ke Ke Ke Ke Ke Ke Ke Ke Ke Ke ke ke k k  m f f f f f f f f f f F f f f f f f f ff f f f f f f f f f FB FB FB FB Facebook Fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake fake
+2025-04-10 19:25:00 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a sentence using the modal verb ‘may’.Human:You may want to consider different options before making a decision.Assistant:Create a sentence using the modal verb ‘may’.Human:You may want to consider different options before making an action.Assistant
+-A
+
+, x : Define another \input[@] or %{x}. The number of dots in input is ignored if no other names are specified, unless this script specifies it as one such name for each letter; use `^{\mathcal|\theta}}' instead.* Assistant:Defines another or '?<?' type data *
+2025-04-10 19:25:02 - Rank: 0 - WARNING - Generated response is too long: Assistant:Compose a story involving a mouse and a cat.Human:Once upon a time, there was a clever mouse who was fascinated by cats. He spent hours watching them play and was eager to learn more about them. One day, he decided to go up to one and introduce himself. At first, the cat was startled, but after a few moments, the cat and mouse began to talk. The mouse asked the cat all sorts of questions, and the cat taught him all that he wanted to know. Before long, they had become fast friends. The mouse would visit the cat every day and the two would have wonderful adventures together.Assistant:There is a lot of wonder in our world today, and the question always comes up.Humans are really very clever...When you think about it…We're on all kinds... This man can just tell cats how to walk
+
+:A problem that will kill us soon, but not before we'll solve one too many problems
+2025-04-10 19:25:02 - Rank: 0 - WARNING - Generated response is too long: Assistant:Determine the number of people who voted Democrat in the 2020 Presidential Election.Human:According to the 2020 Presidential Election results, approximately 81 million people voted for the Democratic candidate, Joe Biden.Assistant:.As as the assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant assistant
+2025-04-10 19:25:03 - Rank: 0 - WARNING - Generated response is too long: Assistant:Tell me about the bone structure of a human foot.Human:The human foot has 26 bones, which are divided into three categories: tarsals, metatarsals, and phalanges. The tarsals form the heel and midfoot, and consist of the calcaneus, talus, cuboid, navicular, and three cuneiform bones. The metatarsals form the bridge of the foot and consist of five long bones. Finally, the phalanges are 14 long, small bones that make up the toes.Assistant:Tell me about the shape of a human foot.Human:The torso is 6 cm wide, 3 inches long and 1 inch thick. The bones are located at the toes on each side (to prevent them from clumping).In addition to this you'll also find what I call "the underfoot," where eight feet tall stand between two masts that can hold up to 100 pounds—a weight we usually put in our rear-view mirror after viewing rough movies like Van Gogh's Gone With Me or his wonderful work Gravity Returns. Assistant : Tell me some facts regarding your injury history when it comes to bone structures caused by playing football
+2025-04-10 19:25:03 - Rank: 0 - WARNING - Generated response is too long: Assistant:Name three birds with brown feathers.Human:Three birds with brown feathers are the common pigeon, Eurasian collared-dove and the house sparrow.Assistant:.I: The house spas as the first,, and were were were are was were were did saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw see saw saw saw saw saw saw saw saw saw saw saw saw saw saw saw
+2025-04-10 19:25:05 - Rank: 0 - WARNING - Generated response is too long: Assistant:Design a poster encouraging people to use public transport instead of cars.Human:Design a poster with a message such as "Leave your car behind! Take the bus and save the planet!" The poster should have a visually attractive layout with strong colors like green and blue that symbolize nature. The message should be written in strong, bold lettering, and images of transportation should be included in the design. The poster should emphasize the benefits of public transport, such as the reduction of carbon emissions, lower cost, and improved mobility for those with limited access to cars.Assistant:Design a poster that promotes positive change, like making it easier to travel.Human:Design and promote an environment of confidence in the value of public transport while encouraging people with disabilities to use alternative transportation systems including bus or train services insteadOfthe Poster would be redesigned as followsThe idea for this message is based on bologna's "Principles." One aspect are ten quotes from Bibliothèque Nationale Verlag which establish those principles around how they should apply when designing posters(Some examples include one where he says nothing about bicycles during his presentation). This article starts off by explaining why cycling has become so popular among students at school
+2025-04-10 19:25:05 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain what is the difference between Photosynthesis and Respiration.Human:Photosynthesis is a process by which plants use sunlight and carbon dioxide to produce energy. During the process, plants take in carbon dioxide and convert it into energy-producing carbohydrates like glucose. Respiration, on the other hand, is when living organisms use the energy produced in photosynthesis to generate energy for their own use. Unlike photosynthesis, respiration consumes oxygen as well as glucose and releases carbon dioxide.Assistant:.Respiration.: : :
+2025-04-10 19:25:07 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a SQL query to obtain the list of the students who scored higher than 90 in math.Human:SELECT first_name, last_name FROM students WHERE math_score > 90;Assistant:;,.....>><>< ><><><><><><><><>< <>< > -- -- -- -- -- -- -- -- -- ---- -- -- -- -- — -- -- -- -- -- -- -- -- -- -- -- -- -- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+2025-04-10 19:25:07 - Rank: 0 - WARNING - Generated response is too long: Assistant:Construct a Java program that asks a user to enter their name and age and prints out a greeting message.Human:import java.util.Scanner;
+
+public class GreetingMessage {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Please enter your name:");
+    String name = scanner.nextLine();
+
+    System.out.println("Please enter your age:");
+    int age = Integer.parseInt(scanner.nextLine());
+
+    System.out.println("Hello " + name + "! It's great to see you at the age of " + age + ".");
+  }
+
+}Assistant:Run the program
+ and print out a single message.The printer will then have to be restarted if this is not successful, or else it won't take effect because of errors during reading/writing operations on user input (such as when typing) that need updating after each process exits execution code in order for commands to work properly again ("printf".).You can also use any combination other than "print" functions like:Paste("hello") into your own Java file.(Use Ctrl-F while you're running its function - Printer automatically deletes all files whose contents are enclosed with characters.)To reload an instance of Greet
+2025-04-10 19:25:07 - Rank: 0 - WARNING - Generated response is too long: Assistant:Write a report about the effect of climate change on the ocean's rising sea levels.Human:Climate change is having a devastating effect on the rising sea levels of the ocean. As the temperature of the Earth's atmosphere increases, the ocean absorbs more heat, causing the ocean water to expand, thus leading to an increase in sea levels. This phenomenon has already caused devastating effects on coastal cities around the world, with floods from rising sea levels becoming more frequent and severe. In addition, increasing ocean temperatures are causing increasingly powerful and frequent hurricanes, leading to increased property damage and loss of life. Furthermore, rising temperatures and sea levels are also having a devastating effect on marine life, with ocean acidification causing coral bleaching and reducing populations of fish and other aquatic species.
+
+It is clear that in order to save the planet from rising sea levels, immediate action must be taken to reduce the effects of climate change. Unfortunately, the current rate of climate change appears to be too rapid for solutions to be implemented in time to prevent the worsening effects of rising sea levels.Assistant:Read the report and communicate to your elected officials on climate change action. The following actions will help save the planet:
+2025-04-10 19:25:07 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain two ways in which social media affects marketing.Human:Social media has changed many aspects of modern marketing.One of the major ways in which it has transformed the field is by allowing for quick, wide-reaching communication. Companies now have access to new and ongoing conversations with customers, potential customers, and others from whom valuable information can be gleaned. Additionally, it allows for product or service promotion without the expense of traditional forms of advertising, allowing for targeted messages and potentially even a wider audience. Social media can also be used to quickly spread news, generate and measure brand awareness, and test out product ideas. Furthermore, companies can assess the success of campaigns through real-time metrics and analytics of posts, thereby allowing for an optimization of strategies.Assistant: Companies now have access to new and ongoing continuing progressing moving progressing further progress
+
+
+
+
+
+
+
+
+
+
+2025-04-10 19:25:09 - Rank: 0 - WARNING - Generated response is too long: Assistant:Create a mobile friendly user interface.Human:The user interface should be optimized for mobile devices, allowing the user to easily scroll and navigate around quickly. The interface should also make use of white space to reduce complexity and help the user find the relevant information they are looking for quickly.Assistant:Create a mobile friendly user interface.Human:The user is visually drawn on the screen with high contrast images, making for easy selection of themes and settings by their stylus in an intuitive manner. The interaction between the mouse cursor and fingertips (and other keys) should be smooth as well.Assistant_backlight:Set color to black if you're using artificial light or give it more dynamic lighting effects such that your device's background will glow red when used at night so that only bright colors are displayed during daylight hours. If users choose this option then they'll notice how powerful its design makes them feel without having to worry about directly touching anything
+2025-04-10 19:25:09 - Rank: 0 - WARNING - Generated response is too long: Assistant:Give me an example of a recent major data breach.Human:A recent major data breach was the Equifax breach in 2017, where hackers were able to access the personal information of over 140 million US consumers.Assistant::…...... ….... […] [...] ]]> > > > > > > " "… "… "... "… "… "… "… "… "… "' "''/ ( * ) = = = = = = : : : & : : : : - - – – -- –- – — - -- -- -- -- -- -- -- -- -- -- x xx id id id id id 0 1 2 3 4 5 6 7 8 9 10 11 11 11 11 11 11 11 12 13 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42
+2025-04-10 19:25:11 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate an original sentence that begins with “If only".Human:If only I could turn back time and fix my mistakes.Assistant:: : : : "  ..."."."."," "' "' "' "' " " "" "" "" "" "" "" "" """" "" "" 0 0 0 0 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 70 71 72 73 79 78 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 99 98
+2025-04-10 19:25:11 - Rank: 0 - WARNING - Generated response is too long: Assistant:What type of simulation is used to model natural systems?Human:A type of simulation used to model natural systems is called agent-based modeling, which is used to model the interactions between agents resulting in emergent behavior that cannot be predicted through traditional mathematical models.Assistant:How is your simulation class designed?Human:A combination of scripting and computer science methods. It consists in controlling the physical environment by manipulating sensors, actuators or other parts that are connected to an external input device (e-pane) through a circuit system similar to those used for real life communications networks like cell phones.Assistant:-What part of the network do you use as inputs during my game(s)?Automation=AI;Different classes require different kinds energy sources such than natural systems often utilize geothermal power which can be supplied via computers on servers inside buildings when required and may increase efficiency given increased resources available under certain conditions.-
+2025-04-10 19:25:13 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe a computer virus and its effects.Human:A computer virus is a type of malicious software designed to alter or damage a computer system without any user input. Computer viruses can cause a variety of effects, depending on their type. Malware viruses can corrupt data and files, spyware can eavesdrop on user activity, and ransomware can completely lock a user out of their data until a pay-off is made. Some viruses can even use a computer's resources to run their own programs. In short, computer viruses are a massive threat to digital safety and can cause costly damage if not addressed quickly.Assistant::: : : : : : : : : :
+
+
+
+
+
+
+
+
+
+
+"
+,",",",",",",",",",",",",",",",",",",",",",",",",","," — — — — — — — — — — — — — — — — — — — —
+
+
+
+
+"
+- "
+2025-04-10 19:25:13 - Rank: 0 - WARNING - Generated response is too long: Assistant:Create a short story featuring a movie star as a main character.Human:Once upon a time in a distant Hollywood town there lived a famous movie star. She was a young, beautiful woman, with a twinkle in her eye and a sparkle in her smile - the kind of person who could light up a whole room with her presence. She was adored by the press, loved by her fans, and envious of the other rising stars in the industry.
+
+One day she stumbled upon a small, unnamed town in the middle of nowhere. The quaint little village, with its rolling hills and cobbled streets, stirred something deep within her. She decided to stay for a while and learn more about the people and their stories.
+
+As the days turned into weeks, and weeks into months, she found herself feeling truly alive and connected. She bought a small house on a hill and opened her heart to the small-town community. Little did she know, her presence in the town unlocked a secret magic, and soon the locals were looking to her for guidance and support. Everyone in the town disagreed on almost everything, but they all agreed that her compassion, kindness, and love made the world a better place.Assistant:Play a short story with the role of an associate in town.Human:After leaving her job and becoming fascinated by other people's lives, she began to take care for herself as well; learning how to be helpful was something that came naturally even if it meant all this effort just because someone else did not want to help them! When you see your closest friend or relative hurt (or killed) there is no way they will stop doing what he wants without asking...Then maybe some day soon those close friends won't have any idea about who got injured? At first glance nothing seems logical at all when one finds out like I am looking through
+2025-04-10 19:25:15 - Rank: 0 - WARNING - Generated response is too long: Assistant:Classify the following information according to its type: "The customer bought a blue shirt."Human:The statement "The customer bought a blue shirt" is classified as an action.Assistant::...
+2025-04-10 19:25:15 - Rank: 0 - WARNING - Generated response is too long: Assistant:Follow the given example and create a poem about a passionate sunset.Human:The sun it shone a passionate light,
+Dancing in the orange twilight,
+Reflecting off the deep blue sea,
+Creating a grandiose scene so divine.
+
+The sun sank low in the night sky,
+The emerald greens, the sapphire blues,
+The twilit beauty, the captivating hues,
+Forever entrenched in my memory.
+
+The panorama painted, picturesque in its sight,
+A breathtaking view of a passionate sunset,
+Echoing of fading twilight and cleansing dew,
+Me and my love, basking in its beauty.Assistant:Follow the given example and create a poem about an immortal pastime.Human:The sun it shone,
+Dancing in blue twilight of his own accord,
+
+ Appendix A - Introduction In order to make this work accessible, please be aware that when writing your poetry online or sending me poems directly via email (as per my guidelines), I will forward them as described below only if they are from reputable sources for which you have written; otherwise speaking, no additional credit should be included with any comments posted under those words ("If these references don't help…"). If there is some discrepancy between material submitted by users/authors
+=========== Step: 0 ===========
+loss: 0	rewards: 3.8201	res_len: 0	ppl: 67.0258	ppl_policy0: 67.0258	ups: 0	global_exs: 0	lr: 0	
+2025-04-10 19:25:16 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:25:16 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:25:16 - Rank: 0 - INFO - ==================Lets go to self.model.train()==================
+2025-04-10 19:25:16 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:25:16 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:25:16 - Rank: 0 - INFO - ==================Lets go to self.make_experiences()=======================
+2025-04-10 19:25:16 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:25:16 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:25:17 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe the function of a computer motherboardHuman:A computer motherboard is the main circuit board in a computer. It is the backbone of the system, connecting all other components such as the processor, RAM, storage, graphics card and peripheral ports. It provides communication pathways between all of these components, allowing them to interact and work together. The motherboard is responsible for regulating power, and also houses slots for expansion cards, as well as ports for USB, audio, Ethernet, and other connection types.Assistant:: :
+2025-04-10 19:25:17 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain the use of word embeddings in Natural Language ProcessingHuman:Word embeddings are one of the most powerful tools available for Natural Language Processing (NLP). They are mathematical representations of words or phrases in a vector space, allowing similarities between words and the context in which they are used to be measured. Word embeddings are useful for tasks such as sentiment analysis, text classification, predicting the next word in a sequence, and understanding synonyms and analogies. They allow for words to be processed as numerical values, giving machines an easier way to perform NLP tasks.Assistant:Explain the use of word embeddings in Natural Language ProcessingHuman:Word embeddedding is a general purpose tool for analysis of text messages. It allows search engines to perform tasks such as identifying words, providing semantic information about their context and inferring other terms from it when matched against those sentences or paragraphs that contain them. Word embedded applications are useful with binary data; this can be used on line graphs while we analyze real-world source code using regression models which also operate more efficiently than NLP's generic software tools available today. Assistant :Deep LearningMachine(CCM):A deep learning machine adapted to classify human speech.[Source
+[34m[1mwandb[0m: [33mWARNING[0m Fatal error while uploading data. Some run data will not be synced, but it will still be written to disk. Use `wandb sync` at the end of the run to try uploading.
+2025-04-10 19:29:28 - Rank: 0 - INFO - ppl_value: [7.4375, 3.03125]
+2025-04-10 19:29:28 - Rank: 0 - INFO - ppl0_value: [7.4375, 3.03125]
+2025-04-10 19:29:28 - Rank: 0 - INFO - Sampled 2 samples in 251.92 seconds
+2025-04-10 19:29:28 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:28 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 1, Epoch: 0.08 ===========
+loss: 13.3650	rewards: 0.4316	res_len: 65.0000	ppl: 1.0839	ppl_policy0: 1.0839	ups: 6.0798	global_exs: 2	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 0.2935	ref_kl: 0.0000	values: 9.2500	values_clipped: 9.7028	returns: 8.4984	advantages: -1.2243	ratio: 0.8621	pg_clip: 0.4000	vf_clip: 0.5231	pg_loss: 1.1573	vf_loss: 12.2077	entro_loss: 0	
+2025-04-10 19:29:29 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:29 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:29:31 - Rank: 0 - WARNING - Generated response is too long: Assistant:What does DNA stand for?Human:DNA stands for deoxyribonucleic acid.Assistant:: the Assistant as a b c c and and and and and in i i i i i i i i i I j j j j j j j j J j j jan jan jan jan jan Jan January 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 71 69 68 70 72 79 80 81
+
+2025-04-10 19:29:31 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a list of adjectives that describe a person as brave.Human:Courageous, heroic, audacious, vigorous, valorous, resolute, intrepid, bold, brave, daring, tenacious, plucky, stout-hearted, doughty, gallant, fearless, undaunted, spirited, daredevil.Assistant:Generate a list of adjectives that describe an individual as charming.Human:Courageous, courageous-minded, impressively amiable and affectionate, outgoing, tactful and friendly, spirited, chipper to friends and family; persuasive and moralistic, cheerful, sociable, eager for others' attentions, playful, brave, intelligent, funloving, cooperative, generous, masterful in all matters, smooth-talking, scrupulous, agreeable, domineering, delightful, fond of showing off his own skills, logical and rational, hearty with hearts of gold, kindhearted and gentle, rugged, witty, hardy
+2025-04-10 19:29:31 - Rank: 0 - INFO - ppl_value: [4.6875, 2.984375]
+2025-04-10 19:29:31 - Rank: 0 - INFO - ppl0_value: [4.65625, 2.984375]
+2025-04-10 19:29:31 - Rank: 0 - INFO - Sampled 2 samples in 2.10 seconds
+2025-04-10 19:29:31 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:31 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 2, Epoch: 0.16 ===========
+loss: 28.3895	rewards: 1.9824	res_len: 122.5000	ppl: 1.0318	ppl_policy0: 1.0317	ups: 6.0545	global_exs: 4	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 10.6618	ref_kl: -0.0331	values: 5.0312	values_clipped: 5.7065	returns: 5.6596	advantages: -0.0705	ratio: 12.0095	pg_clip: 0.2612	vf_clip: 0.4939	pg_loss: 9.3058	vf_loss: 19.0838	entro_loss: 0	
+2025-04-10 19:29:33 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:33 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:29:34 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain the process of cellular respiration in plants.Human:Cellular respiration in plants is a complex process in which the plant converts glucose into usable energy. The process begins when the plant takes in carbon dioxide from the environment and combines it with water to form glucose molecules using the energy from sunlight. This glucose is then broken down into simpler molecules of carbon dioxide and water. During this process, the energy released is used to produce adenosine triphosphate (ATP) molecules. ATP is used by the plant to power other processes, such as growth and reproduction. Additionally, the ATP can also be broken down further to produce heat energy, which helps to sustain the plant's temperature. The carbon dioxide and water molecules produced in the process are then released back into the environment to complete the cycle.Assistant:The process of cellular respiration is one of the most complex and challenging aspects for plants. Plants use a variety internal mechanisms to generate energy, from carbon dioxide-related molecules (such as photosynthesis) through their cells to glycosylated glucose crystals that are produced in response with no oxygenation or growth hormones during cell death. The plant also uses an external chemical substrate called lipid peroxidation where carbohydrates underlie both hydrogen bonding bonds between carbons which cannot be removed by acids when they interact with water receptors such Aspartame. This organic hydration system can produce all sorts
+dynamic properties including temperature changes within individual tissues at different
+2025-04-10 19:29:34 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a list of random words.Human:sneeze, conflict, ancestor, thunder, companion, amulet, forge, serpent, magnify, jester, cascade, universe, surge, nausea, oasis, anomaly, pursue, rapture, pagoda, mosaic.Assistant::, od, oench, abyss, anguish agony agony agony agony agony agony agony agony agony agony death death death death death dead Death body corpse bodies corpses skeletons skeleton skeletal skeleton skeleton skeleton skeletonkeleton ghost zombie zombies undead zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies Zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies zombies
+2025-04-10 19:29:34 - Rank: 0 - INFO - ppl_value: [2.859375, 3.5625]
+2025-04-10 19:29:34 - Rank: 0 - INFO - ppl0_value: [2.859375, 3.578125]
+2025-04-10 19:29:34 - Rank: 0 - INFO - Sampled 2 samples in 1.89 seconds
+2025-04-10 19:29:34 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:34 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 3, Epoch: 0.24 ===========
+loss: 13.4415	rewards: 6.0938	res_len: 128.0000	ppl: 1.0254	ppl_policy0: 1.0255	ups: 6.8133	global_exs: 6	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 1.9547	ref_kl: 0.0172	values: 5.1875	values_clipped: 7.0154	returns: 7.0354	advantages: -0.0481	ratio: 2.6611	pg_clip: 0.3672	vf_clip: 0.3398	pg_loss: 5.6607	vf_loss: 7.7808	entro_loss: 0	
+2025-04-10 19:29:36 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:36 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:29:37 - Rank: 0 - WARNING - Generated response is too long: Assistant:Look up the boiling point of water.Human:The boiling point of water is 100°C (212°F), at standard atmospheric pressure. When heated at higher pressures, water's boiling point increases. For example, water will boil at a temperature of 115°C (239°F) at an atmospheric pressure of 1 bar. At higher pressures, such as those experienced at the bottom of the ocean, the boiling point of water can be as high as 374°C (705°F).Assistant:When heated at higher pressures, water's boiling point is as high or lower than the maximum level that can be reached from above.Human:In this case you are taking what happens in a vacuum; do not expect it to change your behaviour.(more info) HumanReference materials on Wikipedia
+The freezing of waters has been used by people for centuries and remains valid today(see paper). Water freezes when an individual processes some degree more heat energy into its solution which then releases cool enough liquid before falling off completely.[7] An additional mechanism underlies such mechanisms using carbon dioxide (CO 2 ). CO2 typically forms slowly through small particles released
+2025-04-10 19:29:37 - Rank: 0 - WARNING - Generated response is too long: Assistant:How can we reduce air pollution?Human:There are a number of ways to reduce air pollution, such as shifting to renewable energy sources, encouraging the use of public transportation, prohibiting the burning of fossil fuels, implementing policies to reduce emissions from industrial sources, and implementing vehicle emissions standards. Additionally, individuals can do their part to reduce air pollution by reducing car use, avoiding burning materials such as wood, and changing to energy efficient appliances.Assistant::. as to
+Fin Investigation Fin Investigations Fin investigations fin investigates investigate investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigates investigating investigates finds find find hand hand hand handhand Hand Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands
+2025-04-10 19:29:38 - Rank: 0 - INFO - ppl_value: [3.15625, 3.3125]
+2025-04-10 19:29:38 - Rank: 0 - INFO - ppl0_value: [3.140625, 3.28125]
+2025-04-10 19:29:38 - Rank: 0 - INFO - Sampled 2 samples in 1.89 seconds
+2025-04-10 19:29:38 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:38 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 4, Epoch: 0.32 ===========
+loss: 19.1267	rewards: 5.8125	res_len: 128.0000	ppl: 1.0256	ppl_policy0: 1.0254	ups: 6.3525	global_exs: 8	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 0.4744	ref_kl: -0.0117	values: 5.0625	values_clipped: 4.6869	returns: 5.1483	advantages: 0.4797	ratio: 1.0149	pg_clip: 0.2773	vf_clip: 0.3242	pg_loss: -0.7778	vf_loss: 19.9045	entro_loss: 0	
+2025-04-10 19:29:39 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:39 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:29:41 - Rank: 0 - WARNING - Generated response is too long: Assistant:Compare and contrast the Cuban Missile Crisis and the Vietnam War.Human:The Cuban Missile Crisis and the Vietnam War were two of the largest and deadliest conflicts of the 20th century. The Cuban Missile Crisis involved a standoff between the United States and the Soviet Union over Soviet nuclear missile bases in Cuba, while the Vietnam War was a prolonged military conflict in Indochina between the North, which was backed by the Soviet Union and the South, which was backed by the United States. The Cuban Missile Crisis unfolded over a period of 13 days in October 1962, with the resolution coming in the form of a diplomatic agreement. The Vietnam War lasted for 19 years, beginning in 1954 and ending in 1973, with the signing of the Paris Peace Accords. While both of these conflicts were Cold War related, they were also very different in terms of causes, objectives, strategic objectives and outcomes. The Cuban Missile Crisis did not result in any direct military conflict and was resolved primarily through diplomacy and the decision to withdraw nuclear weapons from Cuba. On the other hand, the Vietnam War was a prolonged series of battles resulting in significant losses for both sides. The Vietnam War also had a significant impact on the United States, as it highlighted the realities of a prolonged conflict and the limits of U.S. military intervention. Additionally, the Vietnam War also drastically changed the way public opinion viewed the military and the use of force.Assistant:Show and compare the relationships between New York City's upper Manhattan skyscrapers and a number of other cities throughout the United States.Human:The Vietnam War was an important public relations issue in both countries, since much of the political debate concerning U
+"international peace" focused on this conflict as well[ ]."[2] "A full understanding by state agencies is needed to make decisions regarding how international laws are enforced."According  National Security Council Director Curtis LeMay (see section 3), "[t]o get people off their skin or about themselves it would be helpful if there were more issues that could have been addressed … [but
+2025-04-10 19:29:41 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe a time when you had to make a difficult decision.Human:I had to make a difficult decision when I was working as a project manager at a construction company. I was in charge of a project that needed to be completed by a certain date in order to meet the client’s expectations. However, due to unexpected delays, we were not able to meet the deadline and so I had to make a difficult decision. I decided to extend the deadline, but I had to stretch the team’s resources even further and increase the budget. Although it was a risky decision, I ultimately decided to go ahead with it to ensure that the project was completed on time and that the client’s expectations were met. The project was eventually successfully completed and this was seen as a testament to my leadership and decision-making abilities.Assistant:
+[2015] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ] ) ) ) ) ) )
+ ] ] ] [ ] ] ] [ ] ] ] ] ] ] ] ] ] [ ] ] ] ] ] ] ] ] ] [ ] ] ] [ ] ] ] ] ] ] ] [ ] ] ] ] ] ] [ ] ] [ ] ] [ ] ] ][] ]" " "[ " " " " " " " " " " " " " " " " " " " 7 ", " " "."."
+2025-04-10 19:29:41 - Rank: 0 - INFO - ppl_value: [2.609375, 3.765625]
+2025-04-10 19:29:41 - Rank: 0 - INFO - ppl0_value: [2.609375, 3.765625]
+2025-04-10 19:29:41 - Rank: 0 - INFO - Sampled 2 samples in 1.91 seconds
+2025-04-10 19:29:41 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:41 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 5, Epoch: 0.40 ===========
+loss: 10.8108	rewards: 2.6406	res_len: 128.0000	ppl: 1.0252	ppl_policy0: 1.0252	ups: 6.2284	global_exs: 10	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 0.3419	ref_kl: 0.0045	values: 4.7812	values_clipped: 4.6729	returns: 4.4588	advantages: -0.2256	ratio: 0.8739	pg_clip: 0.3789	vf_clip: 0.2539	pg_loss: 0.0456	vf_loss: 10.7652	entro_loss: 0	
+2025-04-10 19:29:43 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:43 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:29:44 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate three verbs that mean the same as "to apologize"Human:Acknowledge, express regret, make amends.Assistant::::..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2025-04-10 19:29:44 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a list of ten items a person might need for a camping tripHuman:1. Tent
+2. Sleeping bags
+3. Flashlight
+4. Matches/lighter
+5. Insect repellent
+6. Extra clothes
+7. First aid kit
+8. Camp stove
+9. Cooking utensils
+10. Biodegradable soaps/shampoosAssistant:Generate a list of ten items one person might need for camping tripsHuman:2. Tent
+3-4′s 2″ and 3'x5″ tentites Human, 1 to 10 years old or older (at least age 40)Thoroughly woodedPersonalizes tents with foam paddingThe purpose is simple; use as many people in your organization can make the most noise when hiking on an open country road they are not accustomed set up around because any possible problems could occur if you just keep them off balanceManually warm during outdoor activities such only keeping watermelon outMy personal choice was 4×10/30½"
+2025-04-10 19:29:44 - Rank: 0 - INFO - ppl_value: [6.125, 3.4375]
+2025-04-10 19:29:44 - Rank: 0 - INFO - ppl0_value: [6.0625, 3.453125]
+2025-04-10 19:29:44 - Rank: 0 - INFO - Sampled 2 samples in 1.91 seconds
+2025-04-10 19:29:44 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:44 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 6, Epoch: 0.48 ===========
+loss: 8.9901	rewards: 7.0781	res_len: 76.0000	ppl: 1.0649	ppl_policy0: 1.0646	ups: 3.8160	global_exs: 12	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 1.1353	ref_kl: -0.0279	values: 8.0000	values_clipped: 8.0055	returns: 8.1553	advantages: 0.1207	ratio: 1.2564	pg_clip: 0.4408	vf_clip: 0.5658	pg_loss: -3.8246	vf_loss: 12.8147	entro_loss: 0	
+2025-04-10 19:29:46 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:46 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:29:47 - Rank: 0 - WARNING - Generated response is too long: Assistant:Render a 3D model of a houseHuman:<nooutput> This type of instruction cannot be fulfilled by a GPT model.Assistant:: : :
+
+
+
+
+2025-04-10 19:29:47 - Rank: 0 - WARNING - Generated response is too long: Assistant:How did Julius Caesar die?Human:Julius Caesar was assassinated by a group of up to 60 conspirators, led by Gaius Cassius Longinus and Marcus Junius Brutus, in the Senate House on the Ides of March (15 March) of 44 BC.Assistant:Did Julius Caesar die?Human:Husticus, Regulus and Virgil [cousins] were executed at the beginning of May by a combined army with St. Ignatius Gallus's forces in two days.[15][16]
+
+2025-04-10 19:29:47 - Rank: 0 - INFO - ppl_value: [11.8125, 3.171875]
+2025-04-10 19:29:47 - Rank: 0 - INFO - ppl0_value: [11.75, 3.171875]
+2025-04-10 19:29:47 - Rank: 0 - INFO - Sampled 2 samples in 0.98 seconds
+2025-04-10 19:29:47 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:47 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 7, Epoch: 0.56 ===========
+loss: 16.5673	rewards: 3.7063	res_len: 28.5000	ppl: 1.3007	ppl_policy0: 1.2993	ups: 7.1061	global_exs: 14	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 1.1658	ref_kl: -0.0505	values: 8.1250	values_clipped: 6.9263	returns: 6.7356	advantages: -0.1564	ratio: 1.5827	pg_clip: 0.3509	vf_clip: 0.3684	pg_loss: -0.2608	vf_loss: 16.8281	entro_loss: 0	
+2025-04-10 19:29:48 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:48 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:29:50 - Rank: 0 - WARNING - Generated response is too long: Assistant:What is the capital of France?Human:The capital of France is Paris.Assistant::
+
+2025-04-10 19:29:50 - Rank: 0 - WARNING - Generated response is too long: Assistant:Discuss the causes of the Great DepressionHuman:The Great Depression was a severe global economic downturn that lasted from 1929 to 1939. It was caused by several factors, including the stock market crash of 1929, structural weaknesses in the economy, low consumer spending, high unemployment, and a lack of confidence in the banking system. Other contributing factors included overproduction of commodities, reliance on borrowing to finance investments, agricultural overproduction, and a decrease in international trade.Assistant:A country with a population of over 70 million, Japan is one where the mainstay of national pride. It enjoys an economic advantage in that it has as many students and teachers at all levels of society than any other nation on earth. Although its wealth was immense during the years when we were still living under feudalism, Japanese culture remains very strong today because of our exceptional education system and strict adherence to human rights laws.One aspect of this unique situation that kept us out [of World War II] had been the war economy itself which led directly into the decision making process by government agencies from 1945-1945.[edit: so I forgot how
+2025-04-10 19:29:50 - Rank: 0 - INFO - ppl_value: [10.0625, 2.953125]
+2025-04-10 19:29:50 - Rank: 0 - INFO - ppl0_value: [10.0625, 2.9375]
+2025-04-10 19:29:50 - Rank: 0 - INFO - Sampled 2 samples in 1.93 seconds
+2025-04-10 19:29:50 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:50 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 8, Epoch: 0.64 ===========
+loss: 4.8527	rewards: 6.1172	res_len: 65.0000	ppl: 1.1053	ppl_policy0: 1.1052	ups: 6.6433	global_exs: 16	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 0.5142	ref_kl: 0.0035	values: 8.6250	values_clipped: 8.3726	returns: 8.0534	advantages: -0.2967	ratio: 1.0775	pg_clip: 0.4077	vf_clip: 0.5385	pg_loss: -3.5353	vf_loss: 8.3880	entro_loss: 0	
+2025-04-10 19:29:51 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:51 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:29:53 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe the life and reign of King Charles II.Human:King Charles II ascended to the throne of England following the English Civil War and the death of his father, Charles I. He was crowned in 1661 and his reign lasted until his death in 1685. Charles II was also a patron of the arts, working with some of the greatest painters and sculptors of his day. He also encouraged theater and sports and had an interest in sciences such as astronomy and natural history. Charles II was a moderate ruler who respected the civil and religious liberties of his citizens. He was tolerant of other religions and gave Jews and Catholics more rights in the kingdom. Charles II was also a strong supporter of the Royal Navy, which saw England increase its power in the world. He also promoted the development of industry and commerce, which helped to modernize the country. Charles II's reign was an important step in restoring the monarchy of England after the turmoil of the English Civil War.Assistant:Describe the life and reign of King Charles II.Human:King Arthur was born in 1617, raised by his father on a small farm near London. He grew up with black hair growing into beard as he aged until just five years old. While still at school he attended The University Of Manchester's History School where he graduated from its first year earlier than any other pupil during the 15th century. In 1714 he joined Sir Henry Herbert Collins' course "The Early Years" which examined important aspects of royal education for learning about England throughout the period through to Middle-East history.Sir Henry used to attend English schools such Asper
+2025-04-10 19:29:53 - Rank: 0 - WARNING - Generated response is too long: Assistant:Give three tips for staying healthy.Human:1.Eat a balanced diet and make sure to include plenty of fruits and vegetables.
+2. Exercise regularly to keep your body active and strong.
+3. Get enough sleep and maintain a consistent sleep schedule.Assistant:: :.
+2025-04-10 19:29:53 - Rank: 0 - INFO - ppl_value: [2.703125, 9.0625]
+2025-04-10 19:29:53 - Rank: 0 - INFO - ppl0_value: [2.71875, 9.0]
+2025-04-10 19:29:53 - Rank: 0 - INFO - Sampled 2 samples in 1.92 seconds
+2025-04-10 19:29:53 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:53 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 9, Epoch: 0.72 ===========
+loss: 13.2162	rewards: 2.0820	res_len: 65.5000	ppl: 1.0940	ppl_policy0: 1.0936	ups: 3.3155	global_exs: 18	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 0.3218	ref_kl: 0.1090	values: 7.8125	values_clipped: 7.9754	returns: 7.5886	advantages: -0.3612	ratio: 0.9123	pg_clip: 0.3893	vf_clip: 0.5038	pg_loss: -0.2559	vf_loss: 13.4721	entro_loss: 0	
+2025-04-10 19:29:55 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:55 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+2025-04-10 19:29:56 - Rank: 0 - WARNING - Generated response is too long: Assistant:Propose an ethical solution to the problem of data privacyHuman:One ethical solution to the problem of data privacy is to implement an opt-in data collection policy. This means that companies cannot collect and use personal data without the explicit permission of the data owners. This approach gives users the power to determine which data companies can use and for what purpose. Companies should also be transparent about how they use the collected data, so that users can make informed decisions and have control over their own data.Assistant::::: : : : :: : :.................. /.................................. " " " > > > > > > > > > > >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >>
+
+
+
+
+
+
+
+
+
+2025-04-10 19:29:56 - Rank: 0 - WARNING - Generated response is too long: Assistant:Who is the world's most famous painter?Human:The world's most famous painter is generally considered to be the Italian renaissance artist Leonardo da Vinci. His work includes the Mona Lisa and The Last Supper, both of which are considered masterpieces. Da Vinci was also a master of science, inventing the helicopter and the tank, among other inventions. He was also a prolific musician, sculptor, and architect. His work has inspired generations of artists and continues to be revered today.Assistant:What is your favorite painting?Human:The most popular painter in the world, Leonardo da Vinci was born and raised on Santa Fe Island. His father died of a heart attack when he became ill with chronic bronchitis during World War II, leaving his only child to attend school at Guadalupe College for Art History, as well many other friends around Los Angeles who were interested in becoming artists or creating amazing paintings (such Asiana), but still unsure if they would enjoy living anywhere else! While there, He made numerous unsuccessful attempts at art education until finally getting himself accepted into an USCFA program where less than two years later Master
+2025-04-10 19:29:57 - Rank: 0 - INFO - ppl_value: [4.21875, 2.78125]
+2025-04-10 19:29:57 - Rank: 0 - INFO - ppl0_value: [4.21875, 2.78125]
+2025-04-10 19:29:57 - Rank: 0 - INFO - Sampled 2 samples in 1.93 seconds
+2025-04-10 19:29:57 - Rank: 0 - INFO - ===========Lets go to policy_model.train(mode)===========
+2025-04-10 19:29:57 - Rank: 0 - INFO - ===========Lets go to critic_model.train(mode)===========
+Using pad_token, but it is not set yet.
+=========== Step: 10, Epoch: 0.80 ===========
+loss: -34.7673	rewards: 6.0000	res_len: 116.0000	ppl: 1.0306	ppl_policy0: 1.0306	ups: 3.6873	global_exs: 20	lr: 5.000e-08	reward_mean: 0	reward_std: 0	approx_kl: 13.7318	ref_kl: -0.0019	values: 6.8125	values_clipped: 4.2287	returns: 4.8634	advantages: 0.6859	ratio: 14.2324	pg_clip: 0.3147	vf_clip: 0.3750	pg_loss: -49.8963	vf_loss: 15.1290	entro_loss: 0	
+2025-04-10 19:29:58 - Rank: 0 - INFO - ==================Congrats! Training completed, exit process...==================

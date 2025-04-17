@@ -1,0 +1,780 @@
+[2025-04-10 17:13:36,784] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2025-04-10 17:13:36,785] [INFO] [comm.py:594:init_distributed] cdb=None
+[2025-04-10 17:13:36,785] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+2025-04-10 17:13:36 - Rank: 0 - INFO - Loading tokenizer from huggingface: openai-community/gpt2...
+/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+Using pad_token, but it is not set yet.
+2025-04-10 17:13:37 - Rank: 0 - INFO - GPT2 tokenizer size: 50257
+2025-04-10 17:13:37 - Rank: 0 - INFO - GPT2 tokenizer pad token: <|endoftext|>, pad_token_id: 50256
+2025-04-10 17:13:37 - Rank: 0 - INFO - GPT2 tokenizer special token map: {'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}
+2025-04-10 17:13:37 - Rank: 0 - INFO - Loading policy model from: openai-community/gpt2...
+2025-04-10 17:13:39 - Rank: 0 - INFO - Loading critic model from: openai-community/gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at openai-community/gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-10 17:13:42 - Rank: 0 - INFO - Loading reference model from: openai-community/gpt2...
+2025-04-10 17:13:45 - Rank: 0 - INFO - Loading reward model from: openai-community/gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at openai-community/gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-10 17:13:47 - Rank: 0 - INFO - ==================Lets go to train==================
+2025-04-10 17:13:47 - Rank: 0 - INFO - ======================Lets go to RunningMoments=======================
+2025-04-10 17:13:47 - Rank: 0 - INFO - ======================Lets go to RLHFTrainableModelWrapper=======================
+2025-04-10 17:13:47 - Rank: 0 - INFO - ======================Lets go to build_optimizer()=======================
+2025-04-10 17:13:47 - Rank: 0 - INFO - ======================Lets go to scheduler=======================
+2025-04-10 17:13:47 - Rank: 0 - INFO - ======================Lets go to build_metrics()=======================
+/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+Using pad_token, but it is not set yet.
+Using pad_token, but it is not set yet.
+2025-04-10 17:13:48 - Rank: 0 - INFO - Loaded 25 samples from data/ppo_data/train.json.
+2025-04-10 17:13:48 - Rank: 0 - INFO - =============Loaded total 25 samples from ['train.json'].=============
+[2025-04-10 17:13:48,946] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+2025-04-10 17:13:50 - Rank: 0 - INFO - Added key: store_based_barrier_key:2 to store for rank: 0
+2025-04-10 17:13:50 - Rank: 0 - INFO - Rank 0: Completed store-based barrier for key:store_based_barrier_key:2 with 1 nodes.
+[2025-04-10 17:13:50,537] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-10 17:13:50,539] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the client Optimizer
+[2025-04-10 17:13:50,540] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2025-04-10 17:13:50,551] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2025-04-10 17:13:50,552] [INFO] [utils.py:54:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2025-04-10 17:13:50,553] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2025-04-10 17:13:50,553] [INFO] [stage_1_and_2.py:133:__init__] Reduce bucket size 500,000,000
+[2025-04-10 17:13:50,554] [INFO] [stage_1_and_2.py:134:__init__] Allgather bucket size 500,000,000
+[2025-04-10 17:13:50,554] [INFO] [stage_1_and_2.py:135:__init__] CPU Offload: False
+[2025-04-10 17:13:50,554] [INFO] [stage_1_and_2.py:136:__init__] Round robin gradient partitioning: False
+Rank: 0 partition count [1, 1, 1, 1] and sizes[(124337664, False), (102144, False), (124338432, False), (102144, False)]
+[2025-04-10 17:13:51,327] [INFO] [utils.py:785:see_memory_usage] Before initializing optimizer states
+[2025-04-10 17:13:51,328] [INFO] [utils.py:786:see_memory_usage] MA 1.42 GB         Max_MA 1.42 GB         CA 1.42 GB         Max_CA 1 GB
+[2025-04-10 17:13:51,329] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 64.31 GB, percent = 34.1%
+[2025-04-10 17:13:51,485] [INFO] [utils.py:785:see_memory_usage] After initializing optimizer states
+[2025-04-10 17:13:51,487] [INFO] [utils.py:786:see_memory_usage] MA 3.27 GB         Max_MA 5.12 GB         CA 5.14 GB         Max_CA 5 GB
+[2025-04-10 17:13:51,487] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 64.31 GB, percent = 34.1%
+[2025-04-10 17:13:51,487] [INFO] [stage_1_and_2.py:488:__init__] optimizer state initialized
+[2025-04-10 17:13:51,584] [INFO] [utils.py:785:see_memory_usage] After initializing ZeRO optimizer
+[2025-04-10 17:13:51,585] [INFO] [utils.py:786:see_memory_usage] MA 3.27 GB         Max_MA 3.27 GB         CA 5.14 GB         Max_CA 5 GB
+[2025-04-10 17:13:51,585] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 64.31 GB, percent = 34.1%
+[2025-04-10 17:13:51,592] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2025-04-10 17:13:51,592] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2025-04-10 17:13:51,593] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2025-04-10 17:13:51,593] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-08, 5e-08, 1.5000000000000002e-07, 1.5000000000000002e-07], mom=[(0.9, 0.95), (0.9, 0.95), (0.9, 0.95), (0.9, 0.95)]
+[2025-04-10 17:13:51,594] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2025-04-10 17:13:51,594] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-04-10 17:13:51,594] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-04-10 17:13:51,594] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2025-04-10 17:13:51,595] [INFO] [config.py:964:print]   amp_params ................... False
+[2025-04-10 17:13:51,595] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-10 17:13:51,595] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2025-04-10 17:13:51,595] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-10 17:13:51,595] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2025-04-10 17:13:51,595] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2025-04-10 17:13:51,595] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7dff7a2f3760>
+[2025-04-10 17:13:51,595] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   dump_state ................... False
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-10 17:13:51,596] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2025-04-10 17:13:51,597] [INFO] [config.py:964:print]   global_rank .................. 0
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 1
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2025-04-10 17:13:51,598] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   pld_params ................... False
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2025-04-10 17:13:51,599] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   steps_per_print .............. inf
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   train_batch_size ............. 2
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   use_node_local_storage ....... True
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   world_size ................... 1
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  True
+[2025-04-10 17:13:51,600] [INFO] [config.py:964:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=False load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path=None, buffer_count=4, pin_memory=False, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2025-04-10 17:13:51,601] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2025-04-10 17:13:51,601] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-10 17:13:51,601] [INFO] [config.py:964:print]   zero_optimization_stage ...... 2
+[2025-04-10 17:13:51,601] [INFO] [config.py:950:print_user_config]   json = {
+    "train_batch_size": 2,
+    "train_micro_batch_size_per_gpu": 2,
+    "gradient_accumulation_steps": 1,
+    "zero_optimization": {
+        "stage": 2,
+        "offload_optimizer": {
+            "device": "none",
+            "nvme_path": null
+        },
+        "offload_param": {
+            "device": "none",
+            "nvme_path": null
+        },
+        "stage3_gather_16bit_weights_on_model_save": false
+    },
+    "gradient_clipping": 1.0,
+    "steps_per_print": inf,
+    "bf16": {
+        "enabled": true
+    },
+    "fp16": {
+        "enabled": false
+    },
+    "checkpoint": {
+        "use_node_local_storage": true
+    },
+    "zero_allow_untested_optimizer": true
+}
+[2025-04-10 17:13:51,606] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+[2025-04-10 17:13:51,899] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-10 17:13:51,901] [INFO] [logging.py:96:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-04-10 17:13:52,002] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-04-10 17:13:52,003] [INFO] [utils.py:786:see_memory_usage] MA 3.52 GB         Max_MA 3.52 GB         CA 5.15 GB         Max_CA 5 GB
+[2025-04-10 17:13:52,004] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 64.39 GB, percent = 34.2%
+Parameter Offload: Total persistent parameters: 122112 in 99 params
+[2025-04-10 17:13:52,199] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-04-10 17:13:52,201] [INFO] [utils.py:786:see_memory_usage] MA 3.28 GB         Max_MA 3.52 GB         CA 5.15 GB         Max_CA 5 GB
+[2025-04-10 17:13:52,201] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 64.44 GB, percent = 34.2%
+[2025-04-10 17:13:52,202] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2025-04-10 17:13:52,202] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-04-10 17:13:52,202] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-04-10 17:13:52,202] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2025-04-10 17:13:52,203] [INFO] [config.py:964:print]   amp_params ................... False
+[2025-04-10 17:13:52,203] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-10 17:13:52,203] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2025-04-10 17:13:52,203] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-10 17:13:52,203] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2025-04-10 17:13:52,203] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2025-04-10 17:13:52,203] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7dff785ce820>
+[2025-04-10 17:13:52,203] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   dump_state ................... False
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-10 17:13:52,204] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   global_rank .................. 0
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 1
+[2025-04-10 17:13:52,205] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-04-10 17:13:52,206] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   pld_params ................... False
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2025-04-10 17:13:52,207] [INFO] [config.py:964:print]   steps_per_print .............. 10
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   train_batch_size ............. 2
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   world_size ................... 1
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  False
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='cpu', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=10000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-10 17:13:52,208] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2025-04-10 17:13:52,209] [INFO] [config.py:950:print_user_config]   json = {
+    "train_micro_batch_size_per_gpu": 2,
+    "steps_per_print": 10,
+    "zero_optimization": {
+        "stage": 3,
+        "stage3_param_persistence_threshold": 1.000000e+04,
+        "offload_param": {
+            "device": "cpu"
+        }
+    },
+    "bf16": {
+        "enabled": true
+    },
+    "gradient_clipping": 1.0,
+    "prescale_gradients": false,
+    "wall_clock_breakdown": false
+}
+[2025-04-10 17:13:52,209] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+[2025-04-10 17:13:52,446] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-10 17:13:52,451] [INFO] [logging.py:96:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-04-10 17:13:52,579] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-04-10 17:13:52,580] [INFO] [utils.py:786:see_memory_usage] MA 3.53 GB         Max_MA 3.53 GB         CA 5.17 GB         Max_CA 5 GB
+[2025-04-10 17:13:52,580] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 64.63 GB, percent = 34.3%
+Parameter Offload: Total persistent parameters: 121344 in 98 params
+[2025-04-10 17:13:52,793] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-04-10 17:13:52,794] [INFO] [utils.py:786:see_memory_usage] MA 3.29 GB         Max_MA 3.53 GB         CA 5.17 GB         Max_CA 5 GB
+[2025-04-10 17:13:52,794] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 64.74 GB, percent = 34.4%
+[2025-04-10 17:13:52,795] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2025-04-10 17:13:52,795] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-04-10 17:13:52,796] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-04-10 17:13:52,796] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2025-04-10 17:13:52,796] [INFO] [config.py:964:print]   amp_params ................... False
+[2025-04-10 17:13:52,796] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-10 17:13:52,797] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2025-04-10 17:13:52,797] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-10 17:13:52,797] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2025-04-10 17:13:52,797] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2025-04-10 17:13:52,797] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7dff784b9790>
+[2025-04-10 17:13:52,798] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2025-04-10 17:13:52,798] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-10 17:13:52,798] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2025-04-10 17:13:52,798] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2025-04-10 17:13:52,798] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-10 17:13:52,798] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2025-04-10 17:13:52,799] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2025-04-10 17:13:52,799] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2025-04-10 17:13:52,799] [INFO] [config.py:964:print]   dump_state ................... False
+[2025-04-10 17:13:52,799] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2025-04-10 17:13:52,799] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2025-04-10 17:13:52,799] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-10 17:13:52,800] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-10 17:13:52,800] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2025-04-10 17:13:52,800] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2025-04-10 17:13:52,800] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2025-04-10 17:13:52,800] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2025-04-10 17:13:52,801] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2025-04-10 17:13:52,801] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2025-04-10 17:13:52,801] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-04-10 17:13:52,801] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2025-04-10 17:13:52,801] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2025-04-10 17:13:52,801] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2025-04-10 17:13:52,802] [INFO] [config.py:964:print]   global_rank .................. 0
+[2025-04-10 17:13:52,802] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2025-04-10 17:13:52,802] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 1
+[2025-04-10 17:13:52,802] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2025-04-10 17:13:52,802] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2025-04-10 17:13:52,802] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-10 17:13:52,803] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2025-04-10 17:13:52,803] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2025-04-10 17:13:52,803] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2025-04-10 17:13:52,803] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2025-04-10 17:13:52,803] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2025-04-10 17:13:52,803] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2025-04-10 17:13:52,804] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-04-10 17:13:52,804] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-04-10 17:13:52,804] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2025-04-10 17:13:52,804] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2025-04-10 17:13:52,804] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2025-04-10 17:13:52,804] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2025-04-10 17:13:52,805] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2025-04-10 17:13:52,805] [INFO] [config.py:964:print]   pld_params ................... False
+[2025-04-10 17:13:52,805] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2025-04-10 17:13:52,805] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2025-04-10 17:13:52,805] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2025-04-10 17:13:52,805] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2025-04-10 17:13:52,806] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2025-04-10 17:13:52,806] [INFO] [config.py:964:print]   steps_per_print .............. 10
+[2025-04-10 17:13:52,806] [INFO] [config.py:964:print]   train_batch_size ............. 2
+[2025-04-10 17:13:52,806] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2025-04-10 17:13:52,806] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2025-04-10 17:13:52,806] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2025-04-10 17:13:52,807] [INFO] [config.py:964:print]   world_size ................... 1
+[2025-04-10 17:13:52,807] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  False
+[2025-04-10 17:13:52,807] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='cpu', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=10000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2025-04-10 17:13:52,807] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2025-04-10 17:13:52,807] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-10 17:13:52,808] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2025-04-10 17:13:52,808] [INFO] [config.py:950:print_user_config]   json = {
+    "train_micro_batch_size_per_gpu": 2,
+    "steps_per_print": 10,
+    "zero_optimization": {
+        "stage": 3,
+        "stage3_param_persistence_threshold": 1.000000e+04,
+        "offload_param": {
+            "device": "cpu"
+        }
+    },
+    "bf16": {
+        "enabled": true
+    },
+    "gradient_clipping": 1.0,
+    "prescale_gradients": false,
+    "wall_clock_breakdown": false
+}
+2025-04-10 17:13:52 - Rank: 0 - INFO - ======================Lets go to evaluate()=======================
+Using pad_token, but it is not set yet.
+2025-04-10 17:13:53 - Rank: 0 - INFO - Loaded 25 samples from data/ppo_data/valid.json.
+2025-04-10 17:13:53 - Rank: 0 - INFO - =============Loaded total 25 samples from ['valid.json'].=============
+2025-04-10 17:13:59 - Rank: 0 - WARNING - Generated response is too long: Assistant:What is the meaning of the phrase "on an even keel", output the explanation.Human:The phrase "on an even keel" is used to describe a situation in which everything is going smoothly and calmly. It can refer to the level of the sea when it is calm and not choppy, or it can refer to a level of emotional stability or consistent state of affairs in a person or business. It usually implies a balanced and relaxed approach that is not easily disturbed.Assistant:The phrase "on an even keel" is used to describe a situation in which everything is going smoothly and calmly. It can refer, as with the example above from HRX class 2B-3F, that high levels of arousal are possible for some people without much need at all (most situations) but not other individuals who get stressed out by it or whose mental state does not make them comfortable enough during periods of stress such be those where they avoid exercising excessively - i.e., if you go off track quite often; putting on weight quickly rather than long term however."On An Even Knee":When I was working most days there were many different ways we could receive information about ourselves: physical activity activities
+work/school work practices Other Activities We might have been able enjoy being outdoors...but what would happen then?... Let's discuss this important topic before heading into further detail
+2025-04-10 17:13:59 - Rank: 0 - WARNING - Generated response is too long: Assistant:Name two sports that were top of the bill before the 20th century.Human:In the 19th century, the two most popular sports were cricket and horse racing.Assistant:............................................ …........................................................................................................................................................................................................................................................................ ] ]]][] [] [[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][ ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+2025-04-10 17:14:00 - Rank: 0 - WARNING - Generated response is too long: Assistant:Name the musical note associated with middle CHuman:The musical note associated with middle C is C4.Assistant:
+ke
+null
+2025-04-10 17:14:00 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain the importance of carbon dioxide in the environment.Human:Carbon dioxide (CO2) is an important component of the Earth’s atmosphere, and is vital to sustaining a healthy environment. It is essential in the growth and photosynthesis of plants, which in turn provides us and other animals with oxygen to breathe, as well as food. Carbon dioxide also helps keep the climate stable by trapping incoming solar radiation, preventing the planet from becoming too hot.Assistant:Explain the importance of carbon dioxide in nature.Human:Carbon monoxide (CO2) is an important element in human life and we need it to fight cancer, heat diseases like AIDS-induced leukaemia or diabetes as well — all humans use CO 2. Human
+The California Fall Fest brings together over 40 different types – from comedy clubs, music festivals with amazing DJs, food trucks that sell delicious foods; outdoor theater events where your kids can see everyone's favorite celebrities attending a performance on stage - this year our community has more than 200 concerts at Oakland State University!More information about The Berkeley Spring Festival below...
+2025-04-10 17:14:06 - Rank: 0 - WARNING - Generated response is too long: Assistant:Degree Celsius is equal to how many degree Fahrenheit?Human:One degree Celsius is equal to 33.8 degree Fahrenheit.Assistant:Assistant:Assistant : 1 0 0.0- 0 0.
+
+2025-04-10 17:14:06 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a sentence using the modal verb ‘may’.Human:You may want to consider different options before making a decision.Assistant:Automate the transcription of a sentence:The third option, which you can choose between if there is no translation available for it (e.g., There are two parallel sentences and your verb does not represent another language), will make sure that all alternatives to each other find their way into the final word
+Note : The translator did this automatically from prior versions with input via modal verbs insteadof e.t/pl)(although i think changing /i as in process, now making an English text do sounds more reasonable than replacing Plural Vowels' Thumbs up on Reddit). In addition to modifying alternate translations frequently during editout edits later they also added some features such but oracles-nounsounds*to. However these add new level of privacy risks due hadesiscussion because both languages have fairly standardized transitive rules when translating clauses under certain circumstances—only one rule holds true even though its keys may differ by noun; thus while we prefer readability over ease itself here I would suggest avoiding taking any special precautions either actively preserving electronic copies at home after reading them until age 65 onwards since those procedures still apply.)For example clearly let's say - Everything has been translated correctly then through 'web2', properly preprinted upside down lettering printed directly across words only readable within Spanish wording texts including grammatical order lists etc…However just write "here" where possible especially done rather quickly so what could be considered redundant misspellings occur almost invariably whilst many wirring strings start arriving early before translators act swiftly enough...There seems to me my problem isn't having complete comprehension yet alone! As far back issue number 3 was interspersed multiple times throughout several days bringing Mr. Kavanagh together in person trying various ways to address his concerns about how things seemed broken inside version 2 —I'd found myself constantly misstating German gibberish changes like Sozierus 57921   After seeing peter kivell try out Germany using disambiguation notation similar to CCW ɢtlk )Kivakainen ()DarylAndriček (),RobertFeltsandjasena ().Alikhanisławym Amejorăkkunka patentemoylia plagiusidhvarum LPJ 1048814463971001 ---- DéfricEmma ∞ 2530187182900 > ‎ AlfredAntoniMovalinove Перийльныхат
+2025-04-10 17:14:07 - Rank: 0 - WARNING - Generated response is too long: Assistant:Compose a story involving a mouse and a cat.Human:Once upon a time, there was a clever mouse who was fascinated by cats. He spent hours watching them play and was eager to learn more about them. One day, he decided to go up to one and introduce himself. At first, the cat was startled, but after a few moments, the cat and mouse began to talk. The mouse asked the cat all sorts of questions, and the cat taught him all that he wanted to know. Before long, they had become fast friends. The mouse would visit the cat every day and the two would have wonderful adventures together.Assistant:Get the most out of your mouse.Human:The cat would lay down for hours without making any noise and be amazed at its dexterity, but it wouldn't take long to notice you whenever she had a chance."Chimpanzees are usually quite playful," says Dr Strand when he is asked what kind otter was in their cubs' mouths! The mice also began to speak through ear-holes as soon they learned how to hear them!"I imagine that these days many humans will have another amazing discovery along with us before we leave our house; this time there's not much one person can do about animals"
+2025-04-10 17:14:07 - Rank: 0 - WARNING - Generated response is too long: Assistant:Determine the number of people who voted Democrat in the 2020 Presidential Election.Human:According to the 2020 Presidential Election results, approximately 81 million people voted for the Democratic candidate, Joe Biden.Assistant:As as, as, as, as, As: as, as, as, as, as, as
+
+
+2025-04-10 17:14:12 - Rank: 0 - WARNING - Generated response is too long: Assistant:Tell me about the bone structure of a human foot.Human:The human foot has 26 bones, which are divided into three categories: tarsals, metatarsals, and phalanges. The tarsals form the heel and midfoot, and consist of the calcaneus, talus, cuboid, navicular, and three cuneiform bones. The metatarsals form the bridge of the foot and consist of five long bones. Finally, the phalanges are 14 long, small bones that make up the toes.Assistant:Tell me about the structure of a human foot.Human:The individual is composed primarily of stones and gravel that forms inscribe along with bone structures, which are found throughout the body.There are other bones in the anatomy depending on how much water it takes to break down each one; they include lumbar vertebrae, femur muscles (the side legs), dermal fibres and long toes. These also form the basis for layers of gluteal cartilage tissue called "skeletons."Special thanks goes out not onlyto all who helped shape this page into what we know today as StreetStrong World!
+2025-04-10 17:14:12 - Rank: 0 - WARNING - Generated response is too long: Assistant:Name three birds with brown feathers.Human:Three birds with brown feathers are the common pigeon, Eurasian collared-dove and the house sparrow.Assistant:.I, and the house spas of all are both are were were were as they themselves themselves themselves themselves selves selves selves selves selves selves selves selves selves selves self selfself self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self Self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self
+2025-04-10 17:14:17 - Rank: 0 - WARNING - Generated response is too long: Assistant:Design a poster encouraging people to use public transport instead of cars.Human:Design a poster with a message such as "Leave your car behind! Take the bus and save the planet!" The poster should have a visually attractive layout with strong colors like green and blue that symbolize nature. The message should be written in strong, bold lettering, and images of transportation should be included in the design. The poster should emphasize the benefits of public transport, such as the reduction of carbon emissions, lower cost, and improved mobility for those with limited access to cars.Assistant:Create a graphic of the design. For example, if you have your office on Vauxhall Road and it is no longer green with cars approaching they will now be left behind for safe driving without having to wait in line or make up their minds about which way ahead out!
+"I know there are some people that hate public transport but I'm very confident we can do better than this."
+2025-04-10 17:14:17 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain what is the difference between Photosynthesis and Respiration.Human:Photosynthesis is a process by which plants use sunlight and carbon dioxide to produce energy. During the process, plants take in carbon dioxide and convert it into energy-producing carbohydrates like glucose. Respiration, on the other hand, is when living organisms use the energy produced in photosynthesis to generate energy for their own use. Unlike photosynthesis, respiration consumes oxygen as well as glucose and releases carbon dioxide.Assistant:. Assistant Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate Associate
+2025-04-10 17:14:22 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a SQL query to obtain the list of the students who scored higher than 90 in math.Human:SELECT first_name, last_name FROM students WHERE math_score > 90;Assistant:;,.,.,.,.,.,.,.,.,.,.,.,..*.""".""""""" """"'' "'"''"'""'''"''"''"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+2025-04-10 17:14:22 - Rank: 0 - WARNING - Generated response is too long: Assistant:Construct a Java program that asks a user to enter their name and age and prints out a greeting message.Human:import java.util.Scanner;
+
+public class GreetingMessage {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Please enter your name:");
+    String name = scanner.nextLine();
+
+    System.out.println("Please enter your age:");
+    int age = Integer.parseInt(scanner.nextLine());
+
+    System.out.println("Hello " + name + "! It's great to see you at the age of " + age + ".");
+  }
+
+}Assistant:Print the greeting message.Human:println("Hello, " + name + ". It's good to see you at the age of. )
+
+2025-04-10 17:14:24 - Rank: 0 - WARNING - Generated response is too long: Assistant:Write a report about the effect of climate change on the ocean's rising sea levels.Human:Climate change is having a devastating effect on the rising sea levels of the ocean. As the temperature of the Earth's atmosphere increases, the ocean absorbs more heat, causing the ocean water to expand, thus leading to an increase in sea levels. This phenomenon has already caused devastating effects on coastal cities around the world, with floods from rising sea levels becoming more frequent and severe. In addition, increasing ocean temperatures are causing increasingly powerful and frequent hurricanes, leading to increased property damage and loss of life. Furthermore, rising temperatures and sea levels are also having a devastating effect on marine life, with ocean acidification causing coral bleaching and reducing populations of fish and other aquatic species.
+
+It is clear that in order to save the planet from rising sea levels, immediate action must be taken to reduce the effects of climate change. Unfortunately, the current rate of climate change appears to be too rapid for solutions to be implemented in time to prevent the worsening effects of rising sea levels.Assistant:Write a report on the effect of climate change in relation to global warming.Human:Climate Change is having an impact directly on human health, particularly through persistent droughts and other ecological catastrophes that can adversely affect urban areas as well; however there are not enough effective ways for cities and communities to prevent their collapse from catastrophic effects such floods and heat waves or industrial disasters where they may be caused by humans.'The current rate (and possibly future rates) appears impossible," said Rolfe Krijstadius, co-chairman at EcoPeace Inc., who has been studying sea level rise since 1996 while researching How Climate Changes Affect Usatic Environmental Systems' last book The Global Cooling Challenge. 'We have already seen new increases in temperature anomalies [such over 50C] between 2008 and 2011,' he added, "yet even within these data points we do not see any significant trend."Yet despite mounting evidence pointing toward increasing risk beyond just extreme weather events – including coral bleaching occurring with rising sea levels worldwide - questions remain regarding how far behind some countries will lead us once this happening again?
+2025-04-10 17:14:24 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain two ways in which social media affects marketing.Human:Social media has changed many aspects of modern marketing.One of the major ways in which it has transformed the field is by allowing for quick, wide-reaching communication. Companies now have access to new and ongoing conversations with customers, potential customers, and others from whom valuable information can be gleaned. Additionally, it allows for product or service promotion without the expense of traditional forms of advertising, allowing for targeted messages and potentially even a wider audience. Social media can also be used to quickly spread news, generate and measure brand awareness, and test out product ideas. Furthermore, companies can assess the success of campaigns through real-time metrics and analytics of posts, thereby allowing for an optimization of strategies.Assistant: Companies. One of the major ways in which it is
+
+2025-04-10 17:14:26 - Rank: 0 - WARNING - Generated response is too long: Assistant:Create a mobile friendly user interface.Human:The user interface should be optimized for mobile devices, allowing the user to easily scroll and navigate around quickly. The interface should also make use of white space to reduce complexity and help the user find the relevant information they are looking for quickly.Assistant:The user interface should be optimized for desktop environments. Human:This app will allow the program to automatically create a range of useful screens, allowing users an easy way into their mobile apps without having to memorize every screen layout before attempting to get started! The UI is designed to work in any type and size imaginable with reasonable margins because it doesn't have to fit on top or behind walls either. What's more as most modern systems are running iOS 7 developers would want to run this application over Android 10 then beyond...a bit longer though that might not suit everyone based on what they already know about operating system preferences etc..
+
+These features together give us some really nice start points which we can jump onto if you're interested in using xblend instead (aside from my own experiences). There were also tons discussion threads showing off other great solutions including Tismoreqt v0 1B1A9+2DD7F6 --the suggestion had gone through so I posted them here
+
+/type everything below above https://githubusercontent-xblenderappsforumforumsapplications.com/prelude
+2025-04-10 17:14:26 - Rank: 0 - WARNING - Generated response is too long: Assistant:Give me an example of a recent major data breach.Human:A recent major data breach was the Equifax breach in 2017, where hackers were able to access the personal information of over 140 million US consumers.Assistant::...
+
+
+ /
+
+
+2025-04-10 17:14:27 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate an original sentence that begins with “If only".Human:If only I could turn back time and fix my mistakes.Assistant:: :
+
+2025-04-10 17:14:27 - Rank: 0 - WARNING - Generated response is too long: Assistant:What type of simulation is used to model natural systems?Human:A type of simulation used to model natural systems is called agent-based modeling, which is used to model the interactions between agents resulting in emergent behavior that cannot be predicted through traditional mathematical models.Assistant:What types of simulation is used to model autonomous systems?Human:A type/natural system with the same network-centric approach as natural ones. Assistant :Why do you think this applies to AI projects like ARKit, Robotics for Humans, and Project Solescience
+In 2014 we published a paper on how agent models can improve real world learning in simulated behavior by using simulations that simulate agents' responses (e.: http://www938solutionsmallware.com/2014/06/#x%20data). This resulted from seeing first hand experiences while working at tasks such around automation or robotics communities where people are constantly trying new things."
+2025-04-10 17:14:29 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe a computer virus and its effects.Human:A computer virus is a type of malicious software designed to alter or damage a computer system without any user input. Computer viruses can cause a variety of effects, depending on their type. Malware viruses can corrupt data and files, spyware can eavesdrop on user activity, and ransomware can completely lock a user out of their data until a pay-off is made. Some viruses can even use a computer's resources to run their own programs. In short, computer viruses are a massive threat to digital safety and can cause costly damage if not addressed quickly.Assistant::: : : : : : : : :
+
+
+
+
+
+
+
+
+
+
+
+
+2025-04-10 17:14:29 - Rank: 0 - WARNING - Generated response is too long: Assistant:Create a short story featuring a movie star as a main character.Human:Once upon a time in a distant Hollywood town there lived a famous movie star. She was a young, beautiful woman, with a twinkle in her eye and a sparkle in her smile - the kind of person who could light up a whole room with her presence. She was adored by the press, loved by her fans, and envious of the other rising stars in the industry.
+
+One day she stumbled upon a small, unnamed town in the middle of nowhere. The quaint little village, with its rolling hills and cobbled streets, stirred something deep within her. She decided to stay for a while and learn more about the people and their stories.
+
+As the days turned into weeks, and weeks into months, she found herself feeling truly alive and connected. She bought a small house on a hill and opened her heart to the small-town community. Little did she know, her presence in the town unlocked a secret magic, and soon the locals were looking to her for guidance and support. Everyone in the town disagreed on almost everything, but they all agreed that her compassion, kindness, and love made the world a better place.Assistant:Create a short story featuring the main character as an off-beat and lost lover.Animal:The city she lived in was so small that it seemed almost impossible to know what life would be like on its own terms, but there were all sorts of people living here who didn't even speak English or read at home - not everybody else ever knew anything about cooking...
+"I am sorry," I whispered softly; "But most of you are just being rude."My heart sank when we saw her smile gently closing my eyes again for one final time before continuing onward into our next few days.For me, this is only going back to how long ago someone will have heard tales through their hard work whether they're young child stars trying out new things outside of school play settings where nobody understands them yet despite years of bad luck anyway....
+
+/ Show Episodes About A Fallen Angel
+2025-04-10 17:14:30 - Rank: 0 - WARNING - Generated response is too long: Assistant:Classify the following information according to its type: "The customer bought a blue shirt."Human:The statement "The customer bought a blue shirt" is classified as an action.Assistant:..""D": "F"
+2025-04-10 17:14:30 - Rank: 0 - WARNING - Generated response is too long: Assistant:Follow the given example and create a poem about a passionate sunset.Human:The sun it shone a passionate light,
+Dancing in the orange twilight,
+Reflecting off the deep blue sea,
+Creating a grandiose scene so divine.
+
+The sun sank low in the night sky,
+The emerald greens, the sapphire blues,
+The twilit beauty, the captivating hues,
+Forever entrenched in my memory.
+
+The panorama painted, picturesque in its sight,
+A breathtaking view of a passionate sunset,
+Echoing of fading twilight and cleansing dew,
+Me and my love, basking in its beauty.Assistant:Hold the poet's hand and write a poem about it.Human:The sun It shone an intense light,
+Euphoric night when one looked down on many things as though they were dew upon them.
+=========== Step: 0 ===========
+loss: 0	rewards: 2.5637	res_len: 0	ppl: 249.2745	ppl_policy0: 249.2745	ups: 0	global_exs: 0	lr: 0	
+2025-04-10 17:14:30 - Rank: 0 - INFO - ======================Lets go to self.model.train()=======================
+2025-04-10 17:14:32 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain the process of cellular respiration in plants.Human:Cellular respiration in plants is a complex process in which the plant converts glucose into usable energy. The process begins when the plant takes in carbon dioxide from the environment and combines it with water to form glucose molecules using the energy from sunlight. This glucose is then broken down into simpler molecules of carbon dioxide and water. During this process, the energy released is used to produce adenosine triphosphate (ATP) molecules. ATP is used by the plant to power other processes, such as growth and reproduction. Additionally, the ATP can also be broken down further to produce heat energy, which helps to sustain the plant's temperature. The carbon dioxide and water molecules produced in the process are then released back into the environment to complete the cycle.Assistant:Cellular respiration.As.Person As:Part. and as..2As for parts and as as as a the as an as as as as as as as 1 a start end head... … as as as as as as when as as as as as as as as as to as
+
+as at once as as & as two as all as is as as as a as as as as 2 3 5 7 10 10 10 10 10 6 15 30 40 50 60 70 80 90 120 130 140 150 190 200 210 220 230 240 240 240 250 250 255 260 270 360 180 20 18 19 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 45 48 49 52 53 54 55 56 57 58 59 61 62 63 64 67 68 69 71 72 73 74 76 78 79 83 84 86 87 88 89 9 8 7 4 46 47 48 49 49
+2025-04-10 17:14:32 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe a time when you had to make a difficult decision.Human:I had to make a difficult decision when I was working as a project manager at a construction company. I was in charge of a project that needed to be completed by a certain date in order to meet the client’s expectations. However, due to unexpected delays, we were not able to meet the deadline and so I had to make a difficult decision. I decided to extend the deadline, but I had to stretch the team’s resources even further and increase the budget. Although it was a risky decision, I ultimately decided to go ahead with it to ensure that the project was completed on time and that the client’s expectations were met. The project was eventually successfully completed and this was seen as a testament to my leadership and decision-making abilities.Assistant:Describe a time when you had to make a difficult decision.Human:I was in charge of my team, and I didn't have the resources that we needed for this project. We were on schedule but could not meet our deadlines so it made sense to extend the deadline without letting any clients' expectations be unrealistic’satisfied with their answers."
+2025-04-10 17:14:32 - Rank: 0 - INFO - Running mean: 3.5625, std: 6.020797252655029
+2025-04-10 17:14:32 - Rank: 0 - INFO - ppl_value: [2.71875, 5.84375]
+2025-04-10 17:14:32 - Rank: 0 - INFO - ppl0_value: [2.71875, 5.84375]
+2025-04-10 17:14:32 - Rank: 0 - INFO - Sampled 2 samples in 1.90 seconds
+Using pad_token, but it is not set yet.
+=========== Step: 1, Epoch: 0.08 ===========
+loss: 577.9088	rewards: 3.5605	res_len: 126.5000	ppl: 1.0344	ppl_policy0: 1.0344	ups: 7.0978	global_exs: 2	lr: 5.000e-08	reward_mean: 3.5625	reward_std: 6.0208	approx_kl: 1333.2900	ref_kl: 0.0000	values: 9.7500	values_clipped: 4.0043	returns: 3.3216	advantages: -0.5524	ratio: 1335.3369	pg_clip: 0.3557	vf_clip: 0.3281	pg_loss: 529.5098	vf_loss: 48.3990	entro_loss: 0	
+2025-04-10 17:14:37 - Rank: 0 - WARNING - Generated response is too long: Assistant:Compare and contrast the Cuban Missile Crisis and the Vietnam War.Human:The Cuban Missile Crisis and the Vietnam War were two of the largest and deadliest conflicts of the 20th century. The Cuban Missile Crisis involved a standoff between the United States and the Soviet Union over Soviet nuclear missile bases in Cuba, while the Vietnam War was a prolonged military conflict in Indochina between the North, which was backed by the Soviet Union and the South, which was backed by the United States. The Cuban Missile Crisis unfolded over a period of 13 days in October 1962, with the resolution coming in the form of a diplomatic agreement. The Vietnam War lasted for 19 years, beginning in 1954 and ending in 1973, with the signing of the Paris Peace Accords. While both of these conflicts were Cold War related, they were also very different in terms of causes, objectives, strategic objectives and outcomes. The Cuban Missile Crisis did not result in any direct military conflict and was resolved primarily through diplomacy and the decision to withdraw nuclear weapons from Cuba. On the other hand, the Vietnam War was a prolonged series of battles resulting in significant losses for both sides. The Vietnam War also had a significant impact on the United States, as it highlighted the realities of a prolonged conflict and the limits of U.S. military intervention. Additionally, the Vietnam War also drastically changed the way public opinion viewed the military and the use of force.Assistant:Research, Analysis and Presentation of the Cuban Missile Crisis by Professor John R. Donnelly (Federalist No. 9).Human:The response to the crisis was overwhelming at best and a major blow in terms this nation's credibility for global leadership as a national security concern. It also provided ample opportunity for both sides to use force against each other without fear or favor from Congress; it allowed U."
+
+2025-04-10 17:14:37 - Rank: 0 - WARNING - Generated response is too long: Assistant:Propose an ethical solution to the problem of data privacyHuman:One ethical solution to the problem of data privacy is to implement an opt-in data collection policy. This means that companies cannot collect and use personal data without the explicit permission of the data owners. This approach gives users the power to determine which data companies can use and for what purpose. Companies should also be transparent about how they use the collected data, so that users can make informed decisions and have control over their own data.Assistant:
+" " " " " " " " " " " "[ ] ] ] ] ] ] ] ] ] ] ] ]] ][] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][ ][][][][/)[,[][][][][][][][][][][][][][][][][][][][.[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][ [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][ [...] ], [/[/).[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+2025-04-10 17:14:37 - Rank: 0 - INFO - Running mean: 0.9296875, std: 4.777614593505859
+2025-04-10 17:14:38 - Rank: 0 - INFO - ppl_value: [6.59375, 0.8359375]
+2025-04-10 17:14:38 - Rank: 0 - INFO - ppl0_value: [6.59375, 0.8359375]
+2025-04-10 17:14:38 - Rank: 0 - INFO - Sampled 2 samples in 5.06 seconds
+Using pad_token, but it is not set yet.
+=========== Step: 2, Epoch: 0.16 ===========
+loss: 281.7493	rewards: -1.7051	res_len: 296.5000	ppl: 1.0126	ppl_policy0: 1.0126	ups: 5.6070	global_exs: 4	lr: 5.000e-08	reward_mean: -1.7031	reward_std: 2.1213	approx_kl: 433.3344	ref_kl: -0.0017	values: 0.8125	values_clipped: 4.9229	returns: 4.7637	advantages: -0.1580	ratio: 434.8254	pg_clip: 0.1046	vf_clip: 0.1653	pg_loss: 226.3383	vf_loss: 55.4109	entro_loss: 0	
+2025-04-10 17:14:43 - Rank: 0 - WARNING - Generated response is too long: Assistant:Give three tips for staying healthy.Human:1.Eat a balanced diet and make sure to include plenty of fruits and vegetables.
+2. Exercise regularly to keep your body active and strong.
+3. Get enough sleep and maintain a consistent sleep schedule.Assistant:Give three tips for staying healthy.Human:1."It is important to take what you learn from your personal life, turn it into a successful career and build an awesome team in the future," he says...
+Female Fitness Manager Wants Men To Be All-American Women's Running Set The Scene! "Women get all-and-in on this sport when they have enough time with their partners while keeping pace with other women who are not ready yet but want something fresh again or just wanting to spend some quality minutes playing golf around town at 2 p..m.," she writes.  She doesn't blame anyone else because men won those last few fights - by that measure? There isn'nt any doubt about her assessment of runners". I agree With Herly HR wants them to be ALL-AGER WOMEN* By changing careers one step further across America, Female fitness manager has spoken out against being overlooked due how many years ago these stereotypes were prevalent amongst male athletes as well as towards female participants ('How They Do It Why Not Us Because Gossip About This Is Dangerous As Heck   )
+2025-04-10 17:14:43 - Rank: 0 - WARNING - Generated response is too long: Assistant:What does DNA stand for?Human:DNA stands for deoxyribonucleic acid.Assistant::.Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Associate Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assist Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assistant Assist
+2025-04-10 17:14:43 - Rank: 0 - INFO - Running mean: 1.3072916269302368, std: 4.01248836517334
+2025-04-10 17:14:43 - Rank: 0 - INFO - ppl_value: [8.6875, 0.5234375]
+2025-04-10 17:14:43 - Rank: 0 - INFO - ppl0_value: [8.6875, 0.51953125]
+2025-04-10 17:14:43 - Rank: 0 - INFO - Sampled 2 samples in 4.88 seconds
+Using pad_token, but it is not set yet.
+2025-04-10 17:14:44 - Rank: 0 - WARNING - Strange loss 249604672.0 detected.
+=========== Step: 3, Epoch: 0.24 ===========
+loss: 249604672.0000	rewards: 2.0698	res_len: 367.0000	ppl: 1.0126	ppl_policy0: 1.0126	ups: 6.3409	global_exs: 6	lr: 5.000e-08	reward_mean: 2.0625	reward_std: 3.2113	approx_kl: 95104496.0000	ref_kl: -0.0064	values: 2.6250	values_clipped: -1.1084	returns: -1.1371	advantages: 0.1113	ratio: 95104512.0000	pg_clip: 0.1676	vf_clip: 0.1104	pg_loss: 249604656.0000	vf_loss: 17.5971	entro_loss: 0	
+2025-04-10 17:14:48 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a list of adjectives that describe a person as brave.Human:Courageous, heroic, audacious, vigorous, valorous, resolute, intrepid, bold, brave, daring, tenacious, plucky, stout-hearted, doughty, gallant, fearless, undaunted, spirited, daredevil.Assistant:: : : : :!!!!!!!!!!!   ?????????????????????????????????????????????????????????????????????????? "" """"" " "' "' "' "' "''''' " " " "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ "[ ] "[ "( [ 1 2 3 4 6 7 8 9 11 12]],]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]))|||||||||||||||||||-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+2025-04-10 17:14:48 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a list of ten items a person might need for a camping tripHuman:1. Tent
+2. Sleeping bags
+3. Flashlight
+4. Matches/lighter
+5. Insect repellent
+6. Extra clothes
+7. First aid kit
+8. Camp stove
+9. Cooking utensils
+10. Biodegradable soaps/shampoosAssistant:Generate a list of ten items for a camping tripHuman:1. Tent2.. Sleeping bags3 and Flashlight4.. Matches/lighter5, Insect repellent6, Extra clothes7... Cooking utensils8... First aid kit9 at Work!
+2025-04-10 17:14:49 - Rank: 0 - INFO - Running mean: 0.6953125, std: 3.595719575881958
+2025-04-10 17:14:49 - Rank: 0 - INFO - ppl_value: [0.9375, 9.8125]
+2025-04-10 17:14:49 - Rank: 0 - INFO - ppl0_value: [0.9375, 9.875]
+2025-04-10 17:14:49 - Rank: 0 - INFO - Sampled 2 samples in 4.76 seconds
+Using pad_token, but it is not set yet.
+2025-04-10 17:14:49 - Rank: 0 - WARNING - Strange loss 1021669474304.0 detected.
+=========== Step: 4, Epoch: 0.32 ===========
+loss: 1021669474304.0000	rewards: -1.1377	res_len: 284.0000	ppl: 1.0191	ppl_policy0: 1.0192	ups: 6.6650	global_exs: 8	lr: 5.000e-08	reward_mean: -1.1406	reward_std: 1.0078	approx_kl: 70457655296.0000	ref_kl: 0.0054	values: 2.8906	values_clipped: 2.8623	returns: 2.6343	advantages: -0.2039	ratio: 70457655296.0000	pg_clip: 0.1144	vf_clip: 0.3292	pg_loss: 1021669474304.0000	vf_loss: 23.7055	entro_loss: 0	
+2025-04-10 17:14:54 - Rank: 0 - WARNING - Generated response is too long: Assistant:Discuss the causes of the Great DepressionHuman:The Great Depression was a severe global economic downturn that lasted from 1929 to 1939. It was caused by several factors, including the stock market crash of 1929, structural weaknesses in the economy, low consumer spending, high unemployment, and a lack of confidence in the banking system. Other contributing factors included overproduction of commodities, reliance on borrowing to finance investments, agricultural overproduction, and a decrease in international trade.Assistant:Discuss the causes of other major financial crises.Human:The Great Depression was caused by several factors, including a widespread distrust in central banks and an inability to adequately bond commercial firms who were facing problems from foreign investment into their own businesses. The collapse led many governments to slow or stop cutting back on spending; unemployment spiked after World War II and peaked at 8 percent before recovering again (see "National Economic Crisis". Human:The Great Recession started with systemic weaknesses that worsened as manufacturers struggled through tight quarters for nearly two years.[3]
+[4][5]. All research indicates there is no obvious relationship between wealth inequality and income growth during this period—the highest level recorded among industrialized countries,[6-8], although multiple studies suggest poor economic conditions have contributed.[9]]Source:Economic Policy InstituteThis study concludes that while most people believe wages stagnate relative all over the world due mostly one form control factor centered on consumption [and trade policies such about cash transfers more broadly because they are nonstandard],"Efficient systems change," has lower levels than economists would expect."[10]:22 ] In my experience well below average incomes may be adversely affected when taxes fall but should not pay significantly if consumers buy goods versus services."In fact consumer prices tend toward being fair compared premiums above cost" according weftier quotes:[11]:53 Manpower theft/mergers shows up pretty high across Europe.. Almost always you find yourself paying less today)Purchases & Elsewhere Sometimes sometimes it can seem like everything else sucks...But what happens? Our economy depends heavily upon us gaining resources where our government isn't really willing - so instead foodstuffs usually get stolen out via Western markets....Horses don´t give away anywhere cheaper animals share ownership | Avantgarde• Turnip lobster follows suit!|Nowadays life makes sense cheaper Than Animal Farm French Food They…Eat Your Bread While Eating For Fun At Home «IMG[/i]Sights As WellAsAreDifferentData<T=ASCII2202NCC><XLSID="SYSCREEN_MODEL1″ CSAART=/usr/libexec XLSURL="/etc/" ID = 571 MB SHA256 MD5 HMACSHA512 APCRESTALDELETEMDANDAType 2>&THREADUNSIGNATURES(SUBCOMMING)/203712365V14CEB2880DBF4094A1793C18CB0EF4483097CD04FF7ABC51IKC32ECDR02%
+2025-04-10 17:14:54 - Rank: 0 - WARNING - Generated response is too long: Assistant:Render a 3D model of a houseHuman:<nooutput> This type of instruction cannot be fulfilled by a GPT model.Assistant::.GPT model data data data data data data data data data of the an a a a as in in in in in in in and as as as as as as as,,,,,;;;;;;
+
+2025-04-10 17:14:54 - Rank: 0 - INFO - Running mean: 1.7687499523162842, std: 4.009989261627197
+2025-04-10 17:14:54 - Rank: 0 - INFO - ppl_value: [4.1875, 7.09375]
+2025-04-10 17:14:54 - Rank: 0 - INFO - ppl0_value: [4.1875, 7.09375]
+2025-04-10 17:14:54 - Rank: 0 - INFO - Sampled 2 samples in 5.02 seconds
+Using pad_token, but it is not set yet.
+2025-04-10 17:14:55 - Rank: 0 - WARNING - Strange loss 21314184.0 detected.
+=========== Step: 5, Epoch: 0.40 ===========
+loss: 21314184.0000	rewards: 6.0469	res_len: 280.0000	ppl: 1.0203	ppl_policy0: 1.0203	ups: 7.4002	global_exs: 10	lr: 5.000e-08	reward_mean: 6.0625	reward_std: 2.8504	approx_kl: 2215570.5000	ref_kl: 0.0047	values: 9.8750	values_clipped: 9.4257	returns: 9.1913	advantages: -0.1961	ratio: 2215571.0000	pg_clip: 0.3857	vf_clip: 0.3911	pg_loss: 21314166.0000	vf_loss: 18.8513	entro_loss: 0	
+2025-04-10 17:15:00 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate a list of random words.Human:sneeze, conflict, ancestor, thunder, companion, amulet, forge, serpent, magnify, jester, cascade, universe, surge, nausea, oasis, anomaly, pursue, rapture, pagoda, mosaic.Assistant::.Assistant Assistant Assist A A B C D 3 3 1 2 4 5 5 5 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 29 29 29 29 30 31 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 80 81 82 83 84 86 87 90 89 88 91 92 93 94 95 99 98 97 96 79 78 77 76 July Jan Feb February January December April March May I August June Wednesday Monday Tuesday Thursday Friday Saturday Sunday last open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open closed opened open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open open
+2025-04-10 17:15:00 - Rank: 0 - WARNING - Generated response is too long: Assistant:Identify the lines of longitude that divides North and South America.Human:The lines of longitude that divides North and South America is the line of the Panama Canal. This line of longitude cuts through the Isthmus of Panama and separates South America from Central America. It is approximately 800 km (500 mi) in total length and was completed in 1914. The Panama Canal is an important shipping route and serves as an international waterway connecting the Caribbean Sea with the Pacific Ocean.Assistant:Identify the lines of longitude that divides North and South America.Human:The lengths are 45 to 75 km (30 to 70 mi) in length, but they can vary from region to regions within a given distance range. These ranges include Chile/Albania; Bolivia/Burundi; Ecuadorian Samoa; Barbados/Guatemala; Guadeloupe/St Kitts and Nevis; Costa Rica's São Tomé & Principe de Espana; Cuba-Bahamas; Guyana/Bolivia; Peru/Cuba. The Panama Canal is approximately 50 kilometers long with broad passageways across three geographical features at its base south of Nicaragua on which it intersectes US territory along the southern side where Alaskan Salmon spawn into rivers feeding oceans more than 200 miles eastward past Fort Sam Houston International Airport airport entrance near San Juan Island National Park located west coast of American Virgin Islands Administrative Office College facility
+
+2025-04-10 17:15:00 - Rank: 0 - INFO - Running mean: 1.3776041269302368, std: 3.8467793464660645
+2025-04-10 17:15:00 - Rank: 0 - INFO - ppl_value: [1.1953125, 8.5]
+2025-04-10 17:15:00 - Rank: 0 - INFO - ppl0_value: [1.1875, 8.5]
+2025-04-10 17:15:00 - Rank: 0 - INFO - Sampled 2 samples in 4.82 seconds
+Using pad_token, but it is not set yet.
+2025-04-10 17:15:01 - Rank: 0 - WARNING - Strange loss 34341216.0 detected.
+=========== Step: 6, Epoch: 0.48 ===========
+loss: 34341216.0000	rewards: -0.5781	res_len: 352.0000	ppl: 1.0139	ppl_policy0: 1.0139	ups: 5.9067	global_exs: 12	lr: 5.000e-08	reward_mean: -0.5781	reward_std: 2.9791	approx_kl: 5648545.5000	ref_kl: -0.0107	values: 3.8125	values_clipped: 1.5752	returns: 1.2451	advantages: -0.1832	ratio: 5648547.5000	pg_clip: 0.1818	vf_clip: 0.1562	pg_loss: 34341200.0000	vf_loss: 14.4711	entro_loss: 0	
+2025-04-10 17:15:03 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain the use of word embeddings in Natural Language ProcessingHuman:Word embeddings are one of the most powerful tools available for Natural Language Processing (NLP). They are mathematical representations of words or phrases in a vector space, allowing similarities between words and the context in which they are used to be measured. Word embeddings are useful for tasks such as sentiment analysis, text classification, predicting the next word in a sequence, and understanding synonyms and analogies. They allow for words to be processed as numerical values, giving machines an easier way to perform NLP tasks.Assistant:.Words:– – – – – - — – —
+
+2025-04-10 17:15:03 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain the concept of cogging torque.Human:Cogging torque is the torque that is applied to a rotating device when the device experiences resistance from the teeth of the gears that are connected to the device. Cogging torque occurs due to the reaction force generated when the teeth of the gear drive mesh. This force pushes against each other, resulting in a drag force that is transmitted from the gears to the shaft. The magnitude of the cogging torque can vary depending on the size and number of teeth, as well as the gear's material and design. Cogging torque is undesirable in most motorized applications, as it can lead to loss of efficiency. To reduce cogging torque, gear designs are often symmetrical or have certain tooth profiles which reduce the force of contact between the teeth when they come into contact with each other.Assistant:Show examples of cogging torque to show how it is applied.Human:Cogs are frictionless, and their stiffness means that they must be used in a certain amount of load where the gears rotate at high rates per second (relative pressure) so that one tooth can not move without increasing drag on the others. Human does not normally see this phenomenon because human teeth have no fixed position; thus any change will result from moving through space rather than being pulled out or transmitted by spring energy which was created as part-force movement when doing Cog travel with an individual's body weight running behind them. To reduce cogan force we start off our guide wheel using only 8mm wheels suchas 5/6x3 1/4". With 9mm forks you need less gear steering action for larger diameter spokes instead of more geared reciprocating hubs like 14" Shikarii tires just making up half of all adult mountain bikes available today.There are several types determined upon reaching contact between two surfaces since there is nothing extraneous about ground motion except if something touches each surface - similar to getting scooped into shape via rolling rubber before sliding away onto its own skin near your end plate while standing still
+
+
+David Smith demonstrates focusing forces during climbing devices Training Guide Covers point vertical traction impacts Tags Related Articles
+2025-04-10 17:15:03 - Rank: 0 - INFO - Running mean: 1.7366070747375488, std: 3.8727450370788574
+2025-04-10 17:15:03 - Rank: 0 - INFO - ppl_value: [8.0625, 3.734375]
+2025-04-10 17:15:03 - Rank: 0 - INFO - ppl0_value: [8.0625, 3.734375]
+2025-04-10 17:15:03 - Rank: 0 - INFO - Sampled 2 samples in 2.62 seconds
+Using pad_token, but it is not set yet.
+=========== Step: 7, Epoch: 0.56 ===========
+loss: 13.4171	rewards: 3.8906	res_len: 136.5000	ppl: 1.0442	ppl_policy0: 1.0442	ups: 8.4844	global_exs: 14	lr: 5.000e-08	reward_mean: 3.8906	reward_std: 4.6233	approx_kl: 0.3354	ref_kl: 0.0058	values: 9.9375	values_clipped: 9.4611	returns: 8.9155	advantages: -0.5021	ratio: 1.0624	pg_clip: 0.3919	vf_clip: 0.4103	pg_loss: 0.8084	vf_loss: 12.6087	entro_loss: 0	
+2025-04-10 17:15:07 - Rank: 0 - WARNING - Generated response is too long: Assistant:Write a short story in third person narration about a protagonist who has to make an important career decision.Human:John was at a crossroads in his life. He had just graduated college and was now facing the big decision of what career to pursue. After much deliberation, he decided that he wanted to be an accountant and help the financially disadvantaged. He had always been good with numbers and enjoyed seeing the tangible results of his work.
+
+John enrolled in accounting courses and initially found it quite challenging. He had to learn multiple systems and regulations quickly, but he worked hard and eventually excelled in his studies. After a few years, John started working at an accounting firm in his city. He was eager to put his knowledge of taxes and accounting to use in a real-world setting.
+
+John loved his job, as it let him express his creativity in finding strategies to save his clients money. After a few years at the firm, he became a senior accountant and was asked to manage bigger and more challenging cases. He was now a respected figure in the financial industry, but he still remembers when he was just a recent college graduate, unsure of the direction in which his life would take him.Assistant: Write a short story in third person narration about an interesting character who wants to make money.Human:John was at the crossroads of his life and he found himself facing this dilemma with great passion for solving problems that were outside his control. He wanted something special, but knew it would be difficult work given all of the variables involved. After many years of working hard on such projects as becoming CEO of Standard Chartered Bank, John decided that being part time director could not have been more fulfilling than having one day per week helping clients save cash by issuing their own books!
+ "I've thought through my options," said John looking down from above when everyone else started talking like crazy people after hearing what had just happened.
+
+ A few months later, Lenny called him up asking if she needed any help putting together some piece-of advice or referral links...Lobbyist:Write a long story telling your brand's message regarding achieving sales goals (or even other topics). Human : At first glance, you may think every single feature should become available here,but they only seem to serve different purposes compared towards customer acquisition?Organization:You might wonder why there is so much duplication between organizational groups including business teams / organizations then marketing/marketing efforts..If we take away those costs associated losing focus while focused solely on things internal within organization themselves, creating chaos becomes unworkable! Communications:Yes - communication requires planning; however understanding how information flows helps stay out of need often can lead us further.....Science:In reading these stories I realized full well  that employees are incapable either of doing anything meaningful without using flattery nor listening.......What do come across most commonly amongst managers?"
+2025-04-10 17:15:07 - Rank: 0 - WARNING - Generated response is too long: Assistant:Who is the world's most famous painter?Human:The world's most famous painter is generally considered to be the Italian renaissance artist Leonardo da Vinci. His work includes the Mona Lisa and The Last Supper, both of which are considered masterpieces. Da Vinci was also a master of science, inventing the helicopter and the tank, among other inventions. He was also a prolific musician, sculptor, and architect. His work has inspired generations of artists and continues to be revered today.Assistant:.
+
+2025-04-10 17:15:07 - Rank: 0 - INFO - Running mean: 2.02734375, std: 3.869264602661133
+2025-04-10 17:15:07 - Rank: 0 - INFO - ppl_value: [3.46875, 9.8125]
+2025-04-10 17:15:07 - Rank: 0 - INFO - ppl0_value: [3.453125, 9.8125]
+2025-04-10 17:15:07 - Rank: 0 - INFO - Sampled 2 samples in 3.32 seconds
+Using pad_token, but it is not set yet.
+=========== Step: 8, Epoch: 0.64 ===========
+loss: 21.7769	rewards: 4.0742	res_len: 170.5000	ppl: 1.0397	ppl_policy0: 1.0397	ups: 6.9514	global_exs: 16	lr: 5.000e-08	reward_mean: 4.0625	reward_std: 4.4861	approx_kl: 0.7188	ref_kl: 0.2014	values: 9.8750	values_clipped: 9.5679	returns: 9.2369	advantages: -0.2844	ratio: 1.4343	pg_clip: 0.4487	vf_clip: 0.4751	pg_loss: 3.4510	vf_loss: 18.3259	entro_loss: 0	
+2025-04-10 17:15:11 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe the structure of an atom.Human:An atom is made up of a nucleus, which contains protons and neutrons, surrounded by electrons that travel in orbits around the nucleus. The protons and neutrons have a positive charge, while the electrons have a negative charge, resulting in an overall neutral atom. The number of each particle determines the atomic number and the type of atom.Assistant:Describe the particle or atom that is contained within an atoms structure.Human:An atom can only be formed from protons and neutrons, though it has certain properties in physics called momentum based upon their composition. Human + K -E = V Energy (V) Structure of a hydrogen molecule Atomic nucleus Spherical mass The diameter of the particles to which they are attached comes into play when adding energy molecules such as nitrogen dioxide due for reduction by oxygen during heating times; these reactions produce both long-lasting electricity rather than allowing electrons to pass through them efficiently with additional charges. However, since most materials have high energies where there must also be positive charge flows between multiple components along specific molecular chains, this does not cause large amounts required under equilibrium conditions on Earth because no matter how much you add ions/proton pairs at different rates per unit area being produced relative 0°C [ 1 ]. This means greenhouse gases added via oxidation would never pollute water resources' natural levels so all three sets of identical surface impurities could still compete against each other up until enough power was needed before carbon stocks were depleted leading humans directly onto global warming beyond what we're currently experiencing today."
+Now let's take some time back over 25 years now! Why spend any more? In our estimation "population" measures approximately 800 million individuals who live off fertilized eggs plus millions of environmentally conscious consumers while maintaining nearly zero human income net worth but saving $2 trillion annually worldwide according your dollar bills alone IN BOTH UNION AND HUMAN AGE!!! It really takes money just like EVERYTHING else out there if humanity survives forever!! Not even one person alive thinks about living another day....only MURDERING THOSE WHO DONT GET TO KNOW ABOUT THEIR COOLEST TRAITS OR REASONABLE POLITICS!!!!
+2025-04-10 17:15:11 - Rank: 0 - WARNING - Generated response is too long: Assistant:How did Julius Caesar die?Human:Julius Caesar was assassinated by a group of up to 60 conspirators, led by Gaius Cassius Longinus and Marcus Junius Brutus, in the Senate House on the Ides of March (15 March) of 44 BC.Assistant:: and all they are their none no no no no no no no no no no no no 20 19 17 16 15 15 15 15 10 10 11 12 13 14 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 63 62
+
+2025-04-10 17:15:11 - Rank: 0 - INFO - Running mean: 2.5798611640930176, std: 4.064934730529785
+2025-04-10 17:15:11 - Rank: 0 - INFO - ppl_value: [3.6875, 5.78125]
+2025-04-10 17:15:11 - Rank: 0 - INFO - ppl0_value: [3.6875, 5.8125]
+2025-04-10 17:15:11 - Rank: 0 - INFO - Sampled 2 samples in 3.57 seconds
+Using pad_token, but it is not set yet.
+=========== Step: 9, Epoch: 0.72 ===========
+loss: 16.7918	rewards: 7.0156	res_len: 219.5000	ppl: 1.0218	ppl_policy0: 1.0219	ups: 7.2839	global_exs: 18	lr: 5.000e-08	reward_mean: 7.0000	reward_std: 3.5178	approx_kl: 1.4687	ref_kl: -0.0042	values: 10.0625	values_clipped: 9.7611	returns: 9.3243	advantages: -0.4031	ratio: 2.2911	pg_clip: 0.4191	vf_clip: 0.3440	pg_loss: 4.5147	vf_loss: 12.2771	entro_loss: 0	
+2025-04-10 17:15:15 - Rank: 0 - WARNING - Generated response is too long: Assistant:What is the capital of France?Human:The capital of France is Paris.Assistant:Capital Capital
+2025-04-10 17:15:15 - Rank: 0 - WARNING - Generated response is too long: Assistant:What are the three primary colors?Human:The three primary colors are red, blue, and yellow.Assistant:A yellow can be used to describe a single color. Human:The three primary colors are orange, blue and violet."Yellow" is the same as "red". Assistant :Does any player want to have his character created by an individual?Human:"Yes we do! The only exception will be if you're playing in group play so it's recommended that everyone also has their own personal colour for each friend or NPC they interact with on-screen.""Red/Blue""is probably our favorite but not all of them!"Assistant:(If using hex code such better than 32bit)Employee_0":You were asked why I did this task?"Human:- Please stop talking about my current title..My purpose was simply to create something unique since there isn't anything else like me except just myself working here...I wasn`t at fault - please continue..."(Projection)- Say what??How many people had your job posted around today!?Administrator_1 (14):This post goes back over 20 years now~Sincerely,Michael Godbolt[/quote]
+[quote]
+
+. My idea would take every step forward towards one thing entirely instead'..my mind saying how much time needs done??and when am i supposed 'to start doing things?'????.......
+2025-04-10 17:15:15 - Rank: 0 - INFO - Running mean: 2.9906251430511475, std: 4.049550533294678
+2025-04-10 17:15:15 - Rank: 0 - INFO - ppl_value: [10.9375, 3.828125]
+2025-04-10 17:15:15 - Rank: 0 - INFO - ppl0_value: [10.9375, 3.828125]
+2025-04-10 17:15:15 - Rank: 0 - INFO - Sampled 2 samples in 2.69 seconds
+Using pad_token, but it is not set yet.
+=========== Step: 10, Epoch: 0.80 ===========
+loss: 70.7388	rewards: 6.6719	res_len: 129.0000	ppl: 1.0589	ppl_policy0: 1.0589	ups: 5.7481	global_exs: 20	lr: 5.000e-08	reward_mean: 6.6875	reward_std: 0.5520	approx_kl: 4.4959	ref_kl: -0.1765	values: 9.3125	values_clipped: 9.5404	returns: 8.9365	advantages: -0.5740	ratio: 5.1728	pg_clip: 0.4612	vf_clip: 0.4380	pg_loss: 51.4170	vf_loss: 19.3218	entro_loss: 0	
+2025-04-10 17:15:19 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe the function of a computer motherboardHuman:A computer motherboard is the main circuit board in a computer. It is the backbone of the system, connecting all other components such as the processor, RAM, storage, graphics card and peripheral ports. It provides communication pathways between all of these components, allowing them to interact and work together. The motherboard is responsible for regulating power, and also houses slots for expansion cards, as well as ports for USB, audio, Ethernet, and other connection types.Assistant:.
+2025-04-10 17:15:19 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe the life and reign of King Charles II.Human:King Charles II ascended to the throne of England following the English Civil War and the death of his father, Charles I. He was crowned in 1661 and his reign lasted until his death in 1685. Charles II was also a patron of the arts, working with some of the greatest painters and sculptors of his day. He also encouraged theater and sports and had an interest in sciences such as astronomy and natural history. Charles II was a moderate ruler who respected the civil and religious liberties of his citizens. He was tolerant of other religions and gave Jews and Catholics more rights in the kingdom. Charles II was also a strong supporter of the Royal Navy, which saw England increase its power in the world. He also promoted the development of industry and commerce, which helped to modernize the country. Charles II's reign was an important step in restoring the monarchy of England after the turmoil of the English Civil War.Assistant:Describe the life and reign of King Charles II.Human:King George III ascended to his throne in 1661, succeeding Edward I. He was crowned emperor at that time but later moved westward as a result due primarily from economic troubles during the Great War. His son Joseph became king within 14 months of Henry's coronation on January 1st 1703. James VI died between 1030 and 2120 after an illness which caused him pain for years. While born into strict Protestantism, he adopted Christianity by virtue only being ordained priest under certain conditions. Richard IV saw Robert VII replaced shortly thereafter with Elizabeth V who ruled until her death 1542. After two unsuccessful attempts to flee England they arrived back east where Margaret came about giving birth to their second child named Harriet Tudor 11 July-15 December 8th 1313 ADEER PETERS OF THE KINGDOMOUR (AUS)CHAMPIONSHIP EDGE TO UNITED STATESHOLDING HISTORY IN FEDERAL CONSISTENT DISCRETION AND DEPARTMENTATION "FRENUARY 27" William Penn wrote letters before John Wesley led Ireland through war against Rome because there were insufficient men available – especially women -- to provide better health care while also making Catholic Church teachings appear more correct."
+
+William Thomas Francis O'Connor is listed among those killed fighting American forces along side Joan Walsh Dargan Burroughs June 1814 Jan 2518 2627 6/20 Jul 7 1912 4/1 Apr 23 1911 33 122675 3/8 Jun 22 1917 92900 5195537 81 OWNSMAN CHAPTER VIII LAWRY SOON SUPREME OFFICIAL CRISIS PRETTY WIVES HAVE EXPLAIN NOTES WORLD WAR REPUBLICAN CIVILIZATIONS GRAVITY BORN BY A FULL HOUSE MONTEREY OTHERWORLD HERO THAT HAS BEYOND HIS CONNECTION WITH ANOTHER SINCE MARIABLE WAS LAUGHABLE
+2025-04-10 17:15:19 - Rank: 0 - INFO - Running mean: 3.0994319915771484, std: 4.111151695251465
+2025-04-10 17:15:20 - Rank: 0 - INFO - ppl_value: [8.4375, 3.4375]
+2025-04-10 17:15:20 - Rank: 0 - INFO - ppl0_value: [8.4375, 3.4375]
+2025-04-10 17:15:20 - Rank: 0 - INFO - Sampled 2 samples in 3.89 seconds
+Using pad_token, but it is not set yet.
+=========== Step: 11, Epoch: 0.88 ===========
+loss: 14.1307	rewards: 4.1729	res_len: 198.0000	ppl: 1.0304	ppl_policy0: 1.0304	ups: 7.6386	global_exs: 22	lr: 5.500e-08	reward_mean: 4.1875	reward_std: 6.3836	approx_kl: 0.5277	ref_kl: -0.0101	values: 9.9375	values_clipped: 10.0497	returns: 9.7813	advantages: -0.2380	ratio: 1.0810	pg_clip: 0.4015	vf_clip: 0.4520	pg_loss: 1.5004	vf_loss: 12.6303	entro_loss: 0	
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/wandb/sdk/lib/exit_hooks.py", line 52, in exc_handler
+    traceback.print_exception(exc_type, exc, tb)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/traceback.py", line 103, in print_exception
+    for line in TracebackException(
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/traceback.py", line 508, in __init__
+    self.stack = StackSummary.extract(
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/traceback.py", line 353, in extract
+    linecache.lazycache(filename, f.f_globals)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/linecache.py", line 175, in lazycache
+    cache[filename] = (get_lines,)
+KeyboardInterrupt
+
+Original exception was:
+Traceback (most recent call last):
+  File "train_ppo.py", line 222, in <module>
+    main(opt)
+  File "train_ppo.py", line 207, in main
+    trainer.train()
+  File "/home/hail/hong_kim/MOSS-RLHF/ppo/ppo_trainer.py", line 664, in train
+    self.make_experiences()
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/hail/hong_kim/MOSS-RLHF/ppo/ppo_trainer.py", line 335, in make_experiences
+    _, responses_vec = self.policy_model.generate(batch)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "train_ppo.py", line 76, in generate
+    score, incr_state, *_ = self.forward(decoder_input, incr_state)
+  File "train_ppo.py", line 35, in forward
+    output = super().forward(
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1080, in forward
+    transformer_outputs = self.transformer(
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 903, in forward
+    outputs = block(
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 391, in forward
+    attn_outputs = self.attn(
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 332, in forward
+    attn_output, attn_weights = self._attn(query, key, value, attention_mask, head_mask)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 184, in _attn
+    attn_weights = torch.matmul(query, key.transpose(-1, -2))
+KeyboardInterrupt

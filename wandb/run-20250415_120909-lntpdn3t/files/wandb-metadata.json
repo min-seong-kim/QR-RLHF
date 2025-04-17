@@ -1,0 +1,60 @@
+{
+  "os": "Linux-6.8.0-52-generic-x86_64-with-glibc2.17",
+  "python": "CPython 3.8.20",
+  "startedAt": "2025-04-15T03:09:09.945482Z",
+  "program": "/home/hail/hong_kim/MOSS-RLHF/train_ppo.py",
+  "codePath": "train_ppo.py",
+  "git": {
+    "remote": "https://github.com/OpenLMLab/MOSS-RLHF.git",
+    "commit": "4865d826fc6705dfdf1894aede00b4c81dabb24b"
+  },
+  "email": "hmin7781@gmail.com",
+  "root": "/home/hail/hong_kim/MOSS-RLHF",
+  "host": "4090-4way-tyan",
+  "executable": "/home/hail/anaconda3/envs/testminsik/bin/python",
+  "codePathLocal": "train_ppo.py",
+  "cpu_count": 24,
+  "cpu_count_logical": 48,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_count": 4,
+  "disk": {
+    "/": {
+      "total": "1967317549056",
+      "used": "1048021733376"
+    }
+  },
+  "memory": {
+    "total": "202339004416"
+  },
+  "cpu": {
+    "count": 24,
+    "countLogical": 48
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada"
+    },
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada"
+    },
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada"
+    },
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada"
+    }
+  ],
+  "cudaVersion": "12.4"
+}

@@ -1,0 +1,11 @@
+{"time":"2025-04-08T18:23:11.599278691+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250408_182311-dqcv22yd/logs/debug-core.log"}
+{"time":"2025-04-08T18:23:12.017475473+09:00","level":"INFO","msg":"created new stream","id":"dqcv22yd"}
+{"time":"2025-04-08T18:23:12.017533263+09:00","level":"INFO","msg":"stream: started","id":"dqcv22yd"}
+{"time":"2025-04-08T18:23:12.018585053+09:00","level":"INFO","msg":"sender: started","stream_id":"dqcv22yd"}
+{"time":"2025-04-08T18:23:12.018651213+09:00","level":"INFO","msg":"handler: started","stream_id":"dqcv22yd"}
+{"time":"2025-04-08T18:23:12.018674133+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"dqcv22yd"}
+{"time":"2025-04-08T18:23:12.346595172+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T18:33:47.815871436+09:00","level":"INFO","msg":"stream: closing","id":"dqcv22yd"}
+{"time":"2025-04-08T18:33:47.815898676+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T18:33:47.816064362+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T18:33:49.745954921+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}

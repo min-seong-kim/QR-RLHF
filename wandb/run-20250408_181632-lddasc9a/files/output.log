@@ -1,0 +1,27 @@
+[2025-04-08 18:16:32,896] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2025-04-08 18:16:32,897] [INFO] [comm.py:594:init_distributed] cdb=None
+[2025-04-08 18:16:32,897] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+2025-04-08 18:16:32 - Rank: 0 - INFO - Loading tokenizer from huggingface: openai-community/gpt2...
+/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+Using pad_token, but it is not set yet.
+2025-04-08 18:16:33 - Rank: 0 - INFO - GPT2 tokenizer size: 50257
+2025-04-08 18:16:33 - Rank: 0 - INFO - GPT2 tokenizer pad token: <|endoftext|>, pad_token_id: 50256
+2025-04-08 18:16:33 - Rank: 0 - INFO - GPT2 tokenizer special token map: {'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}
+2025-04-08 18:16:33 - Rank: 0 - INFO - Loading policy model from: openai-community/gpt2...
+2025-04-08 18:16:36 - Rank: 0 - INFO - Loading critic model from: openai-community/gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at openai-community/gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-08 18:16:39 - Rank: 0 - INFO - Loading reference model from: openai-community/gpt2...
+2025-04-08 18:16:42 - Rank: 0 - INFO - Loading reward model from: openai-community/gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at openai-community/gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "train_ppo.py", line 397, in <module>
+    main(opt)
+  File "train_ppo.py", line 381, in main
+    trainer = PPOTrainer(opt, policy_model, ref_model, critic_model, reward_model, accelerator)
+  File "/home/hail/hong_kim/MOSS-RLHF/ppo/ppo_trainer.py", line 87, in __init__
+    self.train_metrics = self.build_metrics('train')
+  File "/home/hail/hong_kim/MOSS-RLHF/ppo/ppo_trainer.py", line 150, in build_metrics
+    'loss': metrics.get_metric('loss').compute(),
+AttributeError: 'Metrics' object has no attribute 'get_metric'

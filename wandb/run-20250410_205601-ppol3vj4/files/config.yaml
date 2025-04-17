@@ -1,0 +1,130 @@
+_wandb:
+    value:
+        cli_version: 0.19.9
+        m: []
+        python_version: 3.8.20
+        t:
+            "1":
+                - 1
+                - 11
+                - 49
+                - 55
+                - 71
+            "2":
+                - 1
+                - 11
+                - 49
+                - 55
+                - 71
+            "3":
+                - 13
+                - 16
+                - 23
+                - 55
+            "4": 3.8.20
+            "5": 0.19.9
+            "6": 4.30.2
+            "8":
+                - 5
+            "12": 0.19.9
+            "13": linux-x86_64
+advantage_clip:
+    value: 0.5
+batch_size:
+    value: 2
+beta1:
+    value: 0.9
+beta2:
+    value: 0.95
+critic_lr:
+    value: 1.5e-06
+critic_model_path:
+    value: openai-community/gpt2
+data_path:
+    value: data/ppo_data
+entropy_clip:
+    value: 35
+entropy_loss_weight:
+    value: 0
+eps:
+    value: 1e-06
+gamma:
+    value: 1
+gradient_checkpoint:
+    value: true
+kl_penalty_weight:
+    value: 0.01
+lam:
+    value: 0.95
+lang:
+    value: en
+logdir:
+    value: outputs/tensorboard_log/ppo/ppo_model_en
+lr:
+    value: 5e-07
+maxlen_prompt:
+    value: 2048
+maxlen_res:
+    value: 512
+model_save_path:
+    value: /home/hail/hong_kim/MOSS-RLHF/outputs/models/ppo/ppo_model_en
+num_prefetch:
+    value: 32
+num_rollouts:
+    value: 2
+num_workers:
+    value: 1
+pg_clip:
+    value: 0.2
+policy_model_path:
+    value: openai-community/gpt2
+ppo_pretrain_batch_size_ratio:
+    value: 1
+ppo_pretrain_data_path:
+    value: ""
+ppo_pretrain_data_type:
+    value: sft
+ppo_pretrain_loss_weight:
+    value: 0
+repetition_penalty:
+    value: 1.1
+reward_clip:
+    value: 0
+rollout_batch_size:
+    value: 2
+save_per_step:
+    value: 100
+seed:
+    value: 42
+temperature:
+    value: 0.8
+tokenizer_name_or_path:
+    value: openai-community/gpt2
+topp:
+    value: 0.9
+train_steps:
+    value: 100
+use_advantage_clip:
+    value: false
+use_advantage_norm:
+    value: false
+use_critic_loss_clip:
+    value: true
+use_entropy_loss:
+    value: false
+use_policy_loss_clip:
+    value: true
+use_ppo_pretrain_loss:
+    value: false
+use_reward_clip:
+    value: false
+use_reward_norm:
+    value: false
+use_reward_scaling:
+    value: true
+value_clip:
+    value: 0.2
+vf_loss_weight:
+    value: 1
+warmup_steps:
+    value: 100

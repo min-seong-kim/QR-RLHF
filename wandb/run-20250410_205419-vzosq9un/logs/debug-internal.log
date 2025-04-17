@@ -1,0 +1,15 @@
+{"time":"2025-04-10T20:54:19.577912597+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_205419-vzosq9un/logs/debug-core.log"}
+{"time":"2025-04-10T20:54:19.897131813+09:00","level":"INFO","msg":"created new stream","id":"vzosq9un"}
+{"time":"2025-04-10T20:54:19.897177383+09:00","level":"INFO","msg":"stream: started","id":"vzosq9un"}
+{"time":"2025-04-10T20:54:19.89844486+09:00","level":"INFO","msg":"handler: started","stream_id":"vzosq9un"}
+{"time":"2025-04-10T20:54:19.898530219+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"vzosq9un"}
+{"time":"2025-04-10T20:54:19.898792766+09:00","level":"INFO","msg":"sender: started","stream_id":"vzosq9un"}
+{"time":"2025-04-10T20:54:20.201056021+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T20:54:44.296839698+09:00","level":"INFO","msg":"stream: closing","id":"vzosq9un"}
+{"time":"2025-04-10T20:54:44.296885208+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T20:54:44.297149875+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-10T20:54:45.307562251+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-10T20:54:45.763507517+09:00","level":"INFO","msg":"handler: closed","stream_id":"vzosq9un"}
+{"time":"2025-04-10T20:54:45.763565066+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"vzosq9un"}
+{"time":"2025-04-10T20:54:45.763629555+09:00","level":"INFO","msg":"sender: closed","stream_id":"vzosq9un"}
+{"time":"2025-04-10T20:54:45.763640635+09:00","level":"INFO","msg":"stream: closed","id":"vzosq9un"}

@@ -1,0 +1,10 @@
+{"time":"2025-04-10T19:30:39.797072489+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_193039-krgagdns/logs/debug-core.log"}
+{"time":"2025-04-10T19:30:40.219460608+09:00","level":"INFO","msg":"created new stream","id":"krgagdns"}
+{"time":"2025-04-10T19:30:40.219509117+09:00","level":"INFO","msg":"stream: started","id":"krgagdns"}
+{"time":"2025-04-10T19:30:40.219639726+09:00","level":"INFO","msg":"sender: started","stream_id":"krgagdns"}
+{"time":"2025-04-10T19:30:40.219706694+09:00","level":"INFO","msg":"handler: started","stream_id":"krgagdns"}
+{"time":"2025-04-10T19:30:40.219725634+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"krgagdns"}
+{"time":"2025-04-10T19:30:40.873156302+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T19:37:04.994565748+09:00","level":"INFO","msg":"stream: closing","id":"krgagdns"}
+{"time":"2025-04-10T19:37:04.994591387+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T19:37:04.994637607+09:00","level":"INFO","msg":"Stopped system monitor"}

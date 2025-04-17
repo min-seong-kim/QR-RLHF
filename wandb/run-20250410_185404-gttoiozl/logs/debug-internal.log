@@ -1,0 +1,15 @@
+{"time":"2025-04-10T18:54:04.88154667+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_185404-gttoiozl/logs/debug-core.log"}
+{"time":"2025-04-10T18:54:05.286746875+09:00","level":"INFO","msg":"created new stream","id":"gttoiozl"}
+{"time":"2025-04-10T18:54:05.286791946+09:00","level":"INFO","msg":"stream: started","id":"gttoiozl"}
+{"time":"2025-04-10T18:54:05.286830336+09:00","level":"INFO","msg":"handler: started","stream_id":"gttoiozl"}
+{"time":"2025-04-10T18:54:05.286840846+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"gttoiozl"}
+{"time":"2025-04-10T18:54:05.286881396+09:00","level":"INFO","msg":"sender: started","stream_id":"gttoiozl"}
+{"time":"2025-04-10T18:54:05.659376616+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T18:57:28.024539632+09:00","level":"INFO","msg":"stream: closing","id":"gttoiozl"}
+{"time":"2025-04-10T18:57:28.024572643+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T18:57:28.024600492+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-10T18:57:29.234200388+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-10T18:57:29.55643949+09:00","level":"INFO","msg":"handler: closed","stream_id":"gttoiozl"}
+{"time":"2025-04-10T18:57:29.55650333+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"gttoiozl"}
+{"time":"2025-04-10T18:57:29.55658842+09:00","level":"INFO","msg":"sender: closed","stream_id":"gttoiozl"}
+{"time":"2025-04-10T18:57:29.5566034+09:00","level":"INFO","msg":"stream: closed","id":"gttoiozl"}

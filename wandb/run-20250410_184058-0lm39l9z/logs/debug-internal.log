@@ -1,0 +1,9 @@
+{"time":"2025-04-10T18:40:58.182505817+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_184058-0lm39l9z/logs/debug-core.log"}
+{"time":"2025-04-10T18:40:58.506904089+09:00","level":"INFO","msg":"created new stream","id":"0lm39l9z"}
+{"time":"2025-04-10T18:40:58.506947938+09:00","level":"INFO","msg":"stream: started","id":"0lm39l9z"}
+{"time":"2025-04-10T18:40:58.507078326+09:00","level":"INFO","msg":"handler: started","stream_id":"0lm39l9z"}
+{"time":"2025-04-10T18:40:58.507152646+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"0lm39l9z"}
+{"time":"2025-04-10T18:40:58.507132556+09:00","level":"INFO","msg":"sender: started","stream_id":"0lm39l9z"}
+{"time":"2025-04-10T18:40:58.805659403+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T18:41:30.067801518+09:00","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/hails/KCC_GPT2_RLHF/0lm39l9z/file_stream"}
+{"time":"2025-04-10T18:41:30.067871487+09:00","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found path=files/hails/KCC_GPT2_RLHF/0lm39l9z/file_stream: {\"error\":\"run KCC_GPT2_RLHF/0lm39l9z not found while streaming file\"}"}

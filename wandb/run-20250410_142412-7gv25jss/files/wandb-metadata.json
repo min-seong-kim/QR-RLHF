@@ -1,0 +1,120 @@
+{
+  "os": "Linux-6.8.0-52-generic-x86_64-with-glibc2.17",
+  "python": "CPython 3.8.20",
+  "startedAt": "2025-04-10T05:24:12.878912Z",
+  "args": [
+    "--tokenizer_name_or_path",
+    "openai-community/gpt2",
+    "--policy_model_path",
+    "openai-community/gpt2",
+    "--critic_model_path",
+    "openai-community/gpt2",
+    "--model_save_path",
+    "/home/hail/hong_kim/MOSS-RLHF/outputs/models/ppo/ppo_model_en",
+    "--data_path",
+    "data/ppo_data",
+    "--seed",
+    "42",
+    "--maxlen_prompt",
+    "2048",
+    "--maxlen_res",
+    "512",
+    "--lr",
+    "5e-7",
+    "--critic_lr",
+    "1.5e-6",
+    "--gamma",
+    "1.",
+    "--lam",
+    "0.95",
+    "--entropy_clip",
+    "35.0",
+    "--value_clip",
+    "0.2",
+    "--pg_clip",
+    "0.2",
+    "--reward_clip",
+    "0.",
+    "--entropy_loss_weight",
+    "0.",
+    "--ppo_pretrain_loss_weight",
+    "0.",
+    "--kl_penalty_weight",
+    "0.01",
+    "--use_reward_scaling",
+    "--use_critic_loss_clip",
+    "--use_policy_loss_clip",
+    "--train_steps",
+    "1000",
+    "--save_per_step",
+    "100",
+    "--warmup_steps",
+    "100",
+    "--batch_size",
+    "2",
+    "--rollout_batch_size",
+    "2",
+    "--num_rollouts",
+    "2",
+    "--gradient_checkpoint",
+    "--lang",
+    "en",
+    "--logdir",
+    "outputs/tensorboard_log/ppo/ppo_model_en"
+  ],
+  "program": "train_ppo.py",
+  "codePath": "train_ppo.py",
+  "git": {
+    "remote": "https://github.com/OpenLMLab/MOSS-RLHF.git",
+    "commit": "4865d826fc6705dfdf1894aede00b4c81dabb24b"
+  },
+  "email": "hmin7781@gmail.com",
+  "root": "/home/hail/hong_kim/MOSS-RLHF",
+  "host": "4090-4way-tyan",
+  "executable": "/home/hail/anaconda3/envs/testminsik/bin/python",
+  "codePathLocal": "train_ppo.py",
+  "cpu_count": 24,
+  "cpu_count_logical": 48,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_count": 4,
+  "disk": {
+    "/": {
+      "total": "1967317549056",
+      "used": "1036358963200"
+    }
+  },
+  "memory": {
+    "total": "202339004416"
+  },
+  "cpu": {
+    "count": 24,
+    "countLogical": 48
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada"
+    },
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada"
+    },
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada"
+    },
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "memoryTotal": "25757220864",
+      "cudaCores": 16384,
+      "architecture": "Ada"
+    }
+  ],
+  "cudaVersion": "12.4"
+}

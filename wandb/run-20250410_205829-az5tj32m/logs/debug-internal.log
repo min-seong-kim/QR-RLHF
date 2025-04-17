@@ -1,0 +1,15 @@
+{"time":"2025-04-10T20:58:29.896180327+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_205829-az5tj32m/logs/debug-core.log"}
+{"time":"2025-04-10T20:58:30.310707655+09:00","level":"INFO","msg":"created new stream","id":"az5tj32m"}
+{"time":"2025-04-10T20:58:30.310766355+09:00","level":"INFO","msg":"stream: started","id":"az5tj32m"}
+{"time":"2025-04-10T20:58:30.310789794+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"az5tj32m"}
+{"time":"2025-04-10T20:58:30.310820594+09:00","level":"INFO","msg":"sender: started","stream_id":"az5tj32m"}
+{"time":"2025-04-10T20:58:30.310953883+09:00","level":"INFO","msg":"handler: started","stream_id":"az5tj32m"}
+{"time":"2025-04-10T20:58:30.831669882+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T20:59:29.949362193+09:00","level":"INFO","msg":"stream: closing","id":"az5tj32m"}
+{"time":"2025-04-10T20:59:29.949423442+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T20:59:29.94961712+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-10T20:59:30.974346939+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-10T20:59:31.395209332+09:00","level":"INFO","msg":"handler: closed","stream_id":"az5tj32m"}
+{"time":"2025-04-10T20:59:31.395273721+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"az5tj32m"}
+{"time":"2025-04-10T20:59:31.395281231+09:00","level":"INFO","msg":"sender: closed","stream_id":"az5tj32m"}
+{"time":"2025-04-10T20:59:31.39539447+09:00","level":"INFO","msg":"stream: closed","id":"az5tj32m"}

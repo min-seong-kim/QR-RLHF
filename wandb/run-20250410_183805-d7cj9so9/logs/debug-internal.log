@@ -1,0 +1,10 @@
+{"time":"2025-04-10T18:38:05.329258641+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_183805-d7cj9so9/logs/debug-core.log"}
+{"time":"2025-04-10T18:38:05.751829521+09:00","level":"INFO","msg":"created new stream","id":"d7cj9so9"}
+{"time":"2025-04-10T18:38:05.75188566+09:00","level":"INFO","msg":"stream: started","id":"d7cj9so9"}
+{"time":"2025-04-10T18:38:05.75190073+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"d7cj9so9"}
+{"time":"2025-04-10T18:38:05.751976309+09:00","level":"INFO","msg":"sender: started","stream_id":"d7cj9so9"}
+{"time":"2025-04-10T18:38:05.752043288+09:00","level":"INFO","msg":"handler: started","stream_id":"d7cj9so9"}
+{"time":"2025-04-10T18:38:06.109738687+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T18:40:34.245351543+09:00","level":"INFO","msg":"stream: closing","id":"d7cj9so9"}
+{"time":"2025-04-10T18:40:34.245403692+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T18:40:34.245491691+09:00","level":"INFO","msg":"Stopped system monitor"}

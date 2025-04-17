@@ -1,0 +1,7 @@
+{"time":"2025-04-10T19:38:15.206753407+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_193815-gpzkx903/logs/debug-core.log"}
+{"time":"2025-04-10T19:38:15.620416782+09:00","level":"INFO","msg":"created new stream","id":"gpzkx903"}
+{"time":"2025-04-10T19:38:15.620476211+09:00","level":"INFO","msg":"stream: started","id":"gpzkx903"}
+{"time":"2025-04-10T19:38:15.621830943+09:00","level":"INFO","msg":"handler: started","stream_id":"gpzkx903"}
+{"time":"2025-04-10T19:38:15.621873573+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"gpzkx903"}
+{"time":"2025-04-10T19:38:15.622133969+09:00","level":"INFO","msg":"sender: started","stream_id":"gpzkx903"}
+{"time":"2025-04-10T19:38:15.978652473+09:00","level":"INFO","msg":"Starting system monitor"}

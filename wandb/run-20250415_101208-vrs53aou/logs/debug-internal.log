@@ -1,0 +1,7 @@
+{"time":"2025-04-15T10:12:08.986989588+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250415_101208-vrs53aou/logs/debug-core.log"}
+{"time":"2025-04-15T10:12:09.398768232+09:00","level":"INFO","msg":"created new stream","id":"vrs53aou"}
+{"time":"2025-04-15T10:12:09.398819372+09:00","level":"INFO","msg":"stream: started","id":"vrs53aou"}
+{"time":"2025-04-15T10:12:09.39999088+09:00","level":"INFO","msg":"handler: started","stream_id":"vrs53aou"}
+{"time":"2025-04-15T10:12:09.40002237+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"vrs53aou"}
+{"time":"2025-04-15T10:12:09.400215448+09:00","level":"INFO","msg":"sender: started","stream_id":"vrs53aou"}
+{"time":"2025-04-15T10:12:09.694649887+09:00","level":"INFO","msg":"Starting system monitor"}

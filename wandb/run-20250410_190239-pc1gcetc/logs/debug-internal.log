@@ -1,0 +1,7 @@
+{"time":"2025-04-10T19:02:39.751170995+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_190239-pc1gcetc/logs/debug-core.log"}
+{"time":"2025-04-10T19:02:40.174124986+09:00","level":"INFO","msg":"created new stream","id":"pc1gcetc"}
+{"time":"2025-04-10T19:02:40.174192295+09:00","level":"INFO","msg":"stream: started","id":"pc1gcetc"}
+{"time":"2025-04-10T19:02:40.174205735+09:00","level":"INFO","msg":"handler: started","stream_id":"pc1gcetc"}
+{"time":"2025-04-10T19:02:40.174237495+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"pc1gcetc"}
+{"time":"2025-04-10T19:02:40.174236845+09:00","level":"INFO","msg":"sender: started","stream_id":"pc1gcetc"}
+{"time":"2025-04-10T19:02:40.482178434+09:00","level":"INFO","msg":"Starting system monitor"}

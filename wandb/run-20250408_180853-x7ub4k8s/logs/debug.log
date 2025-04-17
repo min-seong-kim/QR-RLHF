@@ -1,0 +1,16 @@
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_setup.py:_flush():67] Current SDK version is 0.19.9
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_setup.py:_flush():67] Configure stats pid to 1251537
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_setup.py:_flush():67] Loading settings from /home/hail/.config/wandb/settings
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_setup.py:_flush():67] Loading settings from /home/hail/hong_kim/MOSS-RLHF/wandb/settings
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_setup.py:_flush():67] Loading settings from environment variables
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_init.py:setup_run_log_directory():662] Logging user logs to /home/hail/hong_kim/MOSS-RLHF/wandb/run-20250408_180853-x7ub4k8s/logs/debug.log
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_init.py:setup_run_log_directory():663] Logging internal logs to /home/hail/hong_kim/MOSS-RLHF/wandb/run-20250408_180853-x7ub4k8s/logs/debug-internal.log
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_init.py:init():781] calling init triggers
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_init.py:init():786] wandb.init called with sweep_config: {}
+config: {'model_save_path': '/home/hail/hong_kim/MOSS-RLHF/outputs/models/ppo/ppo_model_en', 'policy_model_path': 'openai-community/gpt2', 'critic_model_path': 'openai-community/gpt2', 'tokenizer_name_or_path': 'openai-community/gpt2', 'data_path': 'data/ppo_data', 'logdir': 'outputs/tensorboard_log/ppo/ppo_model_en', 'lr': 5e-07, 'critic_lr': 1.5e-06, 'seed': 42, 'batch_size': 2, 'train_steps': 1000, 'warmup_steps': 100, 'save_per_step': 100, 'beta1': 0.9, 'beta2': 0.95, 'eps': 1e-06, 'num_workers': 1, 'num_prefetch': 32, 'maxlen_prompt': 2048, 'gradient_checkpoint': True, 'num_rollouts': 2, 'rollout_batch_size': 2, 'ppo_pretrain_data_path': '', 'ppo_pretrain_data_type': 'sft', 'ppo_pretrain_batch_size_ratio': 1, 'ppo_pretrain_loss_weight': 0.0, 'kl_penalty_weight': 0.01, 'advantage_clip': 0.5, 'vf_loss_weight': 1.0, 'entropy_loss_weight': 0.0, 'reward_clip': 0.0, 'entropy_clip': 35.0, 'pg_clip': 0.2, 'value_clip': 0.2, 'gamma': 1.0, 'lam': 0.95, 'use_reward_clip': False, 'use_reward_scaling': True, 'use_reward_norm': False, 'use_critic_loss_clip': True, 'use_policy_loss_clip': True, 'use_advantage_norm': False, 'use_advantage_clip': False, 'use_ppo_pretrain_loss': False, 'use_entropy_loss': False, 'maxlen_res': 512, 'temperature': 0.8, 'repetition_penalty': 1.1, 'topp': 0.9, 'lang': 'en', '_wandb': {}}
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_init.py:init():809] starting backend
+2025-04-08 18:08:53,681 INFO    MainThread:1251537 [wandb_init.py:init():813] sending inform_init request
+2025-04-08 18:08:53,711 INFO    MainThread:1251537 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-04-08 18:08:53,711 INFO    MainThread:1251537 [wandb_init.py:init():823] backend started and connected
+2025-04-08 18:08:53,714 INFO    MainThread:1251537 [wandb_init.py:init():915] updated telemetry
+2025-04-08 18:08:53,740 INFO    MainThread:1251537 [wandb_init.py:init():939] communicating run to backend with 90.0 second timeout

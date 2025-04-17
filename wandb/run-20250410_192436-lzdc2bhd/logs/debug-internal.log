@@ -1,0 +1,18 @@
+{"time":"2025-04-10T19:24:36.676982539+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_192436-lzdc2bhd/logs/debug-core.log"}
+{"time":"2025-04-10T19:24:37.088908132+09:00","level":"INFO","msg":"created new stream","id":"lzdc2bhd"}
+{"time":"2025-04-10T19:24:37.089101541+09:00","level":"INFO","msg":"stream: started","id":"lzdc2bhd"}
+{"time":"2025-04-10T19:24:37.090781235+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"lzdc2bhd"}
+{"time":"2025-04-10T19:24:37.090837695+09:00","level":"INFO","msg":"handler: started","stream_id":"lzdc2bhd"}
+{"time":"2025-04-10T19:24:37.090854195+09:00","level":"INFO","msg":"sender: started","stream_id":"lzdc2bhd"}
+{"time":"2025-04-10T19:24:37.409549677+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T19:27:38.763074335+09:00","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/hails/KCC_GPT2_RLHF/lzdc2bhd/file_stream"}
+{"time":"2025-04-10T19:27:38.766470074+09:00","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found path=files/hails/KCC_GPT2_RLHF/lzdc2bhd/file_stream: {\"error\":\"run KCC_GPT2_RLHF/lzdc2bhd not found while streaming file\"}"}
+{"time":"2025-04-10T19:30:00.340809346+09:00","level":"INFO","msg":"stream: closing","id":"lzdc2bhd"}
+{"time":"2025-04-10T19:30:00.340842505+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T19:30:00.341082901+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-10T19:30:00.56482523+09:00","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run lzdc2bhd was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-04-10T19:30:00.608438112+09:00","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-04-10T19:30:00.60856277+09:00","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404: {\"data\":{\"createRunFiles\":null},\"errors\":[{\"message\":\"run KCC_GPT2_RLHF/lzdc2bhd not found during createRunFiles\",\"path\":[\"createRunFiles\"]}]}"}
+{"time":"2025-04-10T19:30:03.231803896+09:00","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run lzdc2bhd was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-04-10T19:30:07.519672913+09:00","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run lzdc2bhd was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-04-10T19:30:16.860810659+09:00","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run lzdc2bhd was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}

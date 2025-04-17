@@ -1,0 +1,15 @@
+{"time":"2025-04-08T18:17:54.703085368+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250408_181754-ulvumrkg/logs/debug-core.log"}
+{"time":"2025-04-08T18:17:55.209495761+09:00","level":"INFO","msg":"created new stream","id":"ulvumrkg"}
+{"time":"2025-04-08T18:17:55.209542361+09:00","level":"INFO","msg":"stream: started","id":"ulvumrkg"}
+{"time":"2025-04-08T18:17:55.209585861+09:00","level":"INFO","msg":"sender: started","stream_id":"ulvumrkg"}
+{"time":"2025-04-08T18:17:55.20960671+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"ulvumrkg"}
+{"time":"2025-04-08T18:17:55.20964287+09:00","level":"INFO","msg":"handler: started","stream_id":"ulvumrkg"}
+{"time":"2025-04-08T18:17:55.573907381+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T18:18:08.678845795+09:00","level":"INFO","msg":"stream: closing","id":"ulvumrkg"}
+{"time":"2025-04-08T18:18:08.678874105+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T18:18:08.679019224+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T18:18:09.600593953+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T18:18:09.925783136+09:00","level":"INFO","msg":"handler: closed","stream_id":"ulvumrkg"}
+{"time":"2025-04-08T18:18:09.925824096+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ulvumrkg"}
+{"time":"2025-04-08T18:18:09.925897896+09:00","level":"INFO","msg":"sender: closed","stream_id":"ulvumrkg"}
+{"time":"2025-04-08T18:18:09.925905306+09:00","level":"INFO","msg":"stream: closed","id":"ulvumrkg"}

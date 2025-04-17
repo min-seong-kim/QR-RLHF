@@ -4,20 +4,21 @@ def parse_args():
     parser = argparse.ArgumentParser(description='MOSS-RLHF @Fudan NLP Group')
 
     # Path
-    parser.add_argument('--model_save_path', type=str, default='', help='checkpoint path, used for save model and training')
-    parser.add_argument('--policy_model_path', type=str, default='', help='policy model and reference model path')
-    parser.add_argument('--critic_model_path', type=str, default='', help='critic model and reward model path')
-    parser.add_argument('--tokenizer_name_or_path', type=str, default='/huggingface_models/open-chinese-llama-7b', help='tokenizer name or path')
-    parser.add_argument('--data_path', type=str, default='./data', help='dataset for training and validation')
+    parser.add_argument('--model_save_path', type=str, default='/home/hail/hong_kim/MOSS-RLHF/models', help='checkpoint path, used for save model and training')
+    parser.add_argument('--policy_model_path', type=str, default='gpt2', help='policy model and reference model path')
+    parser.add_argument('--critic_model_path', type=str, default='gpt2', help='critic model and reward model path')
+    # parser.add_argument('--tokenizer_name_or_path', type=str, default='/huggingface_models/open-chinese-llama-7b', help='tokenizer name or path')
+    parser.add_argument('--tokenizer_name_or_path', type=str, default='gpt2', help='tokenizer name or path')
+    parser.add_argument('--data_path', type=str, default='/home/hail/hong_kim/MOSS-RLHF/data/ppo_data', help='dataset for training and validation')
     parser.add_argument('--logdir', type=str, default=None, help='path to save tensorboard logs')
 
     # Training
     parser.add_argument('--lr', type=float, default=5e-7, help='learning rate of policy model')
-    parser.add_argument('--critic_lr', type=float, default=15e-7, help='learning rate of critic model')
+    parser.add_argument('--critic_lr', type=float, default=1.5e-6, help='learning rate of critic model')
     parser.add_argument('--seed', type=int, default=42, help='seed')
-    parser.add_argument('--batch_size', type=int, default=32, help='training batch size, *NOT* for sampling from env')
-    parser.add_argument('--train_steps', type=int, default=5000, help='train steps')
-    parser.add_argument('--warmup_steps', type=int, default=500, help='warmup steps')
+    parser.add_argument('--batch_size', type=int, default=2, help='training batch size, *NOT* for sampling from env')
+    parser.add_argument('--train_steps', type=int, default=10, help='train steps')
+    parser.add_argument('--warmup_steps', type=int, default=100, help='warmup steps')
     parser.add_argument('--save_per_step', type=int, default=100, help='save ckpt per steps')
     parser.add_argument('--beta1', type=float, default=0.9, help='adam')
     parser.add_argument('--beta2', type=float, default=0.95, help='adam')
@@ -28,14 +29,14 @@ def parse_args():
     parser.add_argument('--gradient_checkpoint', action='store_true', help='deepspeed')
 
     # PPO in LLMs
-    parser.add_argument('--num_rollouts', type=int, default=128, help='nums of samples in current replay buffer')
-    parser.add_argument('--rollout_batch_size', type=int, default=32, help='batch size of sampling from env')
+    parser.add_argument('--num_rollouts', type=int, default=2, help='nums of samples in current replay buffer')
+    parser.add_argument('--rollout_batch_size', type=int, default=2, help='batch size of sampling from env')
 
     parser.add_argument('--ppo_pretrain_data_path', type=str, default='', help='dataset folder path for pertrain loss of step3: rlhf')
     parser.add_argument('--ppo_pretrain_data_type', type=str, default='sft', choices=['sft', 'pretrain'], help='dataset folder path for pertrain loss of step3: rlhf')
     parser.add_argument('--ppo_pretrain_batch_size_ratio', type=int, default=1, help='ppo batch size ratio')
     parser.add_argument('--ppo_pretrain_loss_weight', type=float, default=0., help='add pretrain loss in PPO training: ppo-rtx')
-    parser.add_argument('--kl_penalty_weight', type=float, default=0.02, help='kl penalty')
+    parser.add_argument('--kl_penalty_weight', type=float, default=0.01, help='kl penalty')
     parser.add_argument('--advantage_clip', type=float, default=0.5, help='clip advantage')
     parser.add_argument('--vf_loss_weight', type=float, default=1., help='vf loss weight')
     parser.add_argument('--entropy_loss_weight', type=float, default=0., help='entropy loss weight')
@@ -62,12 +63,10 @@ def parse_args():
     parser.add_argument('--temperature', type=float, default=0.8, help='temperature')
     parser.add_argument('--repetition_penalty', type=float, default=1.1, help='repetition penalty')
     parser.add_argument('--topp', type=float, default=0.9, help='nucleus sampling')
-    
+
     # Option for language
     parser.add_argument('--lang', type=str, choices=['zh', 'en'], help='special prompt choice for PPO-max-zh or PPO-max-en')
 
     opt = parser.parse_args()
 
     return opt
-    
-    

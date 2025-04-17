@@ -1,0 +1,17 @@
+{"time":"2025-04-08T18:10:23.241379136+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250408_181023-ydulynxb/logs/debug-core.log"}
+{"time":"2025-04-08T18:10:23.759719312+09:00","level":"INFO","msg":"created new stream","id":"ydulynxb"}
+{"time":"2025-04-08T18:10:23.759766022+09:00","level":"INFO","msg":"stream: started","id":"ydulynxb"}
+{"time":"2025-04-08T18:10:23.760730244+09:00","level":"INFO","msg":"handler: started","stream_id":"ydulynxb"}
+{"time":"2025-04-08T18:10:23.760759124+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"ydulynxb"}
+{"time":"2025-04-08T18:10:23.760941393+09:00","level":"INFO","msg":"sender: started","stream_id":"ydulynxb"}
+{"time":"2025-04-08T18:10:23.973558976+09:00","level":"ERROR","msg":"HTTP error","status":403,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-04-08T18:10:23.973772234+09:00","level":"ERROR","msg":"sender: upsertRun:","error":"failed to upsert bucket: returned error 403: {\"data\":{\"upsertBucket\":null},\"errors\":[{\"message\":\"permission denied\",\"path\":[\"upsertBucket\"],\"extensions\":{\"code\":\"PERMISSION_ERROR\"}}]}"}
+{"time":"2025-04-08T18:10:24.976044692+09:00","level":"INFO","msg":"stream: closing","id":"ydulynxb"}
+{"time":"2025-04-08T18:10:24.976144011+09:00","level":"ERROR","msg":"sender: upsertConfig: RunRecord is nil"}
+{"time":"2025-04-08T18:10:25.238596958+09:00","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-04-08T18:10:25.238720157+09:00","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404: {\"data\":{\"createRunFiles\":null},\"errors\":[{\"message\":\"project hmin7781/KCC_GPT2_RLHF not found during createRunFiles\",\"path\":[\"createRunFiles\"]}]}"}
+{"time":"2025-04-08T18:10:25.239146004+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T18:10:25.239179124+09:00","level":"INFO","msg":"handler: closed","stream_id":"ydulynxb"}
+{"time":"2025-04-08T18:10:25.239187744+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ydulynxb"}
+{"time":"2025-04-08T18:10:25.239358103+09:00","level":"INFO","msg":"sender: closed","stream_id":"ydulynxb"}
+{"time":"2025-04-08T18:10:25.239367343+09:00","level":"INFO","msg":"stream: closed","id":"ydulynxb"}

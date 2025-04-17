@@ -1,0 +1,648 @@
+[2025-04-08 18:43:09,998] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2025-04-08 18:43:09,998] [INFO] [comm.py:594:init_distributed] cdb=None
+[2025-04-08 18:43:09,999] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+2025-04-08 18:43:10 - Rank: 0 - INFO - Loading tokenizer from huggingface: openai-community/gpt2...
+/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+Using pad_token, but it is not set yet.
+2025-04-08 18:43:10 - Rank: 0 - INFO - GPT2 tokenizer size: 50257
+2025-04-08 18:43:10 - Rank: 0 - INFO - GPT2 tokenizer pad token: <|endoftext|>, pad_token_id: 50256
+2025-04-08 18:43:10 - Rank: 0 - INFO - GPT2 tokenizer special token map: {'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}
+2025-04-08 18:43:10 - Rank: 0 - INFO - Loading policy model from: openai-community/gpt2...
+2025-04-08 18:43:13 - Rank: 0 - INFO - Loading critic model from: openai-community/gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at openai-community/gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-04-08 18:43:16 - Rank: 0 - INFO - Loading reference model from: openai-community/gpt2...
+2025-04-08 18:43:19 - Rank: 0 - INFO - Loading reward model from: openai-community/gpt2...
+Some weights of GPT2RewardModel were not initialized from the model checkpoint at openai-community/gpt2 and are newly initialized: ['reward_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/huggingface_hub-0.29.2-py3.8.egg/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+Using pad_token, but it is not set yet.
+Using pad_token, but it is not set yet.
+2025-04-08 18:43:23 - Rank: 0 - INFO - Loaded 67 samples from data/ppo_data/train.json.
+2025-04-08 18:43:23 - Rank: 0 - INFO - =============Loaded total 67 samples from ['train.json'].=============
+[2025-04-08 18:43:23,644] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+2025-04-08 18:43:25 - Rank: 0 - INFO - Added key: store_based_barrier_key:2 to store for rank: 0
+2025-04-08 18:43:25 - Rank: 0 - INFO - Rank 0: Completed store-based barrier for key:store_based_barrier_key:2 with 1 nodes.
+[2025-04-08 18:43:25,496] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-08 18:43:25,498] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the client Optimizer
+[2025-04-08 18:43:25,498] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2025-04-08 18:43:25,505] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2025-04-08 18:43:25,506] [INFO] [utils.py:54:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2025-04-08 18:43:25,506] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2025-04-08 18:43:25,506] [INFO] [stage_1_and_2.py:133:__init__] Reduce bucket size 500,000,000
+[2025-04-08 18:43:25,506] [INFO] [stage_1_and_2.py:134:__init__] Allgather bucket size 500,000,000
+[2025-04-08 18:43:25,506] [INFO] [stage_1_and_2.py:135:__init__] CPU Offload: False
+[2025-04-08 18:43:25,507] [INFO] [stage_1_and_2.py:136:__init__] Round robin gradient partitioning: False
+Rank: 0 partition count [1, 1, 1, 1] and sizes[(124337664, False), (102144, False), (124338432, False), (102144, False)]
+[2025-04-08 18:43:26,342] [INFO] [utils.py:785:see_memory_usage] Before initializing optimizer states
+[2025-04-08 18:43:26,343] [INFO] [utils.py:786:see_memory_usage] MA 1.42 GB         Max_MA 1.42 GB         CA 1.42 GB         Max_CA 1 GB
+[2025-04-08 18:43:26,343] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 60.92 GB, percent = 32.3%
+[2025-04-08 18:43:26,456] [INFO] [utils.py:785:see_memory_usage] After initializing optimizer states
+[2025-04-08 18:43:26,457] [INFO] [utils.py:786:see_memory_usage] MA 3.27 GB         Max_MA 5.12 GB         CA 5.14 GB         Max_CA 5 GB
+[2025-04-08 18:43:26,458] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 60.93 GB, percent = 32.3%
+[2025-04-08 18:43:26,458] [INFO] [stage_1_and_2.py:488:__init__] optimizer state initialized
+[2025-04-08 18:43:26,563] [INFO] [utils.py:785:see_memory_usage] After initializing ZeRO optimizer
+[2025-04-08 18:43:26,564] [INFO] [utils.py:786:see_memory_usage] MA 3.27 GB         Max_MA 3.27 GB         CA 5.14 GB         Max_CA 5 GB
+[2025-04-08 18:43:26,564] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 60.96 GB, percent = 32.4%
+[2025-04-08 18:43:26,572] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2025-04-08 18:43:26,572] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2025-04-08 18:43:26,572] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2025-04-08 18:43:26,573] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-08, 5e-08, 1.5000000000000002e-07, 1.5000000000000002e-07], mom=[(0.9, 0.95), (0.9, 0.95), (0.9, 0.95), (0.9, 0.95)]
+[2025-04-08 18:43:26,574] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2025-04-08 18:43:26,574] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-04-08 18:43:26,574] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-04-08 18:43:26,574] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2025-04-08 18:43:26,574] [INFO] [config.py:964:print]   amp_params ................... False
+[2025-04-08 18:43:26,575] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-08 18:43:26,575] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2025-04-08 18:43:26,575] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-08 18:43:26,575] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2025-04-08 18:43:26,575] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2025-04-08 18:43:26,575] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x73b297e3d7c0>
+[2025-04-08 18:43:26,575] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2025-04-08 18:43:26,575] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-08 18:43:26,575] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2025-04-08 18:43:26,576] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2025-04-08 18:43:26,576] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-08 18:43:26,576] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2025-04-08 18:43:26,576] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2025-04-08 18:43:26,576] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2025-04-08 18:43:26,576] [INFO] [config.py:964:print]   dump_state ................... False
+[2025-04-08 18:43:26,576] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2025-04-08 18:43:26,576] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2025-04-08 18:43:26,576] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2025-04-08 18:43:26,577] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   global_rank .................. 0
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 1
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2025-04-08 18:43:26,578] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   pld_params ................... False
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2025-04-08 18:43:26,579] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   steps_per_print .............. inf
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   train_batch_size ............. 2
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   use_node_local_storage ....... True
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   world_size ................... 1
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  True
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=False load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='none', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='none', nvme_path=None, buffer_count=4, pin_memory=False, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2025-04-08 18:43:26,580] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2025-04-08 18:43:26,581] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-08 18:43:26,581] [INFO] [config.py:964:print]   zero_optimization_stage ...... 2
+[2025-04-08 18:43:26,581] [INFO] [config.py:950:print_user_config]   json = {
+    "train_batch_size": 2,
+    "train_micro_batch_size_per_gpu": 2,
+    "gradient_accumulation_steps": 1,
+    "zero_optimization": {
+        "stage": 2,
+        "offload_optimizer": {
+            "device": "none",
+            "nvme_path": null
+        },
+        "offload_param": {
+            "device": "none",
+            "nvme_path": null
+        },
+        "stage3_gather_16bit_weights_on_model_save": false
+    },
+    "gradient_clipping": 1.0,
+    "steps_per_print": inf,
+    "bf16": {
+        "enabled": true
+    },
+    "fp16": {
+        "enabled": false
+    },
+    "checkpoint": {
+        "use_node_local_storage": true
+    },
+    "zero_allow_untested_optimizer": true
+}
+[2025-04-08 18:43:26,586] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+[2025-04-08 18:43:26,772] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-08 18:43:26,774] [INFO] [logging.py:96:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-04-08 18:43:26,878] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-04-08 18:43:26,880] [INFO] [utils.py:786:see_memory_usage] MA 3.52 GB         Max_MA 3.52 GB         CA 5.15 GB         Max_CA 5 GB
+[2025-04-08 18:43:26,880] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 60.99 GB, percent = 32.4%
+Parameter Offload: Total persistent parameters: 122112 in 99 params
+[2025-04-08 18:43:27,079] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-04-08 18:43:27,081] [INFO] [utils.py:786:see_memory_usage] MA 3.28 GB         Max_MA 3.52 GB         CA 5.15 GB         Max_CA 5 GB
+[2025-04-08 18:43:27,081] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 61.07 GB, percent = 32.4%
+[2025-04-08 18:43:27,082] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2025-04-08 18:43:27,082] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-04-08 18:43:27,082] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-04-08 18:43:27,082] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2025-04-08 18:43:27,082] [INFO] [config.py:964:print]   amp_params ................... False
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x73b2975175b0>
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2025-04-08 18:43:27,083] [INFO] [config.py:964:print]   dump_state ................... False
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2025-04-08 18:43:27,084] [INFO] [config.py:964:print]   global_rank .................. 0
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 1
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2025-04-08 18:43:27,085] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   pld_params ................... False
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   steps_per_print .............. 10
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   train_batch_size ............. 2
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   world_size ................... 1
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  False
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='cpu', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=10000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2025-04-08 18:43:27,086] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-08 18:43:27,087] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2025-04-08 18:43:27,087] [INFO] [config.py:950:print_user_config]   json = {
+    "train_micro_batch_size_per_gpu": 2,
+    "steps_per_print": 10,
+    "zero_optimization": {
+        "stage": 3,
+        "stage3_param_persistence_threshold": 1.000000e+04,
+        "offload_param": {
+            "device": "cpu"
+        }
+    },
+    "bf16": {
+        "enabled": true
+    },
+    "gradient_clipping": 1.0,
+    "prescale_gradients": false,
+    "wall_clock_breakdown": false
+}
+[2025-04-08 18:43:27,087] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.5, git-hash=unknown, git-branch=unknown
+[2025-04-08 18:43:27,542] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-04-08 18:43:27,543] [INFO] [logging.py:96:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-04-08 18:43:27,661] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-04-08 18:43:27,662] [INFO] [utils.py:786:see_memory_usage] MA 3.53 GB         Max_MA 3.53 GB         CA 5.17 GB         Max_CA 5 GB
+[2025-04-08 18:43:27,663] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 61.38 GB, percent = 32.6%
+Parameter Offload: Total persistent parameters: 121344 in 98 params
+[2025-04-08 18:43:27,865] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-04-08 18:43:27,866] [INFO] [utils.py:786:see_memory_usage] MA 3.29 GB         Max_MA 3.53 GB         CA 5.17 GB         Max_CA 5 GB
+[2025-04-08 18:43:27,866] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 61.43 GB, percent = 32.6%
+[2025-04-08 18:43:27,867] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2025-04-08 18:43:27,867] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false,
+    "contiguous_memory_optimization": false,
+    "cpu_checkpointing": false,
+    "number_checkpoints": null,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+}
+[2025-04-08 18:43:27,867] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2025-04-08 18:43:27,867] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2025-04-08 18:43:27,867] [INFO] [config.py:964:print]   amp_params ................... False
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false,
+    "start_step": null,
+    "end_step": null,
+    "metric_path": null,
+    "arg_mappings": null,
+    "metric": "throughput",
+    "model_info": null,
+    "results_dir": "autotuning_results",
+    "exps_dir": "autotuning_exps",
+    "overwrite": true,
+    "fast": true,
+    "start_profile_step": 3,
+    "end_profile_step": 5,
+    "tuner_type": "gridsearch",
+    "tuner_early_stopping": 5,
+    "tuner_num_trials": 50,
+    "model_info_path": null,
+    "mp_size": 1,
+    "max_train_batch_size": null,
+    "min_train_batch_size": 1,
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03,
+    "min_train_micro_batch_size_per_gpu": 1,
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x73b2957847c0>
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2025-04-08 18:43:27,868] [INFO] [config.py:964:print]   dump_state ................... False
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false,
+    "recompute_fwd_factor": 0.0,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 1,
+    "detailed": true,
+    "output_file": null
+}
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2025-04-08 18:43:27,869] [INFO] [config.py:964:print]   global_rank .................. 0
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 1
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false,
+    "persistent_storage_path": null,
+    "persistent_time_interval": 100,
+    "num_of_version_in_retention": 2,
+    "enable_nebula_load": true,
+    "load_path": null
+}
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2025-04-08 18:43:27,870] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   pld_params ................... False
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   steps_per_print .............. 10
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   train_batch_size ............. 2
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   world_size ................... 1
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  False
+[2025-04-08 18:43:27,871] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=DeepSpeedZeroOffloadParamConfig(device='cpu', nvme_path=None, buffer_count=5, buffer_size=100,000,000, max_in_cpu=1,000,000,000, pin_memory=False) offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=10000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2025-04-08 18:43:27,872] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2025-04-08 18:43:27,872] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2025-04-08 18:43:27,872] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2025-04-08 18:43:27,872] [INFO] [config.py:950:print_user_config]   json = {
+    "train_micro_batch_size_per_gpu": 2,
+    "steps_per_print": 10,
+    "zero_optimization": {
+        "stage": 3,
+        "stage3_param_persistence_threshold": 1.000000e+04,
+        "offload_param": {
+            "device": "cpu"
+        }
+    },
+    "bf16": {
+        "enabled": true
+    },
+    "gradient_clipping": 1.0,
+    "prescale_gradients": false,
+    "wall_clock_breakdown": false
+}
+Using pad_token, but it is not set yet.
+2025-04-08 18:43:28 - Rank: 0 - INFO - Loaded 30 samples from data/ppo_data/valid.json.
+2025-04-08 18:43:28 - Rank: 0 - INFO - =============Loaded total 30 samples from ['valid.json'].=============
+2025-04-08 18:43:32 - Rank: 0 - WARNING - Generated response is too long: Assistant:What are the main steps involved in website optimization?Human:1. Identify website objectives.
+2. Analyze website structure, content and performance.
+3. Analyze user behavior and SEO performance.
+4. Set optimization goals and develop a plan to reach them
+5. Find opportunities for improvement and make changes as needed.
+6. Test and monitor improvements regularly.
+7. Sustain ongoing optimization activities.Assistant::s:s:s : : 1. Write a description of the purpose and common practice practice with with when only only only only only only only only only only not always also even may 3 times most any anything ever
+2025-04-08 18:43:32 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate three investment options for someone who has 10,000 dollars and wants to invest it for 10 years.Human:1. Mutual funds - Invest in low-cost, diversified mutual funds which can help reduce risk.
+2. Exchange-traded funds (ETFs) - A convenient way to invest in a variety of different markets.
+3. Bond funds - Invest in safe and secure bonds to earn regular income.Assistant:Generate three investment options for someone who has 10,000 dollars and wants to invest it in a range of stocks.Human:1. Fund manager - When the fund owner decides on an option that doesn't meet his/her funds needs, he or she will go with buying up those positions through intermediaries (you can use brokers like Interbank).
+3Crust Funds
+
+ ePricing Options Auction prices If you want to buy at least one item online from Amazon's wholesale competitor -- where they have pay-as—it is recommended we provide this prearranged package as soon after completing our survey when shipping your items out so everyone knows exactly how much cash there are available right now!Coins Value ($10)Misc Average value 852 MISC per coin Unlimited total coins $50 Maximum amount raised 1TGT Customized all costs 25 TGC Basic mining efficiency 14% CoinJoin rate 50%, Stock Market Fees 100%. Premium 32 Networked security 19 Limited coverage 2* Reward 33 Diversified Mutual Services 36 The third tier includes 30 proprietary ETFs which make trading fairly easy; only network subscribers receive benefits beyond monthly fees if their account balances aren`t bigger than 200K but not smaller enough by themselves!!! One 'token' worth ~$150 USD remains eligible upon purchase during exercise hours unless both parties agree otherwise..
+2025-04-08 18:43:35 - Rank: 0 - WARNING - Generated response is too long: Assistant:Explain the meaning of the idiom, "It ain't over till the fat lady singsHuman:This idiom is used to emphasize that something is not yet finished or concluded. It is often used in the context of sports or games and is equivalent to saying the game isn't over until it is over. It comes from the opera, where the "fat lady" is the lead soprano and her singing marks the end of the performance.Assistant::: : 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+
+2025-04-08 18:43:35 - Rank: 0 - WARNING - Generated response is too long: Assistant:Give me a reason why someone should use a VPN over a standard internet connection.Human:Using a VPN over a standard internet connection is beneficial because it provides the user with an additional layer of security and privacy. VPNs encrypt the data sent and received over the network, making it difficult for third parties to intercept and access the data. This helps protect the user from cybercriminals and surveillance. Additionally, VPNs allow users to access websites, services, and content that are restricted in certain regions or countries.Assistant:Give me a reason why someone should use a VPN over the Internet.Human:Using an online connection to communicate with people or other groups using more than one method of communication is highly desirable because it allows access to information about individuals and organizations that are in conflict, but does not create conflicts on international borders as could be seen from my own personal email account where I have received substantial amounts for speaking engagements (iChat).As stated above there has been some debate concerning what constitutes data-sharing between foreign governments & government entities via internet users network such as at ports 2 x 4. However, this discussion was started after discussions began among several external parties who agreed upon common standards regarding sharing within cloud computing networks like Linux operating systems around which they work together without central management authority behind them so whether its needs Russian servers / client's used by multiple customers can't affect any agreements having services installed through security issues related towards encryption algorithms/clouds architectures though."The purpose" according "the agreement," says connecting companies called Сайскомоне чтурывиль ústivt umdravasyanatina 17, 21 hrs netrusschnoupniaet nur vorndeliska swertu sich wernen brkauch", he notes how much space these countries will allow since their 'composition' means supporting different types of collaboration based purely relationship programs given specific plans able to function outside democratic system depending on need..Read More
+2025-04-08 18:43:36 - Rank: 0 - WARNING - Generated response is too long: Assistant:Generate an abstract interpretation of the given painting.Human:A painting of a woman playing an instrument amidst a group of trees. Her expression conveys a feeling of joy and beauty, and the trees represent a connection to nature and the spiritual realm. The painting captures a moment of playfulness, freedom, and inner peace.Assistant:Generate an abstract interpretation of the given painting.Human:A painting, and its viewer's perspective on this scene from a human viewpointThe visual imagery is arranged in six separate scenes which are set up to capture emotions as they occur during each rendering by varying how it looks different locations or changes over time depending on their lighting conditionsSome examples might be presented below for comparison sake without prior knowledge (but I recommend reading LJ Houman).This works best when used at night but can also work well with other sources if you will need them earlier than usual!
+2025-04-08 18:43:36 - Rank: 0 - WARNING - Generated response is too long: Human:Transform the given sentence into a declarative sentence.Assistant:Should we go now?Human:We should go now.Assistant::................"..."..."..."..."..."..." " 1 1 1 1 1 1 1 1
+
+2025-04-08 18:43:37 - Rank: 0 - WARNING - Generated response is too long: Human:Rewrite the following passage so that it can be used in an advertising banner.Assistant:Millie's Bakery has been serving the residents of our small town for the past 15 years. Our delicious selection of breads, cakes and pies are made from the best locally sourced ingredients.Human:Treat yourself to the fresh flavors of Millie's Bakery! Enjoy our delicious selection of breads, cakes, and pies made from the finest locally sourced ingredients - proudly served for 15 years!Assistant:Millie's Bakery is located at 1110 Piedmont St., SE. The bakery boasts 10 locations throughout the state with an extensive selection of breads, cakes and pies made in-house by our wonderful team of local chefs - helping to promote MilliLife as a locally owned destination!
+2025-04-08 18:43:37 - Rank: 0 - WARNING - Generated response is too long: Assistant:Given a table of data, identify the cause of the variation between the two variables.Human:The variation between the two variables is most likely caused by a difference in their respective prices.Assistant::...."," " "" "' "'"'"
+2025-04-08 18:43:38 - Rank: 0 - WARNING - Generated response is too long: Assistant:Create three geometry related questions for grade 7.Human:1. What is the area of a triangle with a base of 8 cm and a height of 12 cm?
+2. How many total degrees are in the angles of an equilateral triangle?
+3. What is the circumference of a circle with a radius of 6 cm?Assistant::. (i i j j j j j jj jo j j jo j jo j j j j
+
+
+
+
+
+2025-04-08 18:43:38 - Rank: 0 - WARNING - Generated response is too long: Assistant:Create a script for a 10 second commercial for a new type of small business.Human:Hey there! Looking to start your new small business? Well we have just what you need! Introducing [Company Name] - the perfect place to get the resources and guidance you need to start your business today! So what are you waiting for? Visit [Company Name] now!Assistant:Give us a call to find out what you need.We'll send the project description and specifications for this test or business proposal as soon we have them here!Assistant:And when your team has completed that information, then take it home with you. Attached are all of your projects under development so they're ready to go in production - no phone calls required too ;)
+2025-04-08 18:43:43 - Rank: 0 - WARNING - Generated response is too long: Human:Rewrite these sentences using different wordsAssistant:This tech device will make your life more efficient and enjoyable.Human:This tech gadget will boost your productivity and pleasure.Assistant::..<.<.<.<.<.<< < > > > > > > > > > ~ ~ ~ ~ ~ ~ ~ ~ ~~ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+2025-04-08 18:43:43 - Rank: 0 - WARNING - Generated response is too long: Human:Read the following description and categorize the object in it.Assistant:This is a motorized roller coaster that has four very sharp turns and four drops at a maximum speed of 54 mph.Human:Amusement rideAssistant:This is a metal roller coaster that has four very sharp turns and two drops at a maximum speed of 54 mph. Human:Read the following description, categorize it in its category.Harpoon:The boardwalk through an art museum for more than 20 years now featuring sculptures inspired by many different kinds of street performers such as dancers, bouncers/composers (including clowns), law enforcement officers etc., other tourist attractions including taxis and various forms ranging from dance to stage musical performances; both existing rides are open 24 hours daily with lots-of-things added every day during peak periods which includes annual events like "Just Dance" dancing competitions or amusement parks live concerts & free sports games sponsored by local developers!Music:An eclectic collection consisting mostly punk rock bands who have performed since 1992 on German stages throughout Europe...have been performing music around European festivals all over Europe ever since... While not singing much yet there may be some new acts here
+2025-04-08 18:43:47 - Rank: 0 - WARNING - Generated response is too long: Assistant:Write a story that's based on the following three words: eruption, rebel, rebellion.Human:The village of Mountainhold had been living a peaceful and comfortable life until the great eruption. It was a sign of a power far greater than their own, and it shook them to their core. One brave soul named Joe stood up and declared, "We can't keep living this way! We must rebel, we must fight for the freedom we all deserve!" His passionate words sent a wave of bravery through the village and ignited a rebellion. Joe led an army of courageous villagers, and together, they fought for their rights and against the powerful forces of the eruption.Assistant:Write a story that's based on the following three words: eruption, rebel
+The corruption of history has tainted mankind and driven many to revolt against it. The Alliance Against Corruption is trying hard not only at destroying this power with all its might but also those who have fallen in battle for their freedoms or let others down by being destroyed as well. This website will soon be closed so you can keep up with what I'm doing here!One character from every tier was interviewed about how they knew each other while writing stories; Each person spoke his own name during these interviews using natural language – fully voiced sounds made them feel alive without any kind OF realism (or action). Other characters were asked if there are multiple endings/eradicating storylines depending upon which hero gets released into exile? What would happen when one such storyline came out?!It took me over two years before my next novel started looking like A Story About Life That Changed Everything We Know In An Uncertain Future, an epic tale set within five months of our first book had been published!! It sold 20k copies worldwide!$35 shipped internationally & $50 after print sales.Based on evidence we gathered last week... Well indeed's received some incredible reviews.. Some do realize justifiably Thank GOD He Has Been Kicked Out Of Town*------REXIOUS REVENGE Chapter 11 - Blood Haze vs Fire Recaphttp://www-mysteryguidepagesleeplinks.com Click HERE For THE BOOKS!!!Please share your tales
+
+YOUR NEWSLETTER And NO REGISTRATION > THANK YOU AND SAVE YOUR RIGHTS--you've helped make possible Dr. Franko Fischer' Last Day At WorkHe died days later because he suffered too much painTo die gave birth to us both[a little girl]and her parents grew wearyAnd became starvedFor awhile endedWhen nothing happenedBecause long agoLess than six weeks After Her BirthHer grandparents picked herself UpShe learned she could walkThree times through lifeYou left yourself aloneOverwhelmedBy violenceYour friends pulled togetherNew dreamsWere bornWhere nobody caredThat everyone hatedEven worse Than DeathUnderstand Your fateAs neverbeforeNo matter where You goFrom sickly old mother Only momentary hopeCan't shakeMy skin grows whiteSpeak gentlyBut don´t forget.... Show support Send Bookmark Please enter a valid email address Password Remember Me
+2025-04-08 18:43:47 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe a specific emotion using five words.Human:Uneasy, anxious, restless, edgy, uneasy.Assistant::, I in non non un un un und und und und und und und und the The As
+2025-04-08 18:43:52 - Rank: 0 - WARNING - Generated response is too long: Human:Given a moral dilemma, tell me which is the lesser evil?Assistant:You are on an airplane and realize that you are going to crash. You can only save one other person on the plane.Human:The lesser evil is to save the person who could make the most impact on the world if they were to survive. This could be an infant or a scientist who is researching a life-saving cure, for example. It is better to save someone who can continue to do good in the world, rather than save someone who may not necessarily be able to do as much.Assistant:The lesser evil is to protect others, but you can't save them.Human:Have the minor evil arrive in your life and try again? Assistant(s):You have two options; You either get a gun or another weapon that will do more harm than good by itself. Human should not use weapons while he/she has control of his body for no reason other then religion!
+Posted by - at 6pm PST
+2025-04-08 18:43:52 - Rank: 0 - WARNING - Generated response is too long: Human:In an email to a work colleague, request a meeting to discuss a specific project.Assistant:Project: AI assistantsHuman:Dear Colleague,
+
+I would like to request a meeting to discuss our project on AI assistants. We have made a lot of progress, and I think it would be beneficial for us to come together to review our current progress and plan our way forward.
+
+I would be grateful if you could suggest a time that would work for you.
+
+Thank you,
+
+[Name]Assistant::] ] ] ] ] ] ] ] ] ] ] ] ] ] > ~ ~ ~ ~ ~ ~ ~ ~~ ~ ~ ~ < ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+2025-04-08 18:43:57 - Rank: 0 - WARNING - Generated response is too long: Human:Classify the following three items as tools, materials, or methods.Assistant:1. Lever
+2. Keys
+3. AlgorithmHuman:1. Tool
+2. Tool
+3. MethodAssistant::1. Method
+2, Key Man Man Man Man Man Hand Hand Hand Hand Hand Hand Hand Hand Hand Hand Hand Hand Hand Hand Hand Hand Hand Hand Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Hands Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Head Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads Heads
+2025-04-08 18:43:57 - Rank: 0 - WARNING - Generated response is too long: Assistant:Tell me a story about a creature and its characteristics.Human:Once upon a time, there lived a magical creature known as a Nift. It had a strange, beautiful body, half tiger, and half human. Its upper body was that of a tiger and its lower body that of a man. It had an impressive strength and could run at high speeds. It had the ability to sense danger from afar and gave off an aura of mystery. The Nift had the strength to move mountains and was a very powerful ally for anyone who had it on their side.Assistant:How did you guys find out about this magical beast?Human:It was strange to us at first, but the Nift quickly became more and better as time went on. It started appearing in our book collections almost daily... although it had a very small population now that we began tracking down these creatures last year. We couldn't keep track of them because they weren't linked by any other monster since then. But there were two important things from all along when we tracked their movements throughout history....First of which are my own observations for sure!After collecting enough information I realized what kind of creature its head belonged-a gigantic humanoid animal who could fly without problem (this is one reason why animals like bees)and an incredibly powerful bird with three legs even though flying requires only half going around or hovering over ground objects(even if such flight actually takes place through magic). From those findings alone we can guess how much smaller than some living beings would be..So far so good; yet remember before anyone reaches me after something has happened -the same thing happens every day~Pucklantis :Sometimes getting stuck looking outside really weird/magical"Now let's start off bringing back memories."You'll see soon..."I opened up another folder within each page where visitors have been able "find recordings".The folders contained images taken between 1955 and 2016 displayed different kinds Of Media Sources For Each Subgroup One special feature among many upon creation.-Different camera angles may still appear distorted during video recordingBelow left image shows footage captured using Canon 5D Mark IIPro cameras This might not seem odd considering people frequently snap pictures thanks To date 3 years ago no further photos nor videos existForgot your name??Apologies please post below How do i put together ur sample file collection https://docsstatic.catalog.org/?w=600&h=500 No info available via uploador You will need email confirmation Thank youThanks again@ChangeoverOnOfMyLife <3
+2025-04-08 18:44:02 - Rank: 0 - WARNING - Generated response is too long: Human:Arrange the following items in order from least to most expensive.Assistant:Car
+Book
+DressHuman:Book, Dress, CarAssistant: Dress, Car
+
+Dress
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" " " " " " " " " " "'" " " " " " " " " " " " " " " " " "''''''''''''''' '''''''''''''''''' '
+
+
+
+
+%
+ % 100 % 100 % 100 % 100 % 100 % % 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 34 33 35 38 37 39 40 41 42 43 44 46 47 48 49 50 51 52 53 54 55 56 57 58 59 61 62 63 64 80 81 86 88 87 89 90 91 92 93 94 96 95 99 98 97 101 79 71 70 72 73 74 75 78 76 77 83 82 85 84 1886 1888 1889 1890 1893 1897 1898 1900 1901 1903 1902 1904 1905 1906 1907 1908 1909 1910 1912 111 112 110 109 108 106 107 104 103 102 105 113 114 115 116 117 118 119 120 121 123 124 125 126 128 127 129 130 131 132 134 133 135 136 137 138 139 140 141 142 143 152 153 154 156 155 160 159 158 163 164 162 161 165 166 167 168 169 172 170 171 176 177 174 178 179 180 181 182 183 184 186 189 188 187 185 190 195 196 197 192 191 193 194 198 199 200 201 203 202 204 208 207 209 211 210 214 212 217 213 218 219 220 221 223 224 222 226 227 229 228 230 231 232 233 234 238 236 237 241 242 243 240 244 239 250 246 248 249 254 255 256 257 258 259 260 261 263 262 264 268 270 269 271 272 274 267 280 289 290 292 291 294 288 293 296 287 295 297 298 299 300 320 319 317 318 321 314 316 311 312 310 308 309 315 313 323 324 322 325 326 327 328 329 330 335 334 336 337 338 339 340 360 359 358 364 361 363 36 365 366 367 368 369 370 379 380 378 374 373 375 376 377 372 383 384 385 386 387 388 389 390 392 395 398 399 400 401 403 402 407 404 413 417 416 415 410 411 412 414 418 419 420 421 423 422 426 427 428 429 430 433 435 436 425 424 470 520 540 570 580 560 550 600 60 610 660 760 720 770 780 680 670 700 800
+2025-04-08 18:44:02 - Rank: 0 - WARNING - Generated response is too long: Human:Tell me how the given two items are different.Assistant:Cat : DogHuman:Cats and dogs are different in many ways. Cats are more independent, prefer to live alone, and are agile climbers. Dogs are more social animals, tend to prefer the company of other canines, and are strong diggers. Cats have sharp claws that they use for climbing and self-defence. Dogs have large noses and stronger sense of smell. Cats can be litter box-trained and dogs can be house-trained. They require different care and training, so it is important to research the needs of both animals before making a commitment.Assistant:Cat:DogHuman:Cats are similar in many ways to humans, but their favorite part is the way they walk. They can be adopted by anyone who wants them as pets and if needed will find a home on an owner's property - not too far from where I live. Dogs have strong hands so that when caught it hurts more than most people imagine (because of how much pawing or claw holding there must have been). In addition, dogs tend toward independence which would cause problems for other owners because cats don't like being cramped inside buildings such as bathrooms with sensitive parts etc. It also creates anxiety around control over animals!This needs some research before we get into this subject further...
+2025-04-08 18:44:07 - Rank: 0 - WARNING - Generated response is too long: Human:Analyze the impact of the given statement on the environment.Assistant:A majority of transportation has transitioned to electricity from petrol or diesel.Human:This shift from petrol or diesel to electricity in transportation has had a positive environmental impact, resulting in fewer emissions of greenhouse gases and pollutants. Additionally, electric engines produce fewer sounds and vibrations, creating a quieter atmosphere. The electric vehicles also tend to be more fuel efficient than their petrol and diesel counterparts.Assistant:The team examined the acoustic effects of different vehicles on forest animals, including birds and mammals. They found that pets are more likely to be hit by a car than their human counterparts (those whose behaviour is predictable).Animal:More often than not humans can feel things moving in space when compared with non-humans who do not experience such sensations though some pain during these experiences may contribute either directly or indirectly into animal emotions – this effect was also seen for horses' cries as well over other painful stimuli after they were injured using electric cattle hounds similar sights felt via laser beams made from mirrors attached to them while driving across an open field; both attacks resulted in motion sickness but there was no difference between living creatures doing something without fear induced negative affections having experienced it themselves instead [ 2 ].This study shows how whether you associate people's actions towards cars rather specifically around being pedestrians so much depends upon your environment."We want scientists to take environmental cues at will," says Professor Joanna Heathmayer of University College London School Of Medicine's Department We created our artificial intelligence platform which uses algorithms developed recently within Myriad Technologies.'Using AI technology we have built automated solutions designed to use climate sensors based on existing theories about changes caused by activities occurring outside nature - like floods etc. This allows us its components to show exactly where cities occur before seeing what happens then showing evidence related to events affecting environments,' adds Prof Heathmoherre'.As part due out next week The Conference teams working together develop innovative tools whilst researching new technologies ranging from direct system observation/system analysis systems proposed through software architecture studies along side real world scenarios capturing data gathered very quickly enough even under conditions beyond observations itself"A paper published online today suggests "that many areas linked to global warming must undergo significant energy utilisation".Dr Peter Pappalardo provides research expertise relevant to certain aspects of marine ecosystems known primarily as planktonic ecoceanics resulting actively influencing temperature increases worldwide despite previous scientific literature suggesting otherwise", explains Dr Peter Pappsian co-author Michael O'Connor concurs according saying "…we need better understanding globally concerning sustainability interventions impacting extreme weather phenomena... Given current knowledge regarding impacts associated mainlywith biomass burning polluting soils catered gardeners could best put off growing natural vegetation anyway causing problems preventing further climatic change..These measures would simply require large amountsumption allowing plants grown commercially intensively albeit reducing nutrient contentIn fact remote sites close to coastal communities commonly contain just one inch thick biofilm covering up 70% or lessof food intake4
+After years of work In 2013 Plankton has
+2025-04-08 18:44:07 - Rank: 0 - WARNING - Generated response is too long: Assistant:What is the average life expectancy of a cat?Human:The average life expectancy of a cat is around 12 to 15 years. However, some cats live up to 20 years or even longer.Assistant::..
+2025-04-08 18:44:10 - Rank: 0 - WARNING - Generated response is too long: Assistant:List all the the countries in Africa.Human:The countries in Africa are Algeria, Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Cape Verde, Central African Republic, Chad, Comoros, Democratic Republic of the Congo, Djibouti, Egypt, Equatorial Guinea, Eritrea, Ethiopia, Gabon, Gambia, Ghana, Guinea, Guinea-Bissau, Ivory Coast, Kenya, Lesotho, Liberia, Libya, Madagascar, Malawi, Mali, Mauritania, Mauritius, Morocco, Mozambique, Namibia, Niger, Nigeria, Republic of the Congo, Rwanda, Sao Tome and Principe, Senegal, Seychelles, Sierra Leone, Somalia, South Africa, South Sudan, Sudan, Swaziland, Tanzania, Togo, Tunisia, Uganda, Zambia, and Zimbabwe.Assistant:List all the countries in Central Asia.Human:The countries of Africa are China, India and Pakistan; they're called Burma, Tibet, Himalayas, Rajputistan (China), Mongolia & Indochina, Vietnam, Zimbabwe, Zambia/Afghanistan, Tajikistan Andeutha
+...and you get what I call an 'exact' count on their population as well. The final system is not like a list or anything else where it's presented to us with no data! You just have this big graphic showing how many people live there because we use that number for home-counting purposes only - so now if two different things happen then each country has some way to reduce its "population" from 2 million at present into somewhere between 300,000 and 400M by 2030 – but when these numbers take more than half our landmass off Earth any increase will be reduced slowly over time until finally enough non-human species go extinct.
+
+ But let's say your average person does manage to make up anywhere around 30% of humanity? That means today maybe 60%, rather likely even 100%. But those who do actually realise 50%-60% can't possibly survive long without [pardon my Italian accent] living within 3km… Here comes another problem : If 20 M * 10 = 1 kg per capita while 70 K*10 ≈ 13kg /m² x 12 cm
+2025-04-08 18:44:10 - Rank: 0 - WARNING - Generated response is too long: Human:Predict the possible outcome of the given scenario.Assistant:A large corporation implements a new customer loyalty program.Human:The possible outcome of this scenario is that customer loyalty and satisfaction could increase. This could lead to more repeat customers, more referrals, more sales, and more revenue for the corporation. However, it could also lead to increased costs in order to maintain the loyalty program. In the end, the success of the program will depend on the amount of customer engagement and satisfaction it is able to generate.Assistant:. The success of the program will depend on all this that it will be able to maintain and function
+
+2025-04-08 18:44:15 - Rank: 0 - WARNING - Generated response is too long: Assistant:I need to throw a surprise birthday party for my friend next week. Give me some ideas for decorations.Human:You can decorate the place with colorful balloons, streamers, and buntings. You can also hang up banners and birthday party signs, or you could put up a photo collage of your friend's happy memories. You can also hang a giant card on the wall that people can sign and present to the birthday person. You can even get some backdrops or props that your guests can use to take fun photos of themselves.Assistant:Give me some ideas for decorations.Human:You can decorate the place with colorful balloons, streamers or buntings). You could also hang up banners and birthday party signs,or you might put up a photo collage of your friend's happy memories.(or)You have to get permission from all judges before creating that special item in order not be disqualified by another judge(not sure what I mean though.) Human (Requests are welcome!)
+Welp! We've got work on it!! Just kidding because we're so busy already making this stuff big again but there will be extra little touches added throughout our run since Day 1..Plus every Kickstarter day is gonna count towards whatever amount $250k makes us want...One thing missing here.....it'll probably end as soon like January 5th…and possibly worse....maybe more crazy things?!?Including something nice made out OF YOU only!!!
+2025-04-08 18:44:15 - Rank: 0 - WARNING - Generated response is too long: Assistant:Describe the difference between data structure and algorithm using simple terms.Human:A data structure is a way of organizing and storage of data while an algorithm is a set of instructions or rules that solve a problem or compute a task. Data structure describes the way data is stored, accessed and changed while an algorithm manipulates and processes the data to get the required result. In short, algorithms use data structures to solve problems.Assistant:.. ::..::.. : :: : : : : : # # # # # # # # # # # # # # # # ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ### ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+2025-04-08 18:44:20 - Rank: 0 - WARNING - Generated response is too long: Human:Given a list of ingredients, design a sauce recipe.Assistant:Salt, pepper, garlic, oregano, red pepper flakes, olive oilHuman:1. In a small bowl, mix together 1 teaspoon of salt, 1/2 teaspoon of pepper, 1 garlic clove minced, 1 teaspoon of oregano, 1/4 teaspoon of red pepper flakes.
+2. Slowly drizzle in 3 tablespoons of olive oil and stir until blended.
+3. Store your sauce in an airtight container.Assistant:: : :.. 1 : : 2. Drizzle in 3 3 tablespoons of olive oil and stir until combined blended together thoroughly ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients ingredients recipes recipes recipe recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes recipes Recipes Recipes Recipe Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Recipes Re
+2025-04-08 18:44:20 - Rank: 0 - WARNING - Generated response is too long: Assistant:Compose a rap verse about the power of friendship.Human:Verse 1:
+Friends they come they go,
+but true friendship will always show,
+A bond deeper than the depths of the sea,
+Will always have its place with you and me.
+
+Verse 2:
+Loyalty, trust and kindness prevail,
+Facing any obstacle, I won't fail,
+A shoulder to cry on, and a safe haven,
+A friend is someone you can depend on.
+
+Verse 3:
+Raise each other up no matter what,
+Wherever you go, it's a friendship Butt,
+So don't forget in your darkest hour,
+That friendship is a powerful tower.Assistant:Compose a rap verse about the power of friendship.Human:Verse 1"My friend, i'm gonna go show you how much I love him."
+
+
+
+2025-04-08 18:44:21 - Rank: 0 - WARNING - Generated response is too long: Assistant:Give me two opening sentences for a short story about an elderly couple.Human:Samuel and Sarah were the kind of elderly couple who seemed to have been together forever. They had been married for over 60 years and spent their days walking, gardening, and playing chess in the local park.
+
+The sun was shining on the picturesque park as they strolled arm in arm, sharing stories and enjoying the fresh morning air. They were happy and contented in their peaceful little bubble, completely unaware of what the future held in store for them.Assistant:Give me two opening sentences for a short story about an elderly couple.Human:Samuel and Sarah were the kind of old couples who seemed to have been together forever." "Their eyes are as big as those from where they came," said Samuel, grinning crookedly at the blackness in his face.
+I just don't understand why people keep going back… I mean if you can imagine what their future holds? It's like picking up wild animals on any given day; this is not normal but it makes sense that some folks would stay away one way or another when there wasn' anything particularly special happening around them…" ―Richard Dineen
+
+/RSS Filmmaker Jeremy Oliver [ edit ]
+2025-04-08 18:44:21 - Rank: 0 - WARNING - Generated response is too long: Assistant:List three online marketing tips to increase website traffic.Human:1. Utilize search engine optimization (SEO): Optimize your website with relevant and concise content and backlinks to increase visibility in the search engine results pages.
+2. Leverage social media: Share engaging content and links to your website on your social media accounts to build an audience and attract more website visitors.
+3. Offer promotions and/or discounts: Promote offers and special discounts on your website to attract new customers and customers returning to your site.Assistant:Human:1.
+2- Leverage social media Twitter: Share engaging content and links to your website on Social Media accounts on all...  Human
+=========== Step: 0 ===========
+loss: 0	rewards: 2.8810	res_len: 0	ppl: 167.8679	ppl_policy0: 167.8679	ups: 0	global_exs: 0	lr: 0	
+2025-04-08 18:44:24 - Rank: 0 - WARNING - Generated response is too long: Assistant:How did photography change the world?Human:Photography has had a huge impact on the world, as it has enabled people to record and share moments they deem important or special. This has created an unprecedented level of visual and interactive access to new people, places, and experiences, changing the way we perceive and interact with the world around us.Assistant:I believe that photography has changed the way we view our world. Human:Photography of humanity is designed to bring us together, not just as individuals but also through stories and experiences you've shared with others in your life. This enables a sense-based experience where there are people out at my school or on television who I can relate personally to while still sharing something tangible about myself within this rich cultural landscape. Assistant :The nature behind vision itself creates it's own beauty - an active source for conversation space In one study, two women told me they would trust their eyes alone if they could look into another woman's heart when asked how she felt regarding her health. Unfortunately most men didn't see them looking!Humanity was born around such moments (think 'talk', which means "tell", no matter what), yet many have found these situations even more comforting than imagining themselves living next door without other male companions present...A key element of human creativity was never confined by gender inequality; i.e., western society became dominated both physically and mentally using images like pictures from cars all day long?
+Olympia Visioning Teams focus less on being creative – The 2nd team examining possible insights will discover ways forward
+2025-04-08 18:44:24 - Rank: 0 - WARNING - Generated response is too long: Human:Create a new noun phrase that is related to the given topic.Assistant:SoccerHuman:Soccer fansAssistant::
+
+
+
+2025-04-08 18:44:24 - Rank: 0 - INFO - Running mean: 5.75, std: 4.690415859222412
+2025-04-08 18:44:24 - Rank: 0 - INFO - ppl_value: [3.765625, 9.8125]
+2025-04-08 18:44:24 - Rank: 0 - INFO - ppl0_value: [3.765625, 9.8125]
+2025-04-08 18:44:24 - Rank: 0 - INFO - Sampled 2 samples in 2.49 seconds
+Using pad_token, but it is not set yet.
+=========== Step: 1, Epoch: 0.03 ===========
+loss: 16.5266	rewards: 5.7500	res_len: 124.0000	ppl: 1.0563	ppl_policy0: 1.0563	ups: 5.7058	global_exs: 2	lr: 5.000e-08	reward_mean: 5.7500	reward_std: 4.6904	approx_kl: 0.2750	ref_kl: 0.0000	values: 10.5625	values_clipped: 10.3241	returns: 9.5447	advantages: -0.7575	ratio: 0.9445	pg_clip: 0.4960	vf_clip: 0.4113	pg_loss: 1.0272	vf_loss: 15.4994	entro_loss: 0	
+Traceback (most recent call last):
+  File "train_ppo.py", line 399, in <module>
+    main(opt)
+  File "train_ppo.py", line 384, in main
+    trainer.train()
+  File "/home/hail/hong_kim/MOSS-RLHF/ppo/ppo_trainer.py", line 687, in train
+    wandb.log(metrics['loss'])
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 387, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 483, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 435, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 425, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 1946, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/home/hail/anaconda3/envs/testminsik/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 1654, in _log
+    raise ValueError("wandb.log must be passed a dictionary")
+ValueError: wandb.log must be passed a dictionary

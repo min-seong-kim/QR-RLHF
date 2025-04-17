@@ -1,0 +1,17 @@
+{"time":"2025-04-08T18:06:43.333676437+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250408_180643-rrood2fr/logs/debug-core.log"}
+{"time":"2025-04-08T18:06:43.754589628+09:00","level":"INFO","msg":"created new stream","id":"rrood2fr"}
+{"time":"2025-04-08T18:06:43.754644918+09:00","level":"INFO","msg":"stream: started","id":"rrood2fr"}
+{"time":"2025-04-08T18:06:43.754661237+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"rrood2fr"}
+{"time":"2025-04-08T18:06:43.754860556+09:00","level":"INFO","msg":"handler: started","stream_id":"rrood2fr"}
+{"time":"2025-04-08T18:06:43.754887926+09:00","level":"INFO","msg":"sender: started","stream_id":"rrood2fr"}
+{"time":"2025-04-08T18:06:43.977765548+09:00","level":"ERROR","msg":"HTTP error","status":403,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-04-08T18:06:43.977895797+09:00","level":"ERROR","msg":"sender: upsertRun:","error":"failed to upsert bucket: returned error 403: {\"data\":{\"upsertBucket\":null},\"errors\":[{\"message\":\"permission denied\",\"path\":[\"upsertBucket\"],\"extensions\":{\"code\":\"PERMISSION_ERROR\"}}]}"}
+{"time":"2025-04-08T18:06:44.98079373+09:00","level":"INFO","msg":"stream: closing","id":"rrood2fr"}
+{"time":"2025-04-08T18:06:44.980898829+09:00","level":"ERROR","msg":"sender: upsertConfig: RunRecord is nil"}
+{"time":"2025-04-08T18:06:45.247572067+09:00","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-04-08T18:06:45.247708656+09:00","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404: {\"data\":{\"createRunFiles\":null},\"errors\":[{\"message\":\"project hails/KCC_GPT2_RLHF not found during createRunFiles\",\"path\":[\"createRunFiles\"]}]}"}
+{"time":"2025-04-08T18:06:45.248145983+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T18:06:45.248186233+09:00","level":"INFO","msg":"handler: closed","stream_id":"rrood2fr"}
+{"time":"2025-04-08T18:06:45.248196713+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"rrood2fr"}
+{"time":"2025-04-08T18:06:45.248357022+09:00","level":"INFO","msg":"sender: closed","stream_id":"rrood2fr"}
+{"time":"2025-04-08T18:06:45.248368242+09:00","level":"INFO","msg":"stream: closed","id":"rrood2fr"}

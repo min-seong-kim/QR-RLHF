@@ -1,0 +1,7 @@
+{"time":"2025-04-10T18:52:20.174816692+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_185220-c0uxr0hm/logs/debug-core.log"}
+{"time":"2025-04-10T18:52:20.620118243+09:00","level":"INFO","msg":"created new stream","id":"c0uxr0hm"}
+{"time":"2025-04-10T18:52:20.620168352+09:00","level":"INFO","msg":"stream: started","id":"c0uxr0hm"}
+{"time":"2025-04-10T18:52:20.620218922+09:00","level":"INFO","msg":"handler: started","stream_id":"c0uxr0hm"}
+{"time":"2025-04-10T18:52:20.620254901+09:00","level":"INFO","msg":"sender: started","stream_id":"c0uxr0hm"}
+{"time":"2025-04-10T18:52:20.620274711+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"c0uxr0hm"}
+{"time":"2025-04-10T18:52:20.983142116+09:00","level":"INFO","msg":"Starting system monitor"}

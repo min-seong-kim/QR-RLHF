@@ -1,0 +1,10 @@
+{"time":"2025-04-10T14:41:08.624299596+09:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/hail/hong_kim/MOSS-RLHF/wandb/run-20250410_144108-zxivz4nn/logs/debug-core.log"}
+{"time":"2025-04-10T14:41:09.044280353+09:00","level":"INFO","msg":"created new stream","id":"zxivz4nn"}
+{"time":"2025-04-10T14:41:09.044327003+09:00","level":"INFO","msg":"stream: started","id":"zxivz4nn"}
+{"time":"2025-04-10T14:41:09.044346353+09:00","level":"INFO","msg":"handler: started","stream_id":"zxivz4nn"}
+{"time":"2025-04-10T14:41:09.044380142+09:00","level":"INFO","msg":"sender: started","stream_id":"zxivz4nn"}
+{"time":"2025-04-10T14:41:09.044422192+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"zxivz4nn"}
+{"time":"2025-04-10T14:41:09.414427961+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-10T14:45:51.515495094+09:00","level":"INFO","msg":"stream: closing","id":"zxivz4nn"}
+{"time":"2025-04-10T14:45:51.515532933+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-10T14:45:51.515621922+09:00","level":"INFO","msg":"Stopped system monitor"}
