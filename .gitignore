@@ -1,0 +1,13 @@
+.DS_Store
+**/.DS_Store
+__pycache__/
+outputs/
+test*.sh
+*.csv
+.idea
+test_code*.py
+tensorboard_log/*
+tmp/
+log/
+debug/
+inference/

@@ -1,0 +1,61 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        
+        
+
+        
+
+
+        
+        
+        {
+            "name": "Python Debugger: Current File with Deepspeed",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "accelerate.commands.launch",
+            "python": "/home/hail/anaconda3/envs/testminsik/bin/python",  
+            "args": [
+                "--config_file=accelerate_config.yaml",
+                "train_ppo.py",
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            // "env": {
+            //     "PATH": "/usr/local/cuda-12.1/bin:${env:PATH}",
+            //     "LD_LIBRARY_PATH": "/usr/local/cuda-12.1/lib64:${env:LD_LIBRARY_PATH}"
+            // }
+        },
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: Current File with train_rm",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "accelerate.commands.launch",
+            "python": "/home/hail/anaconda3/envs/testminsik/bin/python",  
+            "args": [
+                "--config_file=accelerate_config.yaml",
+                "train_rm.py",
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+        },
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        }
+    ]
+}
