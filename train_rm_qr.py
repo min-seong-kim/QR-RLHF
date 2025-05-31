@@ -22,7 +22,7 @@ class GPT2QuantileRewardModel(GPT2PreTrainedModel):
         self.opt = opt
         self.tokenizer = tokenizer
 
-        self.num_quantiles = 50  # default 값, 필요 시 opt에서 전달
+        self.num_quantiles = 10  # default 값, 필요 시 opt에서 전달
         self.transformer = GPT2Model(config)
 
         self.quantile_head = nn.Linear(config.hidden_size, self.num_quantiles)
